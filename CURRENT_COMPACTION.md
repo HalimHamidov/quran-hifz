@@ -4,42 +4,41 @@ Date: `2026-10-15`
 
 ## Current Goal
 
-- User: “realize F:\Code\67mulk\hifz.md”. Build and publish separate `HalimHamidov/quran-hifz`, leave `mulk` unchanged.
+- User: «суру ал алак тоже добавь и оформи как мулк»; reference: https://halimhamidov.github.io/quran-hifz/surahs/067-al-mulk/legacy/ . Completed and published as v1.0.0.2.
 
 ## Completed
 
-- New static app in this directory: all 114 surahs / 6236 verbatim Tanzil ayahs, catalog/order modes, shared reader, Muddaththir editorial blocks, migrated full legacy site, independent learning/review, audio, parts, backups, PWA, tests/docs/workflow.
-- Legacy copy has 24 original files unchanged; copied SW namespaced to prevent deleting app caches. Source untouched.
-- Independent review finding on draining deferred backlog fixed with saved daily assignments; narrow re-review clear.
+- New page: https://halimhamidov.github.io/quran-hifz/surahs/096-al-alaq/ . Navy/gold Al-Mulk style, cream panels, 10 fullscreen cards in 5 prayer rows, all19 ayahs.
+- Five imagegen symbolic illustrations encoded to WebP (~1.65MB total). No people/prophets or generated Arabic. Arabic rendered separately from existing Tanzil data.
+- Shared progress/audio/verified memory pool, original notes/hooks, sourced first-revelation context, Umma link, main-reader link and offline cache.
+- PR3 merged; Pages run38689795025 succeeded. Original mulk/legacy page contents unchanged.
 
 ## Verified Facts
 
-- 14 core tests including 23-year journal storage bound; all Arabic source checksums/strings pass.
-- Browser desktop/mobile flows, persistent counters, parts, pause-independent review, offline reload and real audio playback verified.
-- 86/86 Mu’allim resources for 74/67 HTTP200 audio.
-- Browser backup import/rejection/export tested; local artifacts ignored.
-- Public repo created; PRs #1 and #2 merged. Release 1.0.0.1 deployed successfully (Actions run 38687126870). Live catalog, 56-ayah reader, audio playback, mobile, legacy cache isolation and offline navigation passed.
-- Fresh live browser verified 1.0.0.1, saved reads, verified memory pool, review daily totals, weekly statistics and reload. GitHub Pages caches assets up to 600 seconds; existing browsers can briefly retain the previous asset versions.
+- 16/16 tests, JS syntax and source/legacy checks pass;105/105 audio URLs for96/74/67 HTTP200 audio.
+- Local browser: exact19 Arabic strings,10cards/5rows, fullscreen next/Escape, recall gate, shared counters/fund, reload,390px mobile, offline and main-reader navigation. Real Al-Alaq Muallim playback verified.
+- Independent review found audio surviving cross-tab reset/import; fixed by stopping before state replacement. Real two-tab regression passed.
+- Fresh live browser repeated text/card,fullscreen,progress,mobile,offline/shared-reader tests after deployment. No JS errors.
 
 ## Assumptions
 
-- Original task authorizes creating public repo and GitHub Pages publication; no new approval needed.
+- Updating the published site is authorized by this request and established release workflow.
 
 ## Risks Or Blockers
 
-- Detailed historical coverage intentionally incomplete; known facts only, no invented dates.
-- Umma text stays linked; audio streamed without redistribution license claim; expert segmentation must be supplied by teacher.
-- lean-ctx root is another project and rejects these paths; native fallback used. Codex IAB unavailable; isolated Playwright CLI used.
+- No active blocker. Notes are original summaries, not full licensed Umma translation. Images are symbolic AI art, not historical photos.
+- Other historical/editorial coverage remains partial; this task expanded Al-Alaq only.
+- lean-ctx points to AVIA and rejects this repo; native fallback. Isolated Playwright CLI used because IAB unavailable.
 
 ## Important Files
 
-- `docs/IMPLEMENTATION.md`: requirement status/evidence; `README.md`: run, extension and rights limitations.
-- `assets/js/`, `data/`, `tests/core.test.js`, `scripts/browser_*_qa.cjs`, `.github/workflows/pages.yml`.
+- surahs/096-al-alaq/{index.html,page.css,page.js}; data/al-alaq.json; scripts/build_content.py; assets/images/al-alaq-*.webp.
+- tests/alaq.test.js; scripts/browser_alaq_qa.cjs; scripts/browser_alaq_storage_qa.cjs; README.md; docs/IMPLEMENTATION.md; docs/RIGHTS.md; service-worker.js.
 
 ## Exact Next Step
 
-1. Await the user's next scoped request. If expanding editorial coverage, start with surah 96 sources/notes; do not rescan unchanged platform code.
+1. Await next scoped user request; reuse these facts instead of rescanning unchanged platform code.
 
 ## Handoff Summary
 
-Platform deployed and verified at https://halimhamidov.github.io/quran-hifz/ . Storage retention preserves all learned ayahs and daily totals, keeping detailed review keys only for today/yesterday. Local working branch is dev; main is the deployed version. Source mulk stays unchanged at 34b8a35a855f2118bf2ca7c9b6277d4b2e08659f; editorial history remains explicitly partial. See docs/IMPLEMENTATION.md for coverage and limits.
+Al-Alaq is deployed and visually/browser verified. Local dev includes main release plus session handoff; main is published. Preserve original mulk and user changes. Common progress schema and existing surahs remain intact.
