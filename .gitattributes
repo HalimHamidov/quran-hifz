@@ -1,0 +1,4 @@
+* text=auto eol=lf
+data/quran-uthmani.txt -text
+data/quran-data.xml -text
+surahs/067-al-mulk/legacy/** -text

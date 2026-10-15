@@ -1,0 +1,1142 @@
+[
+  {
+    "id": 1,
+    "name": "الفاتحة",
+    "latin": "Al-Faatiha",
+    "meaning": "The Opening",
+    "count": 7,
+    "period": "Meccan",
+    "order": 5,
+    "russian": "Аль-Фатиха"
+  },
+  {
+    "id": 2,
+    "name": "البقرة",
+    "latin": "Al-Baqara",
+    "meaning": "The Cow",
+    "count": 286,
+    "period": "Medinan",
+    "order": 87,
+    "russian": "Аль-Бакара"
+  },
+  {
+    "id": 3,
+    "name": "آل عمران",
+    "latin": "Aal-i-Imraan",
+    "meaning": "The Family of Imraan",
+    "count": 200,
+    "period": "Medinan",
+    "order": 89,
+    "russian": "Аль Имран"
+  },
+  {
+    "id": 4,
+    "name": "النساء",
+    "latin": "An-Nisaa",
+    "meaning": "The Women",
+    "count": 176,
+    "period": "Medinan",
+    "order": 92,
+    "russian": "Ан-Ниса"
+  },
+  {
+    "id": 5,
+    "name": "المائدة",
+    "latin": "Al-Maaida",
+    "meaning": "The Table",
+    "count": 120,
+    "period": "Medinan",
+    "order": 112,
+    "russian": "Аль-Маида"
+  },
+  {
+    "id": 6,
+    "name": "الأنعام",
+    "latin": "Al-An'aam",
+    "meaning": "The Cattle",
+    "count": 165,
+    "period": "Meccan",
+    "order": 55,
+    "russian": "Аль-Анам"
+  },
+  {
+    "id": 7,
+    "name": "الأعراف",
+    "latin": "Al-A'raaf",
+    "meaning": "The Heights",
+    "count": 206,
+    "period": "Meccan",
+    "order": 39,
+    "russian": "Аль-Араф"
+  },
+  {
+    "id": 8,
+    "name": "الأنفال",
+    "latin": "Al-Anfaal",
+    "meaning": "The Spoils of War",
+    "count": 75,
+    "period": "Medinan",
+    "order": 88,
+    "russian": "Аль-Анфаль"
+  },
+  {
+    "id": 9,
+    "name": "التوبة",
+    "latin": "At-Tawba",
+    "meaning": "The Repentance",
+    "count": 129,
+    "period": "Medinan",
+    "order": 113,
+    "russian": "Ат-Тауба"
+  },
+  {
+    "id": 10,
+    "name": "يونس",
+    "latin": "Yunus",
+    "meaning": "Jonas",
+    "count": 109,
+    "period": "Meccan",
+    "order": 51,
+    "russian": "Юнус"
+  },
+  {
+    "id": 11,
+    "name": "هود",
+    "latin": "Hud",
+    "meaning": "Hud",
+    "count": 123,
+    "period": "Meccan",
+    "order": 52,
+    "russian": "Худ"
+  },
+  {
+    "id": 12,
+    "name": "يوسف",
+    "latin": "Yusuf",
+    "meaning": "Joseph",
+    "count": 111,
+    "period": "Meccan",
+    "order": 53,
+    "russian": "Юсуф"
+  },
+  {
+    "id": 13,
+    "name": "الرعد",
+    "latin": "Ar-Ra'd",
+    "meaning": "The Thunder",
+    "count": 43,
+    "period": "Medinan",
+    "order": 96,
+    "russian": "Ар-Раад"
+  },
+  {
+    "id": 14,
+    "name": "ابراهيم",
+    "latin": "Ibrahim",
+    "meaning": "Abraham",
+    "count": 52,
+    "period": "Meccan",
+    "order": 72,
+    "russian": "Ибрахим"
+  },
+  {
+    "id": 15,
+    "name": "الحجر",
+    "latin": "Al-Hijr",
+    "meaning": "The Rock",
+    "count": 99,
+    "period": "Meccan",
+    "order": 54,
+    "russian": "Аль-Хиджр"
+  },
+  {
+    "id": 16,
+    "name": "النحل",
+    "latin": "An-Nahl",
+    "meaning": "The Bee",
+    "count": 128,
+    "period": "Meccan",
+    "order": 70,
+    "russian": "Ан-Нахль"
+  },
+  {
+    "id": 17,
+    "name": "الإسراء",
+    "latin": "Al-Israa",
+    "meaning": "The Night Journey",
+    "count": 111,
+    "period": "Meccan",
+    "order": 50,
+    "russian": "Аль-Исра"
+  },
+  {
+    "id": 18,
+    "name": "الكهف",
+    "latin": "Al-Kahf",
+    "meaning": "The Cave",
+    "count": 110,
+    "period": "Meccan",
+    "order": 69,
+    "russian": "Аль-Кахф"
+  },
+  {
+    "id": 19,
+    "name": "مريم",
+    "latin": "Maryam",
+    "meaning": "Mary",
+    "count": 98,
+    "period": "Meccan",
+    "order": 44,
+    "russian": "Марьям"
+  },
+  {
+    "id": 20,
+    "name": "طه",
+    "latin": "Taa-Haa",
+    "meaning": "Taa-Haa",
+    "count": 135,
+    "period": "Meccan",
+    "order": 45,
+    "russian": "Та Ха"
+  },
+  {
+    "id": 21,
+    "name": "الأنبياء",
+    "latin": "Al-Anbiyaa",
+    "meaning": "The Prophets",
+    "count": 112,
+    "period": "Meccan",
+    "order": 73,
+    "russian": "Аль-Анбия"
+  },
+  {
+    "id": 22,
+    "name": "الحج",
+    "latin": "Al-Hajj",
+    "meaning": "The Pilgrimage",
+    "count": 78,
+    "period": "Medinan",
+    "order": 103,
+    "russian": "Аль-Хадж"
+  },
+  {
+    "id": 23,
+    "name": "المؤمنون",
+    "latin": "Al-Muminoon",
+    "meaning": "The Believers",
+    "count": 118,
+    "period": "Meccan",
+    "order": 74,
+    "russian": "Аль-Муминун"
+  },
+  {
+    "id": 24,
+    "name": "النور",
+    "latin": "An-Noor",
+    "meaning": "The Light",
+    "count": 64,
+    "period": "Medinan",
+    "order": 102,
+    "russian": "Ан-Нур"
+  },
+  {
+    "id": 25,
+    "name": "الفرقان",
+    "latin": "Al-Furqaan",
+    "meaning": "The Criterion",
+    "count": 77,
+    "period": "Meccan",
+    "order": 42,
+    "russian": "Аль-Фуркан"
+  },
+  {
+    "id": 26,
+    "name": "الشعراء",
+    "latin": "Ash-Shu'araa",
+    "meaning": "The Poets",
+    "count": 227,
+    "period": "Meccan",
+    "order": 47,
+    "russian": "Аш-Шуара"
+  },
+  {
+    "id": 27,
+    "name": "النمل",
+    "latin": "An-Naml",
+    "meaning": "The Ant",
+    "count": 93,
+    "period": "Meccan",
+    "order": 48,
+    "russian": "Ан-Намль"
+  },
+  {
+    "id": 28,
+    "name": "القصص",
+    "latin": "Al-Qasas",
+    "meaning": "The Stories",
+    "count": 88,
+    "period": "Meccan",
+    "order": 49,
+    "russian": "Аль-Касас"
+  },
+  {
+    "id": 29,
+    "name": "العنكبوت",
+    "latin": "Al-Ankaboot",
+    "meaning": "The Spider",
+    "count": 69,
+    "period": "Meccan",
+    "order": 85,
+    "russian": "Аль-Анкабут"
+  },
+  {
+    "id": 30,
+    "name": "الروم",
+    "latin": "Ar-Room",
+    "meaning": "The Romans",
+    "count": 60,
+    "period": "Meccan",
+    "order": 84,
+    "russian": "Ар-Рум"
+  },
+  {
+    "id": 31,
+    "name": "لقمان",
+    "latin": "Luqman",
+    "meaning": "Luqman",
+    "count": 34,
+    "period": "Meccan",
+    "order": 57,
+    "russian": "Лукман"
+  },
+  {
+    "id": 32,
+    "name": "السجدة",
+    "latin": "As-Sajda",
+    "meaning": "The Prostration",
+    "count": 30,
+    "period": "Meccan",
+    "order": 75,
+    "russian": "Ас-Саджда"
+  },
+  {
+    "id": 33,
+    "name": "الأحزاب",
+    "latin": "Al-Ahzaab",
+    "meaning": "The Clans",
+    "count": 73,
+    "period": "Medinan",
+    "order": 90,
+    "russian": "Аль-Ахзаб"
+  },
+  {
+    "id": 34,
+    "name": "سبإ",
+    "latin": "Saba",
+    "meaning": "Sheba",
+    "count": 54,
+    "period": "Meccan",
+    "order": 58,
+    "russian": "Саба"
+  },
+  {
+    "id": 35,
+    "name": "فاطر",
+    "latin": "Faatir",
+    "meaning": "The Originator",
+    "count": 45,
+    "period": "Meccan",
+    "order": 43,
+    "russian": "Фатыр"
+  },
+  {
+    "id": 36,
+    "name": "يس",
+    "latin": "Yaseen",
+    "meaning": "Yaseen",
+    "count": 83,
+    "period": "Meccan",
+    "order": 41,
+    "russian": "Йа Син"
+  },
+  {
+    "id": 37,
+    "name": "الصافات",
+    "latin": "As-Saaffaat",
+    "meaning": "Those drawn up in Ranks",
+    "count": 182,
+    "period": "Meccan",
+    "order": 56,
+    "russian": "Ас-Саффат"
+  },
+  {
+    "id": 38,
+    "name": "ص",
+    "latin": "Saad",
+    "meaning": "The letter Saad",
+    "count": 88,
+    "period": "Meccan",
+    "order": 38,
+    "russian": "Сад"
+  },
+  {
+    "id": 39,
+    "name": "الزمر",
+    "latin": "Az-Zumar",
+    "meaning": "The Groups",
+    "count": 75,
+    "period": "Meccan",
+    "order": 59,
+    "russian": "Аз-Зумар"
+  },
+  {
+    "id": 40,
+    "name": "غافر",
+    "latin": "Al-Ghaafir",
+    "meaning": "The Forgiver",
+    "count": 85,
+    "period": "Meccan",
+    "order": 60,
+    "russian": "Гафир"
+  },
+  {
+    "id": 41,
+    "name": "فصلت",
+    "latin": "Fussilat",
+    "meaning": "Explained in detail",
+    "count": 54,
+    "period": "Meccan",
+    "order": 61,
+    "russian": "Фуссилят"
+  },
+  {
+    "id": 42,
+    "name": "الشورى",
+    "latin": "Ash-Shura",
+    "meaning": "Consultation",
+    "count": 53,
+    "period": "Meccan",
+    "order": 62,
+    "russian": "Аш-Шура"
+  },
+  {
+    "id": 43,
+    "name": "الزخرف",
+    "latin": "Az-Zukhruf",
+    "meaning": "Ornaments of gold",
+    "count": 89,
+    "period": "Meccan",
+    "order": 63,
+    "russian": "Аз-Зухруф"
+  },
+  {
+    "id": 44,
+    "name": "الدخان",
+    "latin": "Ad-Dukhaan",
+    "meaning": "The Smoke",
+    "count": 59,
+    "period": "Meccan",
+    "order": 64,
+    "russian": "Ад-Духан"
+  },
+  {
+    "id": 45,
+    "name": "الجاثية",
+    "latin": "Al-Jaathiya",
+    "meaning": "Crouching",
+    "count": 37,
+    "period": "Meccan",
+    "order": 65,
+    "russian": "Аль-Джасия"
+  },
+  {
+    "id": 46,
+    "name": "الأحقاف",
+    "latin": "Al-Ahqaf",
+    "meaning": "The Dunes",
+    "count": 35,
+    "period": "Meccan",
+    "order": 66,
+    "russian": "Аль-Ахкаф"
+  },
+  {
+    "id": 47,
+    "name": "محمد",
+    "latin": "Muhammad",
+    "meaning": "Muhammad",
+    "count": 38,
+    "period": "Medinan",
+    "order": 95,
+    "russian": "Мухаммад"
+  },
+  {
+    "id": 48,
+    "name": "الفتح",
+    "latin": "Al-Fath",
+    "meaning": "The Victory",
+    "count": 29,
+    "period": "Medinan",
+    "order": 111,
+    "russian": "Аль-Фатх"
+  },
+  {
+    "id": 49,
+    "name": "الحجرات",
+    "latin": "Al-Hujuraat",
+    "meaning": "The Inner Apartments",
+    "count": 18,
+    "period": "Medinan",
+    "order": 106,
+    "russian": "Аль-Худжурат"
+  },
+  {
+    "id": 50,
+    "name": "ق",
+    "latin": "Qaaf",
+    "meaning": "The letter Qaaf",
+    "count": 45,
+    "period": "Meccan",
+    "order": 34,
+    "russian": "Каф"
+  },
+  {
+    "id": 51,
+    "name": "الذاريات",
+    "latin": "Adh-Dhaariyat",
+    "meaning": "The Winnowing Winds",
+    "count": 60,
+    "period": "Meccan",
+    "order": 67,
+    "russian": "Аз-Зарият"
+  },
+  {
+    "id": 52,
+    "name": "الطور",
+    "latin": "At-Tur",
+    "meaning": "The Mount",
+    "count": 49,
+    "period": "Meccan",
+    "order": 76,
+    "russian": "Ат-Тур"
+  },
+  {
+    "id": 53,
+    "name": "النجم",
+    "latin": "An-Najm",
+    "meaning": "The Star",
+    "count": 62,
+    "period": "Meccan",
+    "order": 23,
+    "russian": "Ан-Наджм"
+  },
+  {
+    "id": 54,
+    "name": "القمر",
+    "latin": "Al-Qamar",
+    "meaning": "The Moon",
+    "count": 55,
+    "period": "Meccan",
+    "order": 37,
+    "russian": "Аль-Камар"
+  },
+  {
+    "id": 55,
+    "name": "الرحمن",
+    "latin": "Ar-Rahmaan",
+    "meaning": "The Beneficent",
+    "count": 78,
+    "period": "Medinan",
+    "order": 97,
+    "russian": "Ар-Рахман"
+  },
+  {
+    "id": 56,
+    "name": "الواقعة",
+    "latin": "Al-Waaqia",
+    "meaning": "The Inevitable",
+    "count": 96,
+    "period": "Meccan",
+    "order": 46,
+    "russian": "Аль-Вакиа"
+  },
+  {
+    "id": 57,
+    "name": "الحديد",
+    "latin": "Al-Hadid",
+    "meaning": "The Iron",
+    "count": 29,
+    "period": "Medinan",
+    "order": 94,
+    "russian": "Аль-Хадид"
+  },
+  {
+    "id": 58,
+    "name": "المجادلة",
+    "latin": "Al-Mujaadila",
+    "meaning": "The Pleading Woman",
+    "count": 22,
+    "period": "Medinan",
+    "order": 105,
+    "russian": "Аль-Муджадиля"
+  },
+  {
+    "id": 59,
+    "name": "الحشر",
+    "latin": "Al-Hashr",
+    "meaning": "The Exile",
+    "count": 24,
+    "period": "Medinan",
+    "order": 101,
+    "russian": "Аль-Хашр"
+  },
+  {
+    "id": 60,
+    "name": "الممتحنة",
+    "latin": "Al-Mumtahana",
+    "meaning": "She that is to be examined",
+    "count": 13,
+    "period": "Medinan",
+    "order": 91,
+    "russian": "Аль-Мумтахана"
+  },
+  {
+    "id": 61,
+    "name": "الصف",
+    "latin": "As-Saff",
+    "meaning": "The Ranks",
+    "count": 14,
+    "period": "Medinan",
+    "order": 109,
+    "russian": "Ас-Сафф"
+  },
+  {
+    "id": 62,
+    "name": "الجمعة",
+    "latin": "Al-Jumu'a",
+    "meaning": "Friday",
+    "count": 11,
+    "period": "Medinan",
+    "order": 110,
+    "russian": "Аль-Джумуа"
+  },
+  {
+    "id": 63,
+    "name": "المنافقون",
+    "latin": "Al-Munaafiqoon",
+    "meaning": "The Hypocrites",
+    "count": 11,
+    "period": "Medinan",
+    "order": 104,
+    "russian": "Аль-Мунафикун"
+  },
+  {
+    "id": 64,
+    "name": "التغابن",
+    "latin": "At-Taghaabun",
+    "meaning": "Mutual Disillusion",
+    "count": 18,
+    "period": "Medinan",
+    "order": 108,
+    "russian": "Ат-Тагабун"
+  },
+  {
+    "id": 65,
+    "name": "الطلاق",
+    "latin": "At-Talaaq",
+    "meaning": "Divorce",
+    "count": 12,
+    "period": "Medinan",
+    "order": 99,
+    "russian": "Ат-Таляк"
+  },
+  {
+    "id": 66,
+    "name": "التحريم",
+    "latin": "At-Tahrim",
+    "meaning": "The Prohibition",
+    "count": 12,
+    "period": "Medinan",
+    "order": 107,
+    "russian": "Ат-Тахрим"
+  },
+  {
+    "id": 67,
+    "name": "الملك",
+    "latin": "Al-Mulk",
+    "meaning": "The Sovereignty",
+    "count": 30,
+    "period": "Meccan",
+    "order": 77,
+    "russian": "Аль-Мульк"
+  },
+  {
+    "id": 68,
+    "name": "القلم",
+    "latin": "Al-Qalam",
+    "meaning": "The Pen",
+    "count": 52,
+    "period": "Meccan",
+    "order": 2,
+    "russian": "Аль-Калям"
+  },
+  {
+    "id": 69,
+    "name": "الحاقة",
+    "latin": "Al-Haaqqa",
+    "meaning": "The Reality",
+    "count": 52,
+    "period": "Meccan",
+    "order": 78,
+    "russian": "Аль-Хакка"
+  },
+  {
+    "id": 70,
+    "name": "المعارج",
+    "latin": "Al-Ma'aarij",
+    "meaning": "The Ascending Stairways",
+    "count": 44,
+    "period": "Meccan",
+    "order": 79,
+    "russian": "Аль-Мааридж"
+  },
+  {
+    "id": 71,
+    "name": "نوح",
+    "latin": "Nooh",
+    "meaning": "Noah",
+    "count": 28,
+    "period": "Meccan",
+    "order": 71,
+    "russian": "Нух"
+  },
+  {
+    "id": 72,
+    "name": "الجن",
+    "latin": "Al-Jinn",
+    "meaning": "The Jinn",
+    "count": 28,
+    "period": "Meccan",
+    "order": 40,
+    "russian": "Аль-Джинн"
+  },
+  {
+    "id": 73,
+    "name": "المزمل",
+    "latin": "Al-Muzzammil",
+    "meaning": "The Enshrouded One",
+    "count": 20,
+    "period": "Meccan",
+    "order": 3,
+    "russian": "Аль-Муззаммиль"
+  },
+  {
+    "id": 74,
+    "name": "المدثر",
+    "latin": "Al-Muddaththir",
+    "meaning": "The Cloaked One",
+    "count": 56,
+    "period": "Meccan",
+    "order": 4,
+    "russian": "Аль-Муддассир"
+  },
+  {
+    "id": 75,
+    "name": "القيامة",
+    "latin": "Al-Qiyaama",
+    "meaning": "The Resurrection",
+    "count": 40,
+    "period": "Meccan",
+    "order": 31,
+    "russian": "Аль-Кыяма"
+  },
+  {
+    "id": 76,
+    "name": "الانسان",
+    "latin": "Al-Insaan",
+    "meaning": "Man",
+    "count": 31,
+    "period": "Medinan",
+    "order": 98,
+    "russian": "Аль-Инсан"
+  },
+  {
+    "id": 77,
+    "name": "المرسلات",
+    "latin": "Al-Mursalaat",
+    "meaning": "The Emissaries",
+    "count": 50,
+    "period": "Meccan",
+    "order": 33,
+    "russian": "Аль-Мурсалят"
+  },
+  {
+    "id": 78,
+    "name": "النبإ",
+    "latin": "An-Naba",
+    "meaning": "The Announcement",
+    "count": 40,
+    "period": "Meccan",
+    "order": 80,
+    "russian": "Ан-Наба"
+  },
+  {
+    "id": 79,
+    "name": "النازعات",
+    "latin": "An-Naazi'aat",
+    "meaning": "Those who drag forth",
+    "count": 46,
+    "period": "Meccan",
+    "order": 81,
+    "russian": "Ан-Назиат"
+  },
+  {
+    "id": 80,
+    "name": "عبس",
+    "latin": "Abasa",
+    "meaning": "He frowned",
+    "count": 42,
+    "period": "Meccan",
+    "order": 24,
+    "russian": "Абаса"
+  },
+  {
+    "id": 81,
+    "name": "التكوير",
+    "latin": "At-Takwir",
+    "meaning": "The Overthrowing",
+    "count": 29,
+    "period": "Meccan",
+    "order": 7,
+    "russian": "Ат-Таквир"
+  },
+  {
+    "id": 82,
+    "name": "الإنفطار",
+    "latin": "Al-Infitaar",
+    "meaning": "The Cleaving",
+    "count": 19,
+    "period": "Meccan",
+    "order": 82,
+    "russian": "Аль-Инфитар"
+  },
+  {
+    "id": 83,
+    "name": "المطففين",
+    "latin": "Al-Mutaffifin",
+    "meaning": "Defrauding",
+    "count": 36,
+    "period": "Meccan",
+    "order": 86,
+    "russian": "Аль-Мутаффифин"
+  },
+  {
+    "id": 84,
+    "name": "الإنشقاق",
+    "latin": "Al-Inshiqaaq",
+    "meaning": "The Splitting Open",
+    "count": 25,
+    "period": "Meccan",
+    "order": 83,
+    "russian": "Аль-Иншикак"
+  },
+  {
+    "id": 85,
+    "name": "البروج",
+    "latin": "Al-Burooj",
+    "meaning": "The Constellations",
+    "count": 22,
+    "period": "Meccan",
+    "order": 27,
+    "russian": "Аль-Бурудж"
+  },
+  {
+    "id": 86,
+    "name": "الطارق",
+    "latin": "At-Taariq",
+    "meaning": "The Morning Star",
+    "count": 17,
+    "period": "Meccan",
+    "order": 36,
+    "russian": "Ат-Тарик"
+  },
+  {
+    "id": 87,
+    "name": "الأعلى",
+    "latin": "Al-A'laa",
+    "meaning": "The Most High",
+    "count": 19,
+    "period": "Meccan",
+    "order": 8,
+    "russian": "Аль-Аля"
+  },
+  {
+    "id": 88,
+    "name": "الغاشية",
+    "latin": "Al-Ghaashiya",
+    "meaning": "The Overwhelming",
+    "count": 26,
+    "period": "Meccan",
+    "order": 68,
+    "russian": "Аль-Гашия"
+  },
+  {
+    "id": 89,
+    "name": "الفجر",
+    "latin": "Al-Fajr",
+    "meaning": "The Dawn",
+    "count": 30,
+    "period": "Meccan",
+    "order": 10,
+    "russian": "Аль-Фаджр"
+  },
+  {
+    "id": 90,
+    "name": "البلد",
+    "latin": "Al-Balad",
+    "meaning": "The City",
+    "count": 20,
+    "period": "Meccan",
+    "order": 35,
+    "russian": "Аль-Баляд"
+  },
+  {
+    "id": 91,
+    "name": "الشمس",
+    "latin": "Ash-Shams",
+    "meaning": "The Sun",
+    "count": 15,
+    "period": "Meccan",
+    "order": 26,
+    "russian": "Аш-Шамс"
+  },
+  {
+    "id": 92,
+    "name": "الليل",
+    "latin": "Al-Lail",
+    "meaning": "The Night",
+    "count": 21,
+    "period": "Meccan",
+    "order": 9,
+    "russian": "Аль-Ляйль"
+  },
+  {
+    "id": 93,
+    "name": "الضحى",
+    "latin": "Ad-Dhuhaa",
+    "meaning": "The Morning Hours",
+    "count": 11,
+    "period": "Meccan",
+    "order": 11,
+    "russian": "Ад-Духа"
+  },
+  {
+    "id": 94,
+    "name": "الشرح",
+    "latin": "Ash-Sharh",
+    "meaning": "The Consolation",
+    "count": 8,
+    "period": "Meccan",
+    "order": 12,
+    "russian": "Аш-Шарх"
+  },
+  {
+    "id": 95,
+    "name": "التين",
+    "latin": "At-Tin",
+    "meaning": "The Fig",
+    "count": 8,
+    "period": "Meccan",
+    "order": 28,
+    "russian": "Ат-Тин"
+  },
+  {
+    "id": 96,
+    "name": "العلق",
+    "latin": "Al-Alaq",
+    "meaning": "The Clot",
+    "count": 19,
+    "period": "Meccan",
+    "order": 1,
+    "russian": "Аль-Аляк"
+  },
+  {
+    "id": 97,
+    "name": "القدر",
+    "latin": "Al-Qadr",
+    "meaning": "The Power, Fate",
+    "count": 5,
+    "period": "Meccan",
+    "order": 25,
+    "russian": "Аль-Кадр"
+  },
+  {
+    "id": 98,
+    "name": "البينة",
+    "latin": "Al-Bayyina",
+    "meaning": "The Evidence",
+    "count": 8,
+    "period": "Medinan",
+    "order": 100,
+    "russian": "Аль-Баййина"
+  },
+  {
+    "id": 99,
+    "name": "الزلزلة",
+    "latin": "Az-Zalzala",
+    "meaning": "The Earthquake",
+    "count": 8,
+    "period": "Medinan",
+    "order": 93,
+    "russian": "Аз-Зальзаля"
+  },
+  {
+    "id": 100,
+    "name": "العاديات",
+    "latin": "Al-Aadiyaat",
+    "meaning": "The Chargers",
+    "count": 11,
+    "period": "Meccan",
+    "order": 14,
+    "russian": "Аль-Адият"
+  },
+  {
+    "id": 101,
+    "name": "القارعة",
+    "latin": "Al-Qaari'a",
+    "meaning": "The Calamity",
+    "count": 11,
+    "period": "Meccan",
+    "order": 30,
+    "russian": "Аль-Кариа"
+  },
+  {
+    "id": 102,
+    "name": "التكاثر",
+    "latin": "At-Takaathur",
+    "meaning": "Competition",
+    "count": 8,
+    "period": "Meccan",
+    "order": 16,
+    "russian": "Ат-Такасур"
+  },
+  {
+    "id": 103,
+    "name": "العصر",
+    "latin": "Al-Asr",
+    "meaning": "The Declining Day, Epoch",
+    "count": 3,
+    "period": "Meccan",
+    "order": 13,
+    "russian": "Аль-Аср"
+  },
+  {
+    "id": 104,
+    "name": "الهمزة",
+    "latin": "Al-Humaza",
+    "meaning": "The Traducer",
+    "count": 9,
+    "period": "Meccan",
+    "order": 32,
+    "russian": "Аль-Хумаза"
+  },
+  {
+    "id": 105,
+    "name": "الفيل",
+    "latin": "Al-Fil",
+    "meaning": "The Elephant",
+    "count": 5,
+    "period": "Meccan",
+    "order": 19,
+    "russian": "Аль-Филь"
+  },
+  {
+    "id": 106,
+    "name": "قريش",
+    "latin": "Quraish",
+    "meaning": "Quraysh",
+    "count": 4,
+    "period": "Meccan",
+    "order": 29,
+    "russian": "Курайш"
+  },
+  {
+    "id": 107,
+    "name": "الماعون",
+    "latin": "Al-Maa'un",
+    "meaning": "Almsgiving",
+    "count": 7,
+    "period": "Meccan",
+    "order": 17,
+    "russian": "Аль-Маун"
+  },
+  {
+    "id": 108,
+    "name": "الكوثر",
+    "latin": "Al-Kawthar",
+    "meaning": "Abundance",
+    "count": 3,
+    "period": "Meccan",
+    "order": 15,
+    "russian": "Аль-Каусар"
+  },
+  {
+    "id": 109,
+    "name": "الكافرون",
+    "latin": "Al-Kaafiroon",
+    "meaning": "The Disbelievers",
+    "count": 6,
+    "period": "Meccan",
+    "order": 18,
+    "russian": "Аль-Кафирун"
+  },
+  {
+    "id": 110,
+    "name": "النصر",
+    "latin": "An-Nasr",
+    "meaning": "Divine Support",
+    "count": 3,
+    "period": "Medinan",
+    "order": 114,
+    "russian": "Ан-Наср"
+  },
+  {
+    "id": 111,
+    "name": "المسد",
+    "latin": "Al-Masad",
+    "meaning": "The Palm Fibre",
+    "count": 5,
+    "period": "Meccan",
+    "order": 6,
+    "russian": "Аль-Масад"
+  },
+  {
+    "id": 112,
+    "name": "الإخلاص",
+    "latin": "Al-Ikhlaas",
+    "meaning": "Sincerity",
+    "count": 4,
+    "period": "Meccan",
+    "order": 22,
+    "russian": "Аль-Ихляс"
+  },
+  {
+    "id": 113,
+    "name": "الفلق",
+    "latin": "Al-Falaq",
+    "meaning": "The Dawn",
+    "count": 5,
+    "period": "Meccan",
+    "order": 20,
+    "russian": "Аль-Фаляк"
+  },
+  {
+    "id": 114,
+    "name": "الناس",
+    "latin": "An-Naas",
+    "meaning": "Mankind",
+    "count": 6,
+    "period": "Meccan",
+    "order": 21,
+    "russian": "Ан-Нас"
+  }
+]

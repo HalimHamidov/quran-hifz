@@ -1,0 +1,56 @@
+[
+  {
+    "id": "tanzil",
+    "title": "Tanzil — цифровой мусхаф, версия 1.1",
+    "url": "https://tanzil.net",
+    "kind": "Арабский оригинал; CC BY 3.0, без изменений"
+  },
+  {
+    "id": "order",
+    "title": "Tanzil — традиционный порядок ниспослания",
+    "url": "https://tanzil.net/docs/revelation_order",
+    "kind": "Начало ниспослания сур, не датировка всех аятов"
+  },
+  {
+    "id": "first",
+    "title": "Сахих аль-Бухари, 3",
+    "url": "https://sunnah.com/bukhari:3",
+    "kind": "A — первое откровение, 96:1–5"
+  },
+  {
+    "id": "resumption",
+    "title": "Сахих аль-Бухари, 4",
+    "url": "https://sunnah.com/bukhari:4",
+    "kind": "A — возобновление откровений, начало 74"
+  },
+  {
+    "id": "hijra",
+    "title": "Сахих аль-Бухари, 3905",
+    "url": "https://sunnah.com/bukhari:3905",
+    "kind": "A — переселение, Абу Бакр и Асма"
+  },
+  {
+    "id": "umma74",
+    "title": "Шамиль Аляутдинов — Аль-Муддассир",
+    "url": "https://umma.ru/sura-74-al-muddassir-ukutavshijsya",
+    "kind": "Перевод и тафсир на сайте правообладателя; текст не скопирован"
+  },
+  {
+    "id": "umma67",
+    "title": "Шамиль Аляутдинов — Аль-Мульк",
+    "url": "https://umma.ru/sura-67-al-mulk-vlast",
+    "kind": "Перевод и тафсир на сайте правообладателя"
+  },
+  {
+    "id": "method",
+    "title": "Аямуддин Фахруддин — методика заучивания",
+    "url": "https://www.youtube.com/shorts/pujvYjR8L5o",
+    "kind": "Числа по описанию пользователя; видео независимо не подтверждено"
+  },
+  {
+    "id": "audio",
+    "title": "EveryAyah — аль-Хусари Mu’allim",
+    "url": "https://everyayah.com/data/Husary_Muallim_128kbps/",
+    "kind": "Потоковое аудио; файлы не включены в репозиторий"
+  }
+]
