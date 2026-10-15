@@ -8,7 +8,7 @@ Date: `2026-10-15`
 
 ## Completed
 
-- v1.0.0.5 is published. Translation release v1.0.0.6 is pushed on `fix/alaq-translation` (`41c6850`); PR and publication remain pending.
+- v1.0.0.6 published: PR #6 merged to main (`13d4e34`), deployment run `38698234135` succeeded; dev synced.
 - 19 posters, 19 distinct generated WebP images, shared per-ayah counters/audio/memory fund, fullscreen and offline images.
 - Reusable `docs/AYAH_VISUAL_PROMPT.md`, 19 individual prompts in `data/al-alaq-visual-plan.json`, 17 exact user-provided translation ranges covering all 19 ayahs and Umma source links.
 - Original mulk and legacy contents preserved.
@@ -24,7 +24,7 @@ Date: `2026-10-15`
 
 ## Risks Or Blockers
 
-- Translation is provided and locally verified; production verification of v1.0.0.6 remains pending.
+- No blocker: exact supplied translation verified on all19 posters in production, including mobile and offline.
 - Generated scenes are symbolic artistic associations, not historical photographs.
 - Other historical/editorial coverage remains partial.
 
@@ -35,8 +35,8 @@ Date: `2026-10-15`
 
 ## Exact Next Step
 
-1. Finish documentation sync, create PR against main, then publish and verify v1.0.0.6.
+1. Await user feedback; preserve exact supplied text, original mulk and shared progress.
 
 ## Handoff Summary
 
-Al-Alaq's 19-image update is live and production-verified. PNG posters are saved in F:/Code/67mulk/sura_al_alaq_images/01.png through19.png; originals at assets/images/al-alaq/ayah-01.webp through ayah-19.webp. Built-in imagegen used; prompt set saved. All 19 PNG exports have been refreshed with the supplied translation; v1.0.0.6 is locally verified and awaits publication. Preserve original mulk and shared progress.
+Al-Alaq's 19-image update is live and production-verified. PNG posters are saved in F:/Code/67mulk/sura_al_alaq_images/01.png through19.png; originals at assets/images/al-alaq/ayah-01.webp through ayah-19.webp. Built-in imagegen used; prompt set saved. All 19 PNG exports have been refreshed with the supplied translation; v1.0.0.6 is published and production-verified. Preserve original mulk and shared progress.
