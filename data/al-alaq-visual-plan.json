@@ -1,0 +1,313 @@
+{
+  "surah": 96,
+  "style": "Кинематографическая фотореалистичная иллюстрация; кремовое поле, золотая рамка, отдельный арабский оригинал и ключ памяти.",
+  "generator": "Built-in image_gen",
+  "cards": [
+    {
+      "from": 1,
+      "to": 1,
+      "prayer": "Фаджр",
+      "title": "Читай именем Творца",
+      "keyword": "Чтение · сотворение",
+      "hook": "Книга среди сотворённого мира: чтение связано с именем Творца.",
+      "visual": "book",
+      "image": "al-alaq/ayah-01.webp",
+      "imageAlt": "A luminous open unlettered book on a stone reading desk beside a window opening onto richly detailed mountains, living trees and a star-filled dawn sky; the act of reading amid the created world. No human or divine figure.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 2,
+      "to": 2,
+      "prayer": "Фаджр",
+      "title": "Начало сотворения человека",
+      "keyword": "Человек · начало",
+      "hook": "Малое начало человека: вспомни слово «аляк».",
+      "visual": "book",
+      "image": "al-alaq/ayah-02.webp",
+      "imageAlt": "A beautiful restrained scientific macro of a tiny crimson organic attachment clinging gently to a translucent living membrane, pearl-like wet textures, warm dark womb-like surrounding; symbolic early human origin, no fully formed fetus, no gore, no medical certainty claim.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 3,
+      "to": 3,
+      "prayer": "Фаджр",
+      "title": "Читай: Господь наищедрейший",
+      "keyword": "Чтение · щедрость",
+      "hook": "Книга в изобилии сада: чтение и щедрость Господа.",
+      "visual": "book",
+      "image": "al-alaq/ayah-03.webp",
+      "imageAlt": "An open unlettered book in an abundant sunlit garden library, flowing fresh water, ripening fruits and lush flowering branches; generosity and learning, rich emerald foliage and gold sunlight, no human.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 4,
+      "to": 4,
+      "prayer": "Фаджр",
+      "title": "Знание через перо",
+      "keyword": "Перо · письменность",
+      "hook": "Один след пера: знание сохраняется письмом.",
+      "visual": "book",
+      "image": "al-alaq/ayah-04.webp",
+      "imageAlt": "Extreme detailed still life of a traditional reed pen touching cream parchment with a single fresh black ink stroke, exquisite ink pot, fibers and reflections; knowledge through the pen. No letters.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 5,
+      "to": 5,
+      "prayer": "Зухр",
+      "title": "Человек узнаёт неизвестное",
+      "keyword": "Дар знания",
+      "hook": "Открытый мир познания: узнавать то, чего прежде не знал.",
+      "visual": "book",
+      "image": "al-alaq/ayah-05.webp",
+      "imageAlt": "A contemporary anonymous student seen from behind at a desk discovering a detailed star globe and optical instruments, dark room opening into a vast realistic starry sky through a window; previously unknown knowledge becomes accessible.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 6,
+      "to": 6,
+      "prayer": "Зухр",
+      "title": "Не переходи границы",
+      "keyword": "Переход границ",
+      "hook": "Шаг за границу: заметить момент своеволия.",
+      "visual": "balance",
+      "image": "al-alaq/ayah-06.webp",
+      "imageAlt": "An anonymous contemporary adult in dark clothing carelessly steps across a clearly visible boundary on a high mountain path toward a crumbling unsafe edge; crossing limits through arrogance. Realistic human anatomy, no named historical character.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 7,
+      "to": 7,
+      "prayer": "Зухр",
+      "title": "Иллюзия самодостаточности",
+      "keyword": "Мнимая независимость",
+      "hook": "Богатая комната не делает человека независимым от Творца.",
+      "visual": "balance",
+      "image": "al-alaq/ayah-07.webp",
+      "imageAlt": "A wealthy anonymous contemporary man in tailored clothes, seen from behind in a luxurious marble room, contemplating possessions and gold coins confidently while his small reflection is isolated in a tall mirror; illusion of self-sufficiency.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 8,
+      "to": 8,
+      "prayer": "Зухр",
+      "title": "Возвращение к Господу",
+      "keyword": "Возвращение · ответ",
+      "hook": "Все дороги сходятся: вспомни конечное возвращение.",
+      "visual": "path",
+      "image": "al-alaq/ayah-08.webp",
+      "imageAlt": "Several realistic winding desert roads converge in the distance beside a quiet simple cemetery beneath a solemn dawn sky; mortality and final return, no heavenly portal, no representation of God or afterlife.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 9,
+      "to": 9,
+      "prayer": "Аср",
+      "title": "Тот, кто запрещает",
+      "keyword": "Препятствие молитве",
+      "hook": "Закрывающая путь ладонь: кто препятствует молитве?",
+      "visual": "dawn",
+      "image": "al-alaq/ayah-09.webp",
+      "imageAlt": "A contemporary anonymous adult from behind at a doorway holding a closed palm sideways to obstruct entry to a modest prayer room; obstruction is the main visual action, no historical character, nobody praying in this image.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 10,
+      "to": 10,
+      "prayer": "Аср",
+      "title": "Раб, совершающий молитву",
+      "keyword": "Молитва · поклонение",
+      "hook": "Стоящий в молитве: вспомни, кому препятствуют.",
+      "visual": "dawn",
+      "image": "al-alaq/ayah-10.webp",
+      "imageAlt": "A contemporary anonymous Muslim adult seen from behind standing humbly in prayer on a woven rug in a simple modern prayer room, hands folded, soft natural window light, no historic reconstruction and not a prophet.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 11,
+      "to": 11,
+      "prayer": "Аср",
+      "title": "На верном пути",
+      "keyword": "Руководство",
+      "hook": "Ясная дорога: задумайся о верном пути.",
+      "visual": "path",
+      "image": "al-alaq/ayah-11.webp",
+      "imageAlt": "A clear solid stone path crossing a lush landscape toward an open sunlit horizon, subtle difficult side trails disappear into rocky shadow; a visually unforgettable image of guidance, earthy vivid colors, no supernatural beings.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 12,
+      "to": 12,
+      "prayer": "Аср",
+      "title": "Призыв к богобоязненности",
+      "keyword": "Богобоязненность · наставление",
+      "hook": "Добрый совет у развилки: призыв к богобоязненности.",
+      "visual": "path",
+      "image": "al-alaq/ayah-12.webp",
+      "imageAlt": "Two ordinary contemporary anonymous adults on a garden path; one gently and respectfully guides the other away from a hazardous dark route toward a safe beautiful path, caring gesture of moral counsel, no halo or sacred figure.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 13,
+      "to": 13,
+      "prayer": "Магриб",
+      "title": "Отрицание и отворачивание",
+      "keyword": "Отрицание · отворачивание",
+      "hook": "Отвернувшийся от книги: отрицание становится действием.",
+      "visual": "moon",
+      "image": "al-alaq/ayah-13.webp",
+      "imageAlt": "An anonymous contemporary adult clearly turns his back and face away from an open unlettered book on a naturally sunlit reading desk, walking toward a dark hallway; denial and turning away, expressive realistic gesture.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 14,
+      "to": 14,
+      "prayer": "Магриб",
+      "title": "Аллах видит",
+      "keyword": "Ничто не скрыто",
+      "hook": "Свет раскрывает скрытые углы: условная опора для слов о всеведении.",
+      "visual": "moon",
+      "image": "al-alaq/ayah-14.webp",
+      "imageAlt": "A realistic enclosed courtyard with hidden corners all clearly revealed by ordinary bright daylight, an open window and small uncovered objects; nothing hidden, symbolic reminder that nothing escapes knowledge. NO eye, face in sky, divine viewpoint, god figure, supernatural beam.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 15,
+      "to": 15,
+      "prayer": "Магриб",
+      "title": "Суровое предостережение",
+      "keyword": "Предостережение · чуб",
+      "hook": "Чуб в напряжённой сцене: запомни суровое предостережение.",
+      "visual": "balance",
+      "image": "al-alaq/ayah-15.webp",
+      "imageAlt": "A close-up symbolic portrait of an anonymous fictional adult man bowing his head, a clearly visible dark forelock over his forehead, tense storm-lit atmosphere, warning and accountability; no grasping hand, no violence, no prophet or named historic figure.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 16,
+      "to": 16,
+      "prayer": "Магриб",
+      "title": "Ложь и грех",
+      "keyword": "Лживый · ошибающийся",
+      "hook": "Маска и неверное отражение: ложь и грех хозяина чуба.",
+      "visual": "balance",
+      "image": "al-alaq/ayah-16.webp",
+      "imageAlt": "Still life of a lifelike theatrical mask with a prominent dark forelock lying next to a cracked mirror, the mirror revealing a different false expression; a symbolic mnemonic for lying and wrongdoing, high realism, no gore or text.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 17,
+      "to": 17,
+      "prayer": "Иша",
+      "title": "Пусть зовёт своё собрание",
+      "keyword": "Собрание · поддержка",
+      "hook": "Совет за столом: пусть зовёт своих сторонников.",
+      "visual": "moon",
+      "image": "al-alaq/ayah-17.webp",
+      "imageAlt": "An anonymous contemporary assembly of ordinary influential adults around a long council table in a dark elegant room, one empty chair foreground and an urgent beckoning gesture; calling on one's supporters, not any historical event.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 18,
+      "to": 18,
+      "prayer": "Иша",
+      "title": "Стражи Ада",
+      "keyword": "Стражи · ответственность",
+      "hook": "Закрытые ворота: условная опора для предостережения о страже.",
+      "visual": "moon",
+      "image": "al-alaq/ayah-18.webp",
+      "imageAlt": "Monumental closed iron gate with immense weight, intensely glowing embers behind it and severe forbidding atmosphere; symbolic warning of punishment and guardianship, no angels or creatures, no claim to depict actual hell.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    },
+    {
+      "from": 19,
+      "to": 19,
+      "prayer": "Иша",
+      "title": "Поклонись и приближайся",
+      "keyword": "Земной поклон · приближение",
+      "hook": "Из стояния в молитве — к земному поклону и приближению.",
+      "visual": "dawn",
+      "image": "al-alaq/ayah-19.webp",
+      "imageAlt": "A contemporary anonymous Muslim adult seen from behind in full prostration on a beautifully textured woven prayer rug in a plain modern room, gentle natural dawn light enters from a window, profound humility and peace. Not a prophet, no divine shape or light representing God.",
+      "symbolism": "Художественная ассоциация для памяти, не буквальное толкование и не историческая реконструкция."
+    }
+  ],
+  "prompts": [
+    {
+      "ayah": 1,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 1: A luminous open unlettered book on a stone reading desk beside a window opening onto richly detailed mountains, living trees and a star-filled dawn sky; the act of reading amid the created world. No human or divine figure. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 2,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 2: A beautiful restrained scientific macro of a tiny crimson organic attachment clinging gently to a translucent living membrane, pearl-like wet textures, warm dark womb-like surrounding; symbolic early human origin, no fully formed fetus, no gore, no medical certainty claim. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 3,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 3: An open unlettered book in an abundant sunlit garden library, flowing fresh water, ripening fruits and lush flowering branches; generosity and learning, rich emerald foliage and gold sunlight, no human. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 4,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 4: Extreme detailed still life of a traditional reed pen touching cream parchment with a single fresh black ink stroke, exquisite ink pot, fibers and reflections; knowledge through the pen. No letters. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 5,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 5: A contemporary anonymous student seen from behind at a desk discovering a detailed star globe and optical instruments, dark room opening into a vast realistic starry sky through a window; previously unknown knowledge becomes accessible. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 6,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 6: An anonymous contemporary adult in dark clothing carelessly steps across a clearly visible boundary on a high mountain path toward a crumbling unsafe edge; crossing limits through arrogance. Realistic human anatomy, no named historical character. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 7,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 7: A wealthy anonymous contemporary man in tailored clothes, seen from behind in a luxurious marble room, contemplating possessions and gold coins confidently while his small reflection is isolated in a tall mirror; illusion of self-sufficiency. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 8,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 8: Several realistic winding desert roads converge in the distance beside a quiet simple cemetery beneath a solemn dawn sky; mortality and final return, no heavenly portal, no representation of God or afterlife. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 9,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 9: A contemporary anonymous adult from behind at a doorway holding a closed palm sideways to obstruct entry to a modest prayer room; obstruction is the main visual action, no historical character, nobody praying in this image. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 10,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 10: A contemporary anonymous Muslim adult seen from behind standing humbly in prayer on a woven rug in a simple modern prayer room, hands folded, soft natural window light, no historic reconstruction and not a prophet. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 11,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 11: A clear solid stone path crossing a lush landscape toward an open sunlit horizon, subtle difficult side trails disappear into rocky shadow; a visually unforgettable image of guidance, earthy vivid colors, no supernatural beings. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 12,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 12: Two ordinary contemporary anonymous adults on a garden path; one gently and respectfully guides the other away from a hazardous dark route toward a safe beautiful path, caring gesture of moral counsel, no halo or sacred figure. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 13,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 13: An anonymous contemporary adult clearly turns his back and face away from an open unlettered book on a naturally sunlit reading desk, walking toward a dark hallway; denial and turning away, expressive realistic gesture. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 14,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 14: A realistic enclosed courtyard with hidden corners all clearly revealed by ordinary bright daylight, an open window and small uncovered objects; nothing hidden, symbolic reminder that nothing escapes knowledge. NO eye, face in sky, divine viewpoint, god figure, supernatural beam. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 15,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 15: A close-up symbolic portrait of an anonymous fictional adult man bowing his head, a clearly visible dark forelock over his forehead, tense storm-lit atmosphere, warning and accountability; no grasping hand, no violence, no prophet or named historic figure. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 16,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 16: Still life of a lifelike theatrical mask with a prominent dark forelock lying next to a cracked mirror, the mirror revealing a different false expression; a symbolic mnemonic for lying and wrongdoing, high realism, no gore or text. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 17,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 17: An anonymous contemporary assembly of ordinary influential adults around a long council table in a dark elegant room, one empty chair foreground and an urgent beckoning gesture; calling on one's supporters, not any historical event. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 18,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 18: Monumental closed iron gate with immense weight, intensely glowing embers behind it and severe forbidding atmosphere; symbolic warning of punishment and guardianship, no angels or creatures, no claim to depict actual hell. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    },
+    {
+      "ayah": 19,
+      "prompt": "Create a magnificent cinematic photorealistic educational image, NOT an infographic. One coherent landscape composition, aspect ratio 3:2. Extraordinary real material detail, believable physics, rich but natural colors, refined warm gold highlights and deep midnight blues, masterful lighting, visually clear primary subject that aids memorization. It illustrates a symbolic memory association with Quran surah Al-Alaq ayah 19: A contemporary anonymous Muslim adult seen from behind in full prostration on a beautifully textured woven prayer rug in a plain modern room, gentle natural dawn light enters from a window, profound humility and peace. Not a prophet, no divine shape or light representing God. NO text, Arabic, captions, numbers, labels, borders, collage, logos, watermarks, geometric SVG art. Never depict Allah, prophets, angels, a divine hand or eye. Ordinary modern fictional people only where explicitly specified. Do not depict a historical revelation event. "
+    }
+  ]
+}

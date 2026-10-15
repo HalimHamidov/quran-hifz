@@ -1,6 +1,7 @@
 async page => {
   await page.reload();await page.locator('.image-card').first().waitFor();
-  await page.getByRole('button',{name:'Слушать блок 1',exact:true}).click();
+  await page.locator('.image-card').first().locator('summary').click();
+  await page.getByRole('button',{name:'Слушать аят 1',exact:true}).click();
   await page.waitForFunction(()=>document.querySelector('audio').readyState>=2,null,{timeout:30000});
   const other=await page.context().newPage();
   await other.goto(new URL('../../',page.url()).href);

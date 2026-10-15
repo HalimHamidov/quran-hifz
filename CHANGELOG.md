@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0.5 — 2026-10-15
+
+Replace ten grouped Al-Alaq cards and five repeated backgrounds with 19 individual ayah posters and 19 unique generated photorealistic scenes. Match the Al-Mulk reference with cream Arabic panels, gold borders, numbered imagery and a circular image detail beside the memory cue. Preserve shared per-ayah progress and offline images. Save a reusable any-surah visual prompt, all 19 scene prompts and empty source-attributed translation slots; do not label AI notes as Umma translations. Exact translation text remains pending user input.
+
 ## 1.0.0.4 — 2026-10-15
 
 Remove schematic SVG illustrations from the home screen, study sidebar and meaning blocks. Keep the Al-Alaq photographic cards and original Al-Mulk gallery.
