@@ -8,7 +8,7 @@ Date: `2026-10-15`
 
 ## Completed
 
-- Branch `feature/alaq-19-images`: code pushed, PR pending; v1.0.0.5 is not yet published.
+- v1.0.0.5 published: PR #5 merged to main (`39f6555`), deployment run `38695626026` succeeded. Local dev fast-forwarded and pushed.
 - 19 posters, 19 distinct generated WebP images, shared per-ayah counters/audio/memory fund, fullscreen and offline images.
 - Reusable `docs/AYAH_VISUAL_PROMPT.md`, 19 individual prompts in `data/al-alaq-visual-plan.json`, explicit empty translation slots and Umma source links.
 - Original mulk and legacy contents preserved.
@@ -16,11 +16,11 @@ Date: `2026-10-15`
 ## Verified Facts
 
 - 19 tests pass; all 6 236 Tanzil ayahs verified.
-- Local browser passes: all 19 posters, gallery navigation, mobile, offline images, shared progress and cross-tab audio stop on data replacement.
+- Local and production browser checks PASS: all19 distinct decoded images, exact Arabic, full modal gallery, recall, isolated per-ayah counters, reload/shared progress, mobile and offline images. Local cross-tab audio cancellation also PASS.
 
 ## Assumptions
 
-- Existing release workflow remains authorized; production verification follows deployment.
+- Full translation must come from exact user-provided text; do not fill empty slots from AI.
 
 ## Risks Or Blockers
 
@@ -35,8 +35,8 @@ Date: `2026-10-15`
 
 ## Exact Next Step
 
-1. Complete documentation sync, create PR against main, then follow release/deployment verification. Keep translation pending until exact text arrives.
+1. Await exact Umma translation text, fill `data/al-alaq-translation.json` entries preserving paired ranges9–10 and11–12, then regenerate PNG exports and verify/publish that focused change.
 
 ## Handoff Summary
 
-Al-Alaq's 19-image update is implemented, locally verified and pushed on the feature branch. PR and production release remain pending. Preserve original mulk, shared progress and the explicit missing-translation state.
+Al-Alaq's 19-image update is live and production-verified. PNG posters are saved in F:/Code/67mulk/sura_al_alaq_images/01.png through19.png; originals at assets/images/al-alaq/ayah-01.webp through ayah-19.webp. Built-in imagegen used; prompt set saved. Exact translation remains pending. Preserve original mulk and shared progress.
