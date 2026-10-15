@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { freshState, countRead, record, verifyAyah, importBackup, persist, load, dateAfter, dayNumber } from '../assets/js/progress.js';
+import { freshState, countRead, record, verifyAyah, importBackup, persist, load, dateAfter, dayNumber, compactHistory } from '../assets/js/progress.js';
 import { nextAyah, joinReady, addJoin, markError } from '../assets/js/hifz.js';
 import { learnedPool, distribute, reviewPlan, completeReview, reschedule } from '../assets/js/murajaah.js';
 import { audioURL, Recitation } from '../assets/js/audio.js';
@@ -83,6 +83,21 @@ test('state survives storage and backup roundtrip; corrupt imports rejected with
 test('calendar math ignores DST and crosses month/year boundaries',()=>{
   assert.equal(dateAfter('2026-12-31',1),'2027-01-01');assert.equal(dateAfter('2028-02-28',1),'2028-02-29');
   assert.equal(dayNumber('2026-10-26')-dayNumber('2026-10-25'),1);
+});
+test('long-term journal compaction retains every learned ayah and daily totals within storage budget',()=>{
+  const state=make();
+  for(const s of surahs)for(let a=1;a<=s.count;a++)verifyAyah(state,`${s.id}:${a}`,'2003-10-15');
+  const keys=Object.keys(state.ayahs);
+  for(let day=0;day<23*365;day++) {
+    const date=dateAfter('2003-10-15',day);
+    state.reviewLog[date]=keys;state.reviewAssignments[date]=keys;
+  }
+  compactHistory(state,'2026-10-15');
+  assert.equal(learnedPool(state,texts).length,6236);
+  assert.equal(state.reviewTotals['2003-10-15'],6236);
+  assert.equal(state.reviewLog['2003-10-15'],undefined);
+  assert.ok(Object.keys(state.reviewAssignments).length<=2);
+  assert.ok(JSON.stringify(state).length<2_000_000);
 });
 test('teacher-supplied parts retain verbatim source; missing, reordered, changed text rejected',()=>{
   const original=texts['74'][1].text;
