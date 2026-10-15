@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0.6 — 2026-10-15
+
+Add the exact user-provided Umma.ru Al-Alaq translation to all 19 posters. Preserve bracketed commentary and combined ranges 9–10 and 11–12; show basmala translation separately and retain source-footnote links for ayahs 5 and 19. Refresh translation cache and all19 local PNG exports.
+
 ## 1.0.0.5 — 2026-10-15
 
 Replace ten grouped Al-Alaq cards and five repeated backgrounds with 19 individual ayah posters and 19 unique generated photorealistic scenes. Match the Al-Mulk reference with cream Arabic panels, gold borders, numbered imagery and a circular image detail beside the memory cue. Preserve shared per-ayah progress and offline images. Save a reusable any-surah visual prompt, all 19 scene prompts and empty source-attributed translation slots; do not label AI notes as Umma translations. Exact translation text remains pending user input.
