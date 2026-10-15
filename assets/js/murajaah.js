@@ -68,6 +68,7 @@ export function completeReview(state, key, success, today = dayKey()) {
     r.errors++; r.interval = 0; r.due = dateAfter(today, 1);
     state.reviewLog[today] = (state.reviewLog[today] || []).filter(k => k !== key);
   }
+  (state.reviewTotals ||= {})[today]=(state.reviewLog[today] || []).length;
 }
 export function reschedule(state, today = dayKey()) {
   state.settings.reviewAnchor = today;

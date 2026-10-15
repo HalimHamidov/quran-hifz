@@ -14,7 +14,7 @@ export function dateAfter(date, days) {
 export function freshState() {
   return { version: 1, settings: { target: 100, joinTarget: 20, cycle: 7, paused: false,
     startDate: dayKey(), reviewAnchor: dayKey(), currentSurah: 74, currentAyah: 1, minutes: 15 },
-    ayahs: {}, joins: {}, reviewLog: {}, reviewAssignments: {}, activity: {}, partPlans: {} };
+    ayahs: {}, joins: {}, reviewLog: {}, reviewAssignments: {}, reviewTotals: {}, activity: {}, partPlans: {} };
 }
 export function record(state, key) {
   return state.ayahs[key] ||= { reads: 0, listens: 0, errors: 0, learned: false, verifiedAt: null,
@@ -28,7 +28,8 @@ export function validateState(value, surahs, texts) {
   if (!object(value) || value.version !== 1 ||
       !['settings','ayahs','joins','reviewLog','activity'].every(k=>object(value[k])) ||
       (value.partPlans !== undefined && !object(value.partPlans)) ||
-      (value.reviewAssignments !== undefined && !object(value.reviewAssignments))) throw Error('Неподдерживаемый формат резервной копии.');
+      (value.reviewAssignments !== undefined && !object(value.reviewAssignments)) ||
+      (value.reviewTotals !== undefined && !object(value.reviewTotals))) throw Error('Неподдерживаемый формат резервной копии.');
   const s = value.settings;
   if (!integer(s.target, 1, 10000) || !integer(s.joinTarget, 1, 10000) || !integer(s.cycle, 1, 365) ||
       !integer(s.minutes, 1, 240) || typeof s.paused !== 'boolean' || !isDate(s.startDate) ||
@@ -59,6 +60,11 @@ export function validateState(value, surahs, texts) {
     if(!isDate(date)||!Array.isArray(keys)||!keys.every(validKey))throw Error('Неверные дневные задания.');
     clean.reviewAssignments[date]=[...new Set(keys)];
   }
+  for(const [date,count] of Object.entries(value.reviewTotals || {})) {
+    if(!isDate(date)||!integer(count,0,6236))throw Error('Неверная статистика повторений.');
+    clean.reviewTotals[date]=count;
+  }
+  for(const [date,keys] of Object.entries(clean.reviewLog))clean.reviewTotals[date]=keys.length;
   for (const [date, n] of Object.entries(value.activity)) {
     if (!isDate(date) || !integer(n, 0, 1000000)) throw Error('Неверный журнал занятий.');
     clean.activity[date] = n;
@@ -74,7 +80,20 @@ export function load(storage, surahs, texts) {
   const raw = storage.getItem(KEY);
   return raw ? validateState(JSON.parse(raw), surahs, texts) : freshState();
 }
-export function persist(storage, state) { storage.setItem(KEY, JSON.stringify(state)); }
+export function compactHistory(state, today = dayKey()) {
+  state.reviewTotals ||= {};
+  for(const [date,keys] of Object.entries(state.reviewLog)) {
+    state.reviewTotals[date]=keys.length;
+    if(dayNumber(date)<dayNumber(today)-1)delete state.reviewLog[date];
+  }
+  for(const date of Object.keys(state.reviewAssignments || {})) {
+    if(dayNumber(date)<dayNumber(today)-1)delete state.reviewAssignments[date];
+  }
+}
+export function persist(storage, state) {
+  compactHistory(state);
+  storage.setItem(KEY, JSON.stringify(state));
+}
 export function importBackup(raw, surahs, texts) {
   if (raw.length > 5_000_000) throw Error('Файл больше 5 МБ.');
   return validateState(JSON.parse(raw), surahs, texts);
