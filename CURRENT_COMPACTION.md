@@ -18,7 +18,8 @@ Date: `2026-10-15`
 - Browser desktop/mobile flows, persistent counters, parts, pause-independent review, offline reload and real audio playback verified.
 - 86/86 Mu’allim resources for 74/67 HTTP200 audio.
 - Browser backup import/rejection/export tested; local artifacts ignored.
-- Public repo created; PR #1 merged; GitHub Pages deployed successfully. Live catalog, 56-ayah reader, audio playback, mobile, legacy cache isolation and offline navigation passed.
+- Public repo created; PRs #1 and #2 merged. Release 1.0.0.1 deployed successfully (Actions run 38687126870). Live catalog, 56-ayah reader, audio playback, mobile, legacy cache isolation and offline navigation passed.
+- Fresh live browser verified 1.0.0.1, saved reads, verified memory pool, review daily totals, weekly statistics and reload. GitHub Pages caches assets up to 600 seconds; existing browsers can briefly retain the previous asset versions.
 
 ## Assumptions
 
@@ -37,8 +38,8 @@ Date: `2026-10-15`
 
 ## Exact Next Step
 
-1. Publish storage-retention fix v1.0.0.1 after tests, then verify updated deployment and clean branches.
+1. Await the user's next scoped request. If expanding editorial coverage, start with surah 96 sources/notes; do not rescan unchanged platform code.
 
 ## Handoff Summary
 
-Platform deployed at https://halimhamidov.github.io/quran-hifz/ . Final storage-retention fix preserves all learned ayahs and daily totals, keeping detailed review keys only for today/yesterday. Complete this fix release in new repository only. Source mulk stays unchanged; editorial history remains explicitly partial.
+Platform deployed and verified at https://halimhamidov.github.io/quran-hifz/ . Storage retention preserves all learned ayahs and daily totals, keeping detailed review keys only for today/yesterday. Local working branch is dev; main is the deployed version. Source mulk stays unchanged at 34b8a35a855f2118bf2ca7c9b6277d4b2e08659f; editorial history remains explicitly partial. See docs/IMPLEMENTATION.md for coverage and limits.
