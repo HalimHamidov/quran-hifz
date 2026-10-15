@@ -1,3 +1,4 @@
+import { arabicHTML } from '../../assets/js/arabic.js';
 import {load, persist, record, countRead, verifyAyah, freshState} from '../../assets/js/progress.js';
 import {Recitation} from '../../assets/js/audio.js';
 
@@ -14,7 +15,7 @@ function cardVerses(card){return verses.slice(card.from-1,card.to);}
 function poster(card,index,full=false){
   return `<div class="poster-heading"><small>Сура Аль-Аляк</small><strong>Аяты ${card.from===card.to?card.from:`${card.from}–${card.to}`}</strong></div>
   ${full?'<div class="poster-open">':`<button class="poster-open" data-action="open" data-card="${index}" aria-label="Открыть карточку ${index+1}: ${esc(card.title)}">`}<img class="poster-photo" src="../../assets/images/${esc(content.illustrations[card.prayer])}" alt="Символический образ: ${esc(card.keyword)}; без изображения людей" loading="${index<2?'eager':'lazy'}"><div class="art-overlay"><h3>${esc(card.title)}</h3><span class="block-number">${index+1}</span></div>${full?'</div>':'</button>'}
-  ${cardVerses(card).map(v=>`<div class="verse"><span class="verse-reference">96:${v.number}</span><p class="arabic ${document.querySelector('#hide-arabic').checked?'hidden-text':''}" lang="ar" dir="rtl" ${document.querySelector('#hide-arabic').checked?'aria-hidden="true"':''}>${esc(v.text)}</p><p class="verse-note">${esc(content.notes[v.number-1])}</p></div>`).join('')}
+  ${cardVerses(card).map(v=>`<div class="verse"><span class="verse-reference">96:${v.number}</span><p class="arabic ${document.querySelector('#hide-arabic').checked?'hidden-text':''}" lang="ar" dir="rtl" ${document.querySelector('#hide-arabic').checked?'aria-hidden="true"':''}>${arabicHTML(v.text,96,v.number,esc)}</p><p class="verse-note">${esc(content.notes[v.number-1])}</p></div>`).join('')}
   <div class="memory-hook"><div><strong>Ключевой смысл</strong><p>${esc(card.keyword)}</p></div><div><strong>Крючок памяти</strong><p>${esc(card.hook)}</p></div></div>`;
 }
 function render(){
