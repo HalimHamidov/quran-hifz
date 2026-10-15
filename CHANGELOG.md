@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0.3 — 2026-10-15
+
+Display the opening basmala separately from ayah 1 in all 112 applicable surahs, including Al-Alaq cards and review. Preserve the verified source, Fatiha numbering and Tawba opening. Combine Al-Alaq history and visual cards into one navigation item. Add exhaustive source-preservation tests and cache the shared renderer offline.
+
 ## 1.0.0.2 — 2026-10-15
 
 Add the Al-Alaq visual study page in the navy/gold Al-Mulk style: all 19 verified ayahs across ten fullscreen cards grouped by five prayers, original illustrations, per-ayah study notes, memory hooks and sourced first-revelation context. Reuse the existing progress store, audio and verified recall; link from the main reader and cache the page offline.
