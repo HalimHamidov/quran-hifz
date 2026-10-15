@@ -1,0 +1,88 @@
+import {load, persist, record, countRead, verifyAyah, freshState} from '../../assets/js/progress.js';
+import {Recitation} from '../../assets/js/audio.js';
+
+const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let content, verses, allTexts, surahs, state, activeCard=0, blocked=false, toastTimer;
+const grid=document.querySelector('#card-grid'), modal=document.querySelector('#poster-modal');
+const voice=new Recitation(document.querySelector('#voice'),key=>{record(state,key).listens++;save();updateProgress();},message=>notice(message));
+function notice(message){document.querySelector('#notice').textContent=message;clearTimeout(toastTimer);toastTimer=setTimeout(()=>document.querySelector('#notice').textContent='',6000);}
+function save(){
+  if(blocked){notice('Сохранение недоступно. Восстановите резервную копию в настройках основного тренажёра.');return false;}
+  try{persist(localStorage,state);return true;}catch{notice('Не удалось сохранить прогресс. Сделайте экспорт в настройках тренажёра.');return false;}
+}
+function cardVerses(card){return verses.slice(card.from-1,card.to);}
+function poster(card,index,full=false){
+  return `<div class="poster-heading"><small>Сура Аль-Аляк</small><strong>Аяты ${card.from===card.to?card.from:`${card.from}–${card.to}`}</strong></div>
+  ${full?'<div class="poster-open">':`<button class="poster-open" data-action="open" data-card="${index}" aria-label="Открыть карточку ${index+1}: ${esc(card.title)}">`}<img class="poster-photo" src="../../assets/images/${esc(content.illustrations[card.prayer])}" alt="Символический образ: ${esc(card.keyword)}; без изображения людей" loading="${index<2?'eager':'lazy'}"><div class="art-overlay"><h3>${esc(card.title)}</h3><span class="block-number">${index+1}</span></div>${full?'</div>':'</button>'}
+  ${cardVerses(card).map(v=>`<div class="verse"><span class="verse-reference">96:${v.number}</span><p class="arabic ${document.querySelector('#hide-arabic').checked?'hidden-text':''}" lang="ar" dir="rtl" ${document.querySelector('#hide-arabic').checked?'aria-hidden="true"':''}>${esc(v.text)}</p><p class="verse-note">${esc(content.notes[v.number-1])}</p></div>`).join('')}
+  <div class="memory-hook"><div><strong>Ключевой смысл</strong><p>${esc(card.keyword)}</p></div><div><strong>Крючок памяти</strong><p>${esc(card.hook)}</p></div></div>`;
+}
+function render(){
+  document.querySelector('#history-text').textContent=content.history;
+  document.querySelector('#content-notice').textContent=content.notice;
+  document.querySelector('#translation-link').href=content.translationURL;
+  const prayers=[...new Set(content.cards.map(card=>card.prayer))];
+  grid.innerHTML=prayers.map(prayer=>`<section class="prayer-row" aria-label="План повторения: ${prayer}"><div class="prayer-label">${prayer}<small>повторение</small></div>${content.cards.map((card,i)=>card.prayer!==prayer?'':`<article class="image-card" data-card="${i}">${poster(card,i)}<div class="card-controls"><button data-action="listen" data-card="${i}" aria-label="Слушать блок ${i+1}">▶ Слушать</button><button data-action="count" data-card="${i}" ${state.settings.paused||blocked?'disabled':''} aria-label="Повторить блок ${i+1}">+1 блок</button><a class="button" href="../../#surah/96/${card.from}">Учить →</a></div><p class="card-status" id="status-${i}"></p><label class="verify-label"><input type="checkbox" id="verify-${i}" ${state.settings.paused||blocked?'disabled':''}>Блок прочитан без подсказки, таджвид проверен</label><div class="card-controls"><button data-action="verify" data-card="${i}" ${state.settings.paused||blocked?'disabled':''}>✓ Проверено</button><button data-action="stop" aria-label="Остановить аудио блока ${i+1}">■ Стоп</button></div><div class="card-links"><a href="${esc(content.translationURL)}" target="_blank" rel="noreferrer">Перевод и тафсир ↗</a><span>Учебное пояснение</span></div></article>`).join('')}</section>`).join('');
+  if(state.settings.paused)grid.insertAdjacentHTML('afterbegin','<p class="error">Новое заучивание приостановлено. Чтение и аудио доступны; возобновить занятия можно в настройках тренажёра.</p>');
+  updateProgress();
+}
+function updateProgress(){
+  if(!state||!content)return;
+  const known=verses.filter(v=>state.ayahs[`96:${v.number}`]?.learned).length;
+  document.querySelector('#memory-total').textContent=`${known} / 19 аятов в памяти`;
+  content.cards.forEach((card,index)=>{
+    const records=cardVerses(card).map(v=>state.ayahs[`96:${v.number}`]||{reads:0,listens:0,learned:false});
+    document.querySelector(`#status-${index}`).textContent=`Каждый аят: минимум ${Math.min(...records.map(r=>r.reads))} / ${state.settings.target} повторений · прослушиваний ${records.reduce((sum,r)=>sum+r.listens,0)} · проверено ${records.filter(r=>r.learned).length}/${records.length}`;
+  });
+}
+function openCard(index){
+  activeCard=(index+content.cards.length)%content.cards.length;
+  const card=content.cards[activeCard];
+  document.querySelector('#modal-title').textContent=`${card.prayer} · Аяты ${card.from===card.to?card.from:`${card.from}–${card.to}`}`;
+  document.querySelector('#modal-poster').innerHTML=poster(card,activeCard,true);
+  document.querySelector('#modal-position').textContent=`${activeCard+1} / ${content.cards.length}`;
+  if(!modal.open)modal.showModal();
+  document.querySelector('#modal-poster').scrollIntoView({block:'nearest'});
+}
+grid.addEventListener('click',event=>{
+  const target=event.target.closest('[data-action]');if(!target)return;
+  const action=target.dataset.action,index=Number(target.dataset.card),card=content.cards[index];
+  if(action==='open'){openCard(index);return;}
+  if(action==='stop'){voice.stop();return;}
+  if(action==='listen'){
+    if(blocked){notice('Аудио доступно в тренажёре; сначала восстановите повреждённый прогресс, чтобы сохранить счётчики.');return;}
+    void voice.play(96,card.from,card.to,1,2,1,'muallim');return;
+  }
+  if(blocked||state.settings.paused)return;
+  state.settings.currentSurah=96;state.settings.currentAyah=card.from;
+  if(action==='count'){cardVerses(card).forEach(v=>countRead(state,`96:${v.number}`));save();updateProgress();}
+  if(action==='verify'){
+    if(!document.querySelector(`#verify-${index}`).checked){notice('Подтвердите, что весь блок прочитан без подсказки и таджвид проверен.');return;}
+    cardVerses(card).forEach(v=>verifyAyah(state,`96:${v.number}`));
+    if(save())notice('Проверенные аяты добавлены в общий фонд муроджаа.');
+    updateProgress();
+  }
+});
+document.querySelector('#hide-arabic').addEventListener('change',event=>{
+  document.querySelectorAll('.arabic').forEach(el=>{el.classList.toggle('hidden-text',event.target.checked);if(event.target.checked)el.setAttribute('aria-hidden','true');else el.removeAttribute('aria-hidden');});
+});
+document.querySelector('#close-modal').onclick=()=>modal.close();
+document.querySelector('#prev-card').onclick=()=>openCard(activeCard-1);
+document.querySelector('#next-card').onclick=()=>openCard(activeCard+1);
+modal.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'){event.preventDefault();openCard(activeCard-1);}if(event.key==='ArrowRight'){event.preventDefault();openCard(activeCard+1);}});
+window.addEventListener('pagehide',()=>voice.stop());
+window.addEventListener('storage',event=>{
+  if(event.key!=='quran-hifz:v1'||!surahs)return;
+  voice.stop();
+  try{state=load(localStorage,surahs,allTexts);blocked=false;render();}catch{blocked=true;notice('Прогресс в другой вкладке повреждён. Сохранение остановлено.');}
+});
+async function init(){
+  try{
+    [content,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-alaq.json','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
+    verses=allTexts['96'];
+    try{state=load(localStorage,surahs,allTexts);}catch{blocked=true;state=freshState();notice('Сохранённый прогресс недоступен. Исходные данные не перезаписаны; восстановите копию в настройках тренажёра.');}
+    render();
+    if('serviceWorker' in navigator)navigator.serviceWorker.register('../../service-worker.js').catch(()=>notice('Офлайн-режим недоступен; онлайн-функции работают.'));
+  }catch(error){grid.innerHTML=`<p class="error">${esc(error.message)} Откройте сайт через HTTP или повторите загрузку.</p>`;}
+}
+void init();
