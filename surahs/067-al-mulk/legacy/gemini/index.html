@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surah Al-Mulk Memorization | Gemini Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f5f1e8;
+            --primary-dark: #1a3a52;
+            --primary-light: #2d5a7b;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f1e5bc;
+            --text-main: #2c3e50;
+            --glass: rgba(255, 255, 255, 0.7);
+            --success: #6b9e7f;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 1rem; }
+
+        .progress-container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            height: 10px;
+            margin: 1rem auto;
+            max-width: 500px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            background: var(--accent-gold);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        button {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        button.active {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        button:hover { background: rgba(212, 175, 55, 0.2); }
+
+        .block-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .block-card.today {
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.2);
+        }
+        .block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--accent-gold-light);
+            padding-bottom: 0.5rem;
+        }
+        .prayer-badge {
+            background: var(--primary-dark);
+            color: var(--accent-gold);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            text-align: right;
+            direction: rtl;
+            margin-bottom: 1.5rem;
+            line-height: 2.5;
+            color: var(--primary-dark);
+        }
+        .russian {
+            font-size: 1rem;
+            color: var(--text-main);
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .hidden-text {
+            filter: blur(5px);
+            cursor: pointer;
+            user-select: none;
+            transition: filter 0.3s;
+        }
+        .hidden-text:active, .hidden-text.revealed { filter: blur(0); }
+
+        .anchors {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .memory-zone {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+        .check-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.75rem;
+            text-align: center;
+        }
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--success);
+            margin-bottom: 5px;
+        }
+
+        .recall-test {
+            margin-top: 1rem;
+            border-top: 1px dashed var(--accent-gold);
+            padding-top: 1rem;
+        }
+        .recall-btn {
+            font-size: 0.8rem;
+            color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .spaced-repetition {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        .disclaimer {
+            font-size: 0.7rem;
+            text-align: center;
+            margin: 2rem 0;
+            opacity: 0.7;
+            font-style: italic;
+        }
+        .reset-btn {
+            background: #e74c3c;
+            border: none;
+            margin: 2rem auto;
+            display: block;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .arabic { font-size: 1.5rem; }
+            .checkbox-group { grid-template-columns: 1fr; }
+            .check-item { flex-direction: row; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Сура Аль-Мульк</h1>
+    <p>Когнитивная система заучивания</p>
+    <div class="progress-container">
+        <div id="progressBar" class="progress-bar"></div>
+    </div>
+    <div class="controls">
+        <button id="mode-all" class="active" onclick="setMode('all')">Все</button>
+        <button id="mode-arabic" onclick="setMode('arabic')">Арабский</button>
+        <button id="mode-memo" onclick="setMode('memo')">Заучивание</button>
+    </div>
+</header>
+
+<div class="container">
+    <div id="blocksContainer">
+        <!-- Blocks will be injected here -->
+    </div>
+
+    <div class="spaced-repetition">
+        <h3>График интервального повторения</h3>
+        <p>Для закрепления в долговременной памяти повторяйте этот блок через:</p>
+        <p><strong>День 1 → День 3 → День 7 → День 14 → День 30</strong></p>
+    </div>
+
+    <p class="disclaimer">
+        Этот сайт предназначен для личного заучивания. Пожалуйста, уточняйте правила чтения в намазе у вашего имама или учителя.
+    </p>
+
+    <button class="reset-btn" onclick="resetProgress()">Сбросить прогресс</button>
+</div>
+
+<script>
+    const blocks = [
+        {
+            id: 1, prayer: "Фаджр", rakah: 1, range: "1-3",
+            arabic: "تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ (1) الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا ۚ وَهُوَ الْعَزِيزُ الْغَفُورُ (2) الَّذِي خَلَقَ سَبْعَ سَمَاوَاتٍ طِبَاقًا ۖ مَا تَرَىٰ فِي خَلْقِ الرَّحْمَٰنِ مِنْ تَفَاوُتٍ ۖ فَارْجِعِ الْبَصَرَ هَلْ تَرَىٰ مِنْ فُطُورٍ (3)",
+            russian: "Благословен Тот, в Чьей Руке власть, Кто властен над всем сущем. Кто сотворил смерть и жизнь, чтобы испытать вас и увидеть, чьи деяния окажутся лучше. Он — Могущественный, Прощающий. Он создал семь небес одно над другим. В творении Милостивого ты не увидишь никакой неоправданности. Взгляни еще раз: видишь ли ты хоть какую-то трещину?",
+            mnemonic: "Представь Короля, который держит мир в руках и проверяет качество твоих дел, как ювелир.",
+            anchors: "👑 ⚖️ 🌌",
+            key: "Власть Аллаха и совершенство творения",
+            how: "Сфокусируйся на слове 'Табарака' (Благословен) и 'Ли-яблувакум' (чтобы испытать вас).",
+            test: ["Кто держит власть в Своих руках?", "Зачем созданы жизнь и смерть?"]
+        },
+        {
+            id: 2, prayer: "Фаджр", rakah: 2, range: "4-6",
+            arabic: "ثُمَّ ارْجِعِ الْبَصَرَ كَرَّتَيْنِ يَنْقَلِبْ إِلَيْكَ الْبَصَرُ خَاسِئًا وَهُوَ حَسِيرٌ (4) وَلَقَدْ زَيَّنَّا السَّمَاءَ الدُّنْيَا بِمَصَابِيحَ وَجَعَلْنَاهَا رُجُومًا لِلشَّيَاطِينِ ۖ وَأَعْتَدْنَا لَهُمْ عَذَابَ السَّعِيرِ (5) وَلِلَّذِينَ كَفَرُوا بِرَبِّهِمْ عَذَابُ جَهَنَّمَ ۖ وَبِئْسَ الْمَصِيرُ (6)",
+            russian: "Затем посмотри еще и еще: твой взор вернется к тебе униженным и утомленным. Мы украсили ближайшее небо светильниками и сделали их снарядами для дьяволов. Мы приготовили для них мучения в Пламени. Для тех, кто не уверовал в своего Господа, уготованы мучения в Геенне. Как же скверно это место прибытия!",
+            mnemonic: "Твой глаз устал искать ошибки в небесах, где звезды горят как фонари для защиты.",
+            anchors: "👁️ 🔦 🔥",
+            key: "Бессилие человека перед мощью космоса",
+            how: "Запомни цепочку: Глаз (басар) → Лампы (масабих) → Пламя (са'ир).",
+            test: ["Что произойдет с взором после повторного поиска?", "Чем украшено нижнее небо?"]
+        },
+        {
+            id: 3, prayer: "Зухр", rakah: 1, range: "7-9",
+            arabic: "إِذَا أُلْقُوا فِيهَا سَمِعُوا لَهَا شَهِيقًا وَهِيَ تَفُورُ (7) تَكَادُ تَمَيَّزُ مِنَ الْغَيْظِ ۖ كُلَّمَا أُلْقِيَ فِيهَا فَوْجٌ سَأَلَهُمْ خَزَنَتُهَا أَلَمْ يَأْتِكُمْ نَذِيرٌ (8) قَالُوا بَلَىٰ قَدْ جَاءَنَا نَذِيرٌ فَكَذَّبْنَا وَقُلْنَا مَا نَزَّلَ اللَّهُ مِنْ شَيْءٍ إِنْ أَنْتُمْ إِلَّا فِي ضَلَالٍ كَبِيرٍ (9)",
+            russian: "Когда их бросят туда, они услышат ее рев, и она будет кипеть. Она готова лопнуть от ярости. Каждый раз, когда туда будут бросать толпу, ее стражи будут спрашивать их: «Разве к вам не приходил предостерегающий увещеватель?» Они скажут: «Да, увещеватель приходил к нам, но мы сочли его лжецом...»",
+            mnemonic: "Звук ревущего котла. Гнев огня. Стражники задают один и тот же вопрос опоздавшим.",
+            anchors: "📢 🌋 👮",
+            key: "Описание ада и сожаление неверующих",
+            how: "Свяжи 'Шахикан' (вздох/рев) с ощущением жара.",
+            test: ["Какой звук издает Геенна?", "О чем спрашивают стражи ада?"]
+        },
+        {
+            id: 4, prayer: "Зухр", rakah: 2, range: "10-12",
+            arabic: "وَقَالُوا لَوْ كُنَّا نَسْمَعُ أَوْ نَعْقِلُ مَا كُنَّا فِي أَصْحَابِ السَّعِيرِ (10) فَاعْتَرَفُوا بِذَنْبِهِمْ فَسُحْقًا لِأَصْحَابِ السَّعِيرِ (11) إِنَّ الَّذِينَ يَخْشَوْنَ رَبَّهُمْ بِالْغَيْبِ لَهُمْ مَغْفِرَةٌ وَأَجْرٌ كَبِيرٌ (12)",
+            russian: "Они скажут: «Если бы мы слушали или размышляли, то не оказались бы среди обитателей Пламени». Они признают свой грех. Прочь же, обитатели Пламени! Воистину, тем, которые боятся своего Господа, не видя Его, уготованы прощение и большая награда.",
+            mnemonic: "Упущенный шанс: не слушали, не думали. Контраст: страх перед невидимым Богом приносит свет.",
+            anchors: "👂 🧠 🎁",
+            key: "Признание вины и награда за скрытое благочестие",
+            how: "Слова 'Насма'у' (слышим) и 'На'кылю' (понимаем) — ключи блока.",
+            test: ["Что помешало людям избежать огня?", "Что обещано тем, кто боится Господа тайно?"]
+        },
+        {
+            id: 5, prayer: "Аср", rakah: 1, range: "13-15",
+            arabic: "وَأَسِرُّوا قَوْلَكُمْ أَوِ اجْهَرُوا بِهِ ۖ إِنَّهُ عَلِيمٌ بِذَاتِ الصُّدُورِ (13) أَلَا يَعْلَمُ مَنْ خَلَقَ وَهُوَ اللَّطِيفُ الْخَبِيرُ (14) هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا فَامْشُوا فِي مَنَاكِبِهَا وَكُلُوا مِنْ رِزْقِهِ ۖ وَإِلَيْهِ النُّشُورُ (15)",
+            russian: "Храните ли вы свои речи в секрете или произносите их вслух — Он знает о том, что в сердцах. Неужели не будет знать Тот, Кто сотворил, если Он — Проницательный, Сведущий? Он — Тот, Кто сделал для вас землю покорной. Ступайте же по ее тропам и вкушайте из Его удела. К Нему вы вернетесь после воскрешения.",
+            mnemonic: "Бог слышит даже шепот в твоей голове. Земля как ручной зверь — ходи по ней и ешь, но помни о возвращении.",
+            anchors: "🤫 🚶‍♂️ 🍞",
+            key: "Всезнание Аллаха и Его дары на земле",
+            how: "Переход от тайн сердца к прогулке по земле (Арз залюля).",
+            test: ["Знает ли Аллах наши мысли?", "Как описана земля в 15-м аяте?"]
+        },
+        {
+            id: 6, prayer: "Аср", rakah: 2, range: "16-18",
+            arabic: "أَأَمِنْتُمْ مَنْ فِي السَّمَاءِ أَنْ يَخْسِفَ بِكُمُ الْأَرْضَ فَإِذَا هِيَ تَمُورُ (16) أَمْ أَمِنْتُمْ مَنْ فِي السَّمَاءِ أَنْ يُرْسِلَ عَلَيْكُمْ حَاصِبًا ۖ فَسَتَعْلَمُونَ كَيْفَ نَذِيرِ (17) وَلَقَدْ كَذَّبَ الَّذِينَ مِنْ قَبْلِهِمْ فَكَيْفَ كَانَ نَكِيرِ (18)",
+            russian: "Неужели вы уверены, что Тот, Кто на небе, не заставит землю поглотить вас? Ведь тогда она заколеблется! Или вы уверены, что Тот, Кто на небе, не нашлет на вас ураган с камнями? Скоро вы узнаете, каково Мое предостережение! Жившие до них тоже считали лжецами посланников. Каким же был Мой гнев!",
+            mnemonic: "Внезапное землетрясение или град с неба. Предупреждение о хрупкости безопасности.",
+            anchors: "📉 💨 ☄️",
+            key: "Предупреждение о внезапном наказании",
+            how: "Два вопроса 'А-аминтум' (Неужели вы в безопасности?).",
+            test: ["Каких двух бедствий стоит опасаться грешникам?", "О чем напоминает 18-й аят?"]
+        },
+        {
+            id: 7, prayer: "Магриб", rakah: 1, range: "19-21",
+            arabic: "أَوَلَمْ يَرَوْا إِلَى الطَّيْرِ فَوْقَهُمْ صَافَّاتٍ وَيَقْبِضْنَ ۚ مَا يُمْسِكُهُنَّ إِلَّا الرَّحْمَٰنُ ۚ إِنَّهُ بِكُلِّ شَيْءٍ بَصِيرٌ (19) أَمَّنْ هَٰذَا الَّذِي هُوَ جُنْدٌ لَكُمْ يَنْصُرُكُمْ مِنْ دُونِ الرَّحْمَٰنِ ۚ إِنِ الْكَافِرُونَ إِلَّا فِي غُرُورٍ (20) أَمَّنْ هَٰذَا الَّذِي يَرْزُقُكُمْ إِنْ أَمْسَكَ رِزْقَهُ ۚ بَلْ لَجُّوا فِي عُتُوٍّ وَنُفُورٍ (21)",
+            russian: "Неужели они не видели над собой птиц, которые простирают и складывают крылья? Никто не удерживает их, кроме Милостивого. Воистину, Он видит всякую вещь. Кто может стать вашим войском и помочь вам вместо Милостивого? Неверующие лишь обольщены. Кто может наделить вас уделом, если Он прекратит наделять вас им?",
+            mnemonic: "Посмотри на птиц — их держит в воздухе невидимая рука. Нет армии сильнее Милостивого. Нет еды без Его воли.",
+            anchors: "🦅 🛡️ 🌾",
+            key: "Знамения в природе и истинная защита",
+            how: "Образ птиц (Тайр) — центральный якорь блока.",
+            test: ["Кто удерживает птиц в небе?", "В чем заблуждаются неверующие?"]
+        },
+        {
+            id: 8, prayer: "Магриб", rakah: 2, range: "22-24",
+            arabic: "أَفَمَنْ يَمْشِي مُكِبًّا عَلَىٰ وَجْهِهِ أَهْدَىٰ أَمَّنْ يَمْشِي سَوِيًّا عَلَىٰ صِرَاطٍ مُسْتَقِيمٍ (22) قُلْ هُوَ الَّذِي أَنْشَأَكُمْ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ ۖ قَلِيلًا مَا تَشْكُرُونَ (23) قُلْ هُوَ الَّذِي ذَرَأَكُمْ فِي الْأَرْضِ وَإِلَيْهِ تُحْشَرُونَ (24)",
+            russian: "Разве тот, кто бредет, спотыкаясь, более следует прямым путем, чем тот, кто идет ровно по прямому пути? Скажи: «Он — Тот, Кто создал вас и наделил вас слухом, зрением и сердцами. Как мало вы благодарите!» Скажи: «Он — Тот, Кто расселил вас по земле, и к Нему вы будете собраны».",
+            mnemonic: "Человек, ползущий лицом вниз vs идущий прямо. Твои уши, глаза и сердце — инструменты, которыми нужно пользоваться с благодарностью.",
+            anchors: "🚷 🛣️ ❤️",
+            key: "Разница в руководстве и благодарность",
+            how: "Контраст 'Мукиббан' (лицом вниз) и 'Савийян' (ровно).",
+            test: ["Сравнение двух идущих людей.", "Какие три органа даны нам для познания?"]
+        },
+        {
+            id: 9, prayer: "Иша", rakah: 1, range: "25-27",
+            arabic: "وَيَقُولُونَ مَتَىٰ هَٰذَا الْوَعْدُ إِنْ كُنْتُمْ صَادِقِينَ (25) قُلْ إِنَّمَا الْعِلْمُ عِنْدَ اللَّهِ وَإِنَّمَا أَنَا نَذِيرٌ مُبِينٌ (26) فَلَمَّا رَأَوْهُ زُلْفَةً سِيئَتْ وُجُوهُ الَّذِينَ كَفَرُوا وَقِيلَ هَٰذَا الَّذِي كُنْتُمْ بِهِ تَدَّعُونَ (27)",
+            russian: "Они спрашивают: «Когда же исполнится это обещание, если вы говорите правду?» Скажи: «Знание об этом — у Аллаха, а я — лишь разъясняющий увещеватель». Когда они увидят его (наказание) вблизи, лица неверующих исказятся от ужаса, и им скажут: «Вот то, что вы призывали!»",
+            mnemonic: "Насмешливый вопрос: 'Ну и когда это будет?'. Резкое осознание, когда наказание оказывается прямо перед лицом.",
+            anchors: "⌚ ❓ 😨",
+            key: "Час расплаты и его внезапность",
+            how: "Свяжи вопрос 'Мата' (Когда?) с искаженными лицами (Си-ат вуджух).",
+            test: ["Что спрашивают неверующие?", "Что произойдет с их лицами в Судный день?"]
+        },
+        {
+            id: 10, prayer: "Иша", rakah: 2, range: "28-30",
+            arabic: "قُلْ أَرَأَيْتُمْ إِنْ أَهْلَكَنِيَ اللَّهُ وَمَنْ مَعِيَ أَوْ رَحِمَنَا فَمَنْ يُجِيرُ الْكَافِرِينَ مِنْ عَذَابٍ أَلِيمٍ (28) قُلْ هُوَ الرَّحْمَٰنُ آمَنَّا بِهِ وَعَلَيْهِ تَوَكَّلْنَا ۖ فَسَتَعْلَمُونَ مَنْ هُوَ فِي ضَلَالٍ مُبِينٍ (29) قُلْ أَرَأَيْتُمْ إِنْ أَصْبَحَ مَاؤُكُمْ غَوْرًا فَمَنْ يَأْتِيكُمْ بِمَاءٍ مَعِينٍ (30)",
+            russian: "Скажи: «Как вы думаете, если Аллах погубит меня и тех, кто со мной, или помилует нас — кто защитит неверующих от мучительных страданий?» Скажи: «Он — Милостивый! Мы уверовали в Него и уповаем на Него. Вы скоро узнаете, кто находится в явном заблуждении». Скажи: «Как вы думаете, если ваша вода уйдет глубоко под землю, кто принесет вам чистую родниковую воду?»",
+            mnemonic: "Последний аргумент: если даже пророк уйдет, вам это не поможет. И если вода исчезнет — кто напоит вас?",
+            anchors: "🛡️ 🤝 💧",
+            key: "Упование на Милостивого и зависимость от Него",
+            how: "Финальное слово 'Ма-ин' (родниковая вода) — символ жизни и веры.",
+            test: ["На кого уповают верующие?", "Какое знамение приводится в последнем аяте?"]
+        }
+    ];
+
+    let currentMode = 'all';
+    let progress = JSON.parse(localStorage.getItem('mulk_progress')) || {};
+
+    function setMode(mode) {
+        currentMode = mode;
+        document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+        document.getElementById(`mode-${mode}`).classList.add('active');
+        render();
+    }
+
+    function toggleCheck(blockId, type) {
+        const key = `${blockId}_${type}`;
+        progress[key] = !progress[key];
+        localStorage.setItem('mulk_progress', JSON.stringify(progress));
+        updateProgressBar();
+    }
+
+    function updateProgressBar() {
+        const totalItems = blocks.length * 3;
+        const completedItems = Object.values(progress).filter(v => v).length;
+        const percent = (completedItems / totalItems) * 100;
+        document.getElementById('progressBar').style.width = `${percent}%`;
+    }
+
+    function resetProgress() {
+        if (confirm('Вы уверены, что хотите сбросить весь прогресс?')) {
+            progress = {};
+            localStorage.removeItem('mulk_progress');
+            render();
+            updateProgressBar();
+        }
+    }
+
+    function render() {
+        const container = document.getElementById('blocksContainer');
+        container.innerHTML = '';
+
+        const today = new Date().getDay(); // 0-6 (Sun-Sat)
+        // Simple logic: blocks 1-7 for Mon-Sun, 8-10 repeat
+        const recommendedBlock = (today === 0 ? 7 : today); 
+
+        blocks.forEach(block => {
+            const card = document.createElement('div');
+            card.className = `block-card ${block.id === recommendedBlock ? 'today' : ''}`;
+            card.id = `block-${block.id}`;
+
+            const isMemo = currentMode === 'memo';
+            const hideArabic = currentMode === 'russian';
+            const hideRussian = currentMode === 'arabic' || isMemo;
+
+            card.innerHTML = `
+                <div class="block-header">
+                    <div>
+                        <strong>Блок ${block.id}</strong> 
+                        <span style="font-size: 0.8rem; opacity: 0.7; margin-left: 10px;">Аяты ${block.range}</span>
+                    </div>
+                    <div class="prayer-badge">${block.prayer} (${block.rakah} ракаат)</div>
+                </div>
+
+                ${!hideArabic ? `<div class="arabic">${block.arabic}</div>` : ''}
+                
+                <div class="russian ${isMemo ? 'hidden-text' : ''}" onclick="this.classList.toggle('revealed')">
+                    ${!hideRussian || isMemo ? block.russian : ''}
+                    ${isMemo ? '<div style="font-size: 0.7rem; color: var(--accent-gold); margin-top: 5px;">[ Нажмите, чтобы вспомнить перевод ]</div>' : ''}
+                </div>
+
+                <div class="anchors">${block.anchors}</div>
+
+                <div class="memory-zone">
+                    <p><strong>💡 Мнемоника:</strong> ${block.mnemonic}</p>
+                    <p><strong>🔑 Суть:</strong> ${block.key}</p>
+                    <p><strong>🎯 Как учить:</strong> ${block.how}</p>
+                </div>
+
+                <div class="recall-test">
+                    <button class="recall-btn" onclick="this.nextElementSibling.style.display='block'; this.style.display='none'">Проверить себя (Recall Test)</button>
+                    <div style="display:none; font-size: 0.85rem; margin-top: 10px;">
+                        <ul style="padding-left: 20px;">
+                            ${block.test.map(t => `<li>${t}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="check-item">
+                        <input type="checkbox" ${progress[`${block.id}_read`] ? 'checked' : ''} onchange="toggleCheck(${block.id}, 'read')">
+                        Прочитал
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" ${progress[`${block.id}_memo`] ? 'checked' : ''} onchange="toggleCheck(${block.id}, 'memo')">
+                        Выучил
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" ${progress[`${block.id}_recall`] ? 'checked' : ''} onchange="toggleCheck(${block.id}, 'recall')">
+                        Вспомнил без подсказки
+                    </label>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        if (document.querySelector('.block-card.today')) {
+            // Optional: highlight today's block with a label
+            const label = document.createElement('div');
+            label.style = "text-align: center; color: var(--accent-gold); font-weight: 600; margin-bottom: -1rem;";
+            label.innerText = "⭐ Рекомендуемый блок на сегодня";
+            document.querySelector('.block-card.today').before(label);
+        }
+    }
+
+    // Init
+    render();
+    updateProgressBar();
+</script>
+
+</body>
+</html>
+
+<!-- 
+DEPLOYMENT ON GITHUB PAGES:
+1. Create folder 'surat-almulk/gemini' in your repo.
+2. Save this file as 'index.html' inside that folder.
+3. Push to GitHub.
+4. It will be available at https://yourusername.github.io/surat-almulk/gemini/
+
+HOW TO EDIT CONTENT:
+1. Find the 'blocks' array in the <script> section.
+2. Each block object contains fields like 'arabic', 'russian', 'mnemonic'.
+3. Update the text strings to change translations or explanations.
+-->

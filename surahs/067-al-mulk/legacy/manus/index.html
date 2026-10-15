@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Система запоминания Суры Аль-Мульк: 30 аятов за 10 блоков в 5 намазах">
+    <title>Surah Al-Mulk Memorization System | Система запоминания Суры Аль-Мульк</title>
+    
+    <style>
+        /* ==================== CSS Variables & Root ==================== */
+        :root {
+            --primary-dark: #1a3a52;      /* Dark royal blue */
+            --primary-light: #2d5a7b;     /* Lighter blue */
+            --accent-gold: #d4af37;       /* Gold */
+            --accent-green: #6b9e7f;      /* Soft green */
+            --bg-light: #f5f1e8;          /* Warm light background */
+            --text-dark: #2c2c2c;         /* Dark text */
+            --text-light: #f5f1e8;        /* Light text */
+            --border-color: #d4af3733;    /* Gold with transparency */
+            --shadow: 0 4px 12px rgba(26, 58, 82, 0.15);
+            --shadow-hover: 0 8px 20px rgba(26, 58, 82, 0.25);
+            --transition: all 0.3s ease;
+        }
+
+        /* ==================== Reset & Base Styles ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ==================== Typography ==================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+
+        /* Arabic text styling */
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+            font-family: "Amiri", "Scheherazade New", "Noto Naskh Arabic", serif;
+            font-size: 1.8rem;
+            line-height: 2.2;
+            letter-spacing: 0.05em;
+        }
+
+        /* ==================== Layout ==================== */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ==================== Header & Navigation ==================== */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: var(--text-light);
+            padding: 2rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-title {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .header-title h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .header-title p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* ==================== Buttons ==================== */
+        button, .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #e5c158;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-green);
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a8a6f;
+            transform: translateY(-2px);
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .btn-danger {
+            background-color: #c94c4c;
+            color: var(--text-light);
+        }
+
+        .btn-danger:hover {
+            background-color: #b23a3a;
+        }
+
+        /* ==================== Hero Section ==================== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: var(--text-light);
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .motivational {
+            font-size: 1rem;
+            font-style: italic;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ==================== Disclaimer ==================== */
+        .disclaimer {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .disclaimer strong {
+            color: var(--primary-dark);
+        }
+
+        /* ==================== Progress Dashboard ==================== */
+        .progress-dashboard {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .progress-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: var(--text-light);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .progress-bar-container {
+            margin: 1.5rem 0;
+        }
+
+        .progress-bar-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green) 0%, var(--accent-gold) 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        /* ==================== Controls Section ==================== */
+        .controls-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .control-group label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+        }
+
+        .control-group select,
+        .control-group input {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .toggle-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .toggle-btn {
+            padding: 0.6rem 1.2rem;
+            border: 2px solid var(--border-color);
+            background-color: transparent;
+            color: var(--primary-dark);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .toggle-btn.active {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        /* ==================== Memorization Cards ==================== */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: var(--text-light);
+            padding: 1rem;
+            margin: -1.5rem -1.5rem 1rem -1.5rem;
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        .card-number {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .card-content {
+            margin-bottom: 1rem;
+        }
+
+        .ayah-range {
+            background-color: var(--bg-light);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .arabic-text {
+            background-color: #f9f7f4;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--accent-gold);
+            line-height: 2.2;
+            font-size: 1.6rem;
+        }
+
+        .translation {
+            background-color: var(--bg-light);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .mnemonic {
+            background-color: #e8f4f8;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border-left: 4px solid #4db8d8;
+        }
+
+        .emoji-anchors {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .key-meaning {
+            background-color: #fff9e6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+            border-left: 4px solid #ffc107;
+        }
+
+        .memory-tip {
+            background-color: #f0f7ff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+            border-left: 4px solid #2196f3;
+        }
+
+        .recall-test {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .recall-question {
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .recall-answer {
+            font-size: 0.9rem;
+            color: #666;
+            margin-left: 1rem;
+            padding: 0.5rem;
+            background-color: white;
+            border-radius: 0.3rem;
+            display: none;
+        }
+
+        .recall-answer.show {
+            display: block;
+        }
+
+        /* ==================== Checkboxes ==================== */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background-color: var(--bg-light);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .checkbox-item:hover {
+            background-color: #ede8df;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--accent-gold);
+        }
+
+        .checkbox-label {
+            flex: 1;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        /* ==================== Footer ==================== */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ==================== Responsive Design ==================== */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
+
+            .hero h2 { font-size: 1.6rem; }
+            .hero .subtitle { font-size: 1rem; }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .controls-grid {
+                grid-template-columns: 1fr;
+            }
+
+            [dir="rtl"] {
+                font-size: 1.5rem;
+            }
+
+            .arabic-text {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* ==================== Print Styles ==================== */
+        @media print {
+            header, footer, .controls-section, .progress-dashboard {
+                display: none;
+            }
+
+            body {
+                background-color: white;
+            }
+
+            .card {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                margin-bottom: 2rem;
+            }
+
+            .card-header {
+                background-color: var(--primary-dark);
+                color: white;
+            }
+
+            .toggle-btn, button {
+                display: none;
+            }
+
+            .checkbox-item {
+                display: flex;
+            }
+        }
+
+        /* ==================== Utility Classes ==================== */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 { margin-top: 2rem; }
+        .mb-2 { margin-bottom: 2rem; }
+
+        .today-badge {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <div class="container">
+            <div class="header-title">
+                <h1>🌙 Surah Al-Mulk</h1>
+                <p>Система запоминания: 30 аятов за 10 блоков в 5 намазах</p>
+            </div>
+            <div class="header-controls">
+                <button class="btn btn-secondary btn-small" onclick="resetProgressWithConfirm()">🔄 Сброс</button>
+                <button class="btn btn-primary btn-small" onclick="window.print()">🖨️ Печать</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+        <div class="container">
+            <!-- HERO SECTION -->
+            <section class="hero">
+                <h2>Surah Al-Mulk Memorization System 👑</h2>
+                <p class="subtitle">Система запоминания Суры Аль-Мульк: 30 аятов за 10 блоков</p>
+                <p class="motivational">
+                    "Маленький ежедневный шаг после Фатихи превращает 30 аятов в устойчивую память. 
+                    Каждый блок — это одна ракаат, каждая ракаат — это шаг к совершенству." 📿
+                </p>
+            </section>
+
+            <!-- DISCLAIMER -->
+            <div class="disclaimer">
+                <strong>⚠️ Важное замечание:</strong> Проверьте порядок чтения в намазе с вашим устозом/имамом, 
+                особенно если вы читаете за имамом или следуете конкретным правилам ханафитского мазхаба. 
+                Этот сайт предназначен для личного запоминания и повторения, а не для выдачи фетв.
+            </div>
+
+            <!-- PROGRESS DASHBOARD -->
+            <section class="progress-dashboard">
+                <h2>📊 Ваш прогресс</h2>
+                
+                <div class="progress-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalRead">0</div>
+                        <div class="stat-label">Прочитано блоков</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalMemorized">0</div>
+                        <div class="stat-label">Выучено блоков</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalReviewed">0</div>
+                        <div class="stat-label">Повторено без подсказки</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="completionPercent">0%</div>
+                        <div class="stat-label">Общий прогресс</div>
+                    </div>
+                </div>
+
+                <div class="progress-bar-container">
+                    <div class="progress-bar-label">
+                        <span>Прогресс запоминания</span>
+                        <span id="progressText">0 / 10 блоков</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+
+                <div class="progress-bar-container">
+                    <div class="progress-bar-label">
+                        <span>Повторение</span>
+                        <span id="reviewText">0 / 10 блоков</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="background: linear-gradient(90deg, #4db8d8 0%, #2196f3 100%); width: 0%;" id="reviewFill"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTROLS SECTION -->
+            <section class="controls-section">
+                <h2>⚙️ Управление</h2>
+                
+                <div class="controls-grid">
+                    <div class="control-group">
+                        <label for="prayerFilter">Фильтр по намазу:</label>
+                        <select id="prayerFilter" onchange="filterCards()">
+                            <option value="">Все намазы</option>
+                            <option value="Фаджр">Фаджр (Рассвет)</option>
+                            <option value="Зухр">Зухр (Полдень)</option>
+                            <option value="Аср">Аср (Послеполуденный)</option>
+                            <option value="Магриб">Магриб (Закат)</option>
+                            <option value="Иша">Иша (Ночь)</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="ayahFilter">Поиск по номеру аята:</label>
+                        <input type="number" id="ayahFilter" min="1" max="30" placeholder="1-30" onchange="filterCards()">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Режим отображения:</label>
+                        <div class="toggle-buttons">
+                            <button class="toggle-btn active" onclick="setViewMode('all')">Все</button>
+                            <button class="toggle-btn" onclick="setViewMode('arabic')">Только арабский</button>
+                            <button class="toggle-btn" onclick="setViewMode('memorize')">Режим запоминания</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group mt-2">
+                    <label>📅 Сегодняшний блок:</label>
+                    <div class="toggle-buttons">
+                        <button class="toggle-btn" onclick="showTodayBlock()">Показать рекомендуемый блок</button>
+                        <button class="toggle-btn" onclick="scrollToBlock(getCurrentBlockNumber())">Перейти к блоку</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MEMORIZATION CARDS -->
+            <section id="cardsContainer" class="cards-container">
+                <!-- Cards will be generated by JavaScript -->
+            </section>
+
+            <!-- REVIEW SCHEDULE -->
+            <section class="progress-dashboard mt-2">
+                <h2>📅 График повторения</h2>
+                <p style="margin-bottom: 1rem; color: #666;">
+                    Для эффективного запоминания используйте следующий график повторения:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                    <div style="background: #e8f4f8; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #4db8d8;">
+                        <strong>День 1</strong><br>Первое повторение
+                    </div>
+                    <div style="background: #e8f4f8; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #4db8d8;">
+                        <strong>День 2</strong><br>Второе повторение
+                    </div>
+                    <div style="background: #e8f4f8; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #4db8d8;">
+                        <strong>День 4</strong><br>Третье повторение
+                    </div>
+                    <div style="background: #e8f4f8; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #4db8d8;">
+                        <strong>День 8</strong><br>Четвёртое повторение
+                    </div>
+                    <div style="background: #e8f4f8; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #4db8d8;">
+                        <strong>День 15</strong><br>Пятое повторение
+                    </div>
+                    <div style="background: #e8f4f8; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #4db8d8;">
+                        <strong>День 30</strong><br>Финальное повторение
+                    </div>
+                </div>
+            </section>
+
+            <!-- MOTIVATION -->
+            <section class="progress-dashboard mt-2" style="text-align: center;">
+                <h2>🕊️ Вдохновение</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--primary-dark);">
+                    <strong>"Таба́рака аллади́ би-йа́диhи аль-мульк"</strong> — 
+                    "Благословен Тот, в Чьих Руках власть!" 👑<br><br>
+                    Каждый день, когда вы повторяете эти аяты, вы не просто запоминаете слова — 
+                    вы соединяетесь с величием Творца. Пусть каждый аят станет светом в вашем сердце. 💫
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <p><strong>Surah Al-Mulk Memorization System</strong></p>
+            <p>Создано для помощи в запоминании Суры Аль-Мульк (67-я сура Корана)</p>
+            <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">
+                Используйте <a href="https://umma.ru" target="_blank" style="color: var(--accent-gold); text-decoration: none;">umma.ru</a> 
+                для проверки переводов и объяснений. 
+                <a href="https://github.com/HalimHamidov/surat-almulk" target="_blank" style="color: var(--accent-gold); text-decoration: none;">GitHub Repository</a>
+            </p>
+            <p style="font-size: 0.85rem; margin-top: 1rem;">Баракаллаху фикум 🤲</p>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ==================== DATA ==================== 
+        const blocks = [
+            {
+                number: 1,
+                prayer: "Фаджр",
+                prayerArabic: "الفجر",
+                rakah: 1,
+                ayahs: "1-3",
+                arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\nتَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ\nالَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا\nوَهُوَ الْعَزِيزُ الْغَفُورُ",
+                translation: "С именем Аллаха, Милостивого, Сострадательного!\nБлагословен Тот, в Чьих Руках власть, и Он над всем имеет власть.\nОн создал смерть и жизнь, чтобы испытать вас, кто из вас лучше поступает. Он Могущественный, Прощающий.",
+                mnemonic: "Суры начинаются с Баракаллаху (благословение). Аллах держит власть над всем миром. Он создал жизнь и смерть как испытание для нас.",
+                emojis: "👑 ⚡ 🌍",
+                keyMeaning: "Аллах — Владелец всей власти и Творец жизни и смерти",
+                memoryTip: "Представьте корону (👑) на голове Аллаха — символ власти. Вся вселенная в Его руках.",
+                recallQuestions: [
+                    "Кто держит власть над всем?",
+                    "Зачем Аллах создал смерть и жизнь?"
+                ]
+            },
+            {
+                number: 2,
+                prayer: "Фаджр",
+                prayerArabic: "الفجر",
+                rakah: 2,
+                ayahs: "4-6",
+                arabic: "الَّذِي خَلَقَ سَبْعَ سَمَاوَاتٍ طِبَاقًا ۖ مَّا تَرَىٰ فِي خَلْقِ الرَّحْمَٰنِ مِن تَفَاوُتٍ\nفَارْجِعِ الْبَصَرَ هَلْ تَرَىٰ مِن فُطُورٍ\nثُمَّ ارْجِعِ الْبَصَرَ كَرَّتَيْنِ يَنقَلِبْ إِلَيْكَ الْبَصَرُ خَاسِئًا وَهُوَ حَسِيرٌ",
+                translation: "Он создал семь небес слоями. Ты не видишь никакого несоответствия в творении Милостивого. Посмотри еще раз: видишь ли ты какой-нибудь недостаток?\nПосмотри еще раз и еще раз: твой взор вернется к тебе усталым и разочарованным.",
+                mnemonic: "Семь небес созданы идеально. Нет ошибок в творении Аллаха. Даже если смотреть много раз, ничего не найдешь.",
+                emojis: "🌌 👀 ✨",
+                keyMeaning: "Совершенство творения Аллаха — нет никаких ошибок или недостатков",
+                memoryTip: "Представьте 7 слоев неба, идеально выстроенных. Ваш взор не найдет ни одной ошибки.",
+                recallQuestions: [
+                    "Сколько небес создал Аллах?",
+                    "Что мы видим, когда смотрим на творение Аллаха?"
+                ]
+            },
+            {
+                number: 3,
+                prayer: "Зухр",
+                prayerArabic: "الظهر",
+                rakah: 1,
+                ayahs: "7-9",
+                arabic: "وَلَقَدْ زَيَّنَّا السَّمَاءَ الدُّنْيَا بِمَصَابِيحَ وَجَعَلْنَاهَا رُجُومًا لِّلشَّيَاطِينِ\nوَأَعْتَدْنَا لَهُمْ عَذَابَ السَّعِيرِ\nوَلِلَّذِينَ كَفَرُوا بِرَبِّهِمْ عَذَابُ جَهَنَّمَ ۖ وَبِئْسَ الْمَصِيرُ",
+                translation: "Мы украсили ближайшее небо светильниками и сделали их метательными снарядами против шайтанов. Для них Мы приготовили наказание огня.\nДля тех, кто не верует в своего Господа, — наказание Ада. Какой скверный удел!",
+                mnemonic: "Звезды украшают небо и защищают от демонов. Неверующих ждет наказание в аду.",
+                emojis: "⭐ 🔥 😈",
+                keyMeaning: "Звезды служат украшением и защитой от зла",
+                memoryTip: "Звезды (⭐) как лампочки в небе, защищающие нас от демонов.",
+                recallQuestions: [
+                    "Для чего созданы звезды?",
+                    "Какое наказание ждет неверующих?"
+                ]
+            },
+            {
+                number: 4,
+                prayer: "Зухр",
+                prayerArabic: "الظهر",
+                rakah: 2,
+                ayahs: "10-12",
+                arabic: "إِذَا أُلْقُوا فِيهَا سَمِعُوا لَهَا شَهِيقًا وَهِيَ تَفِورُ\nتَكَادُ تَمَيَّزُ مِنَ الْغَيْظِ ۖ كُلَّمَا أُلْقِيَ فِيهَا فَوْجٌ سَأَلَهُمْ خَزَنَتُهَا أَلَمْ يَأْتِكُمْ نَذِيرٌ\nقَالُوا بَلَىٰ قَدْ جَاءَنَا نَذِيرٌ فَكَذَّبْنَا وَقُلْنَا مَا نَزَّلَ اللَّهُ مِن شَيْءٍ إِنْ أَنتُمْ إِلَّا فِي ضَلَالٍ كَبِيرٍ",
+                translation: "Когда их бросают туда, они слышат ее рев, и она кипит.\nОна почти разрывается от ярости. Каждый раз, когда туда бросают группу, ее стражи спрашивают их: 'Разве к вам не приходил увещеватель?'\nОни говорят: 'Да, к нам приходил увещеватель, но мы его отвергли и сказали: Аллах ничего не ниспослал. Вы только в великом заблуждении.'",
+                mnemonic: "Ад кипит от ярости. Люди слышат его рев. Стражи спрашивают, почему они отвергли предупреждение.",
+                emojis: "🔥 😱 ⚠️",
+                keyMeaning: "Последствия отвержения предупреждения пророков",
+                memoryTip: "Ад как живой организм, который кипит от гнева на неверующих.",
+                recallQuestions: [
+                    "Что слышат люди в аду?",
+                    "Что они отвечают стражам ада?"
+                ]
+            },
+            {
+                number: 5,
+                prayer: "Аср",
+                prayerArabic: "العصر",
+                rakah: 1,
+                ayahs: "13-15",
+                arabic: "فَاعْتَرَفُوا بِذَنبِهِمْ فَسُحْقًا لِّأَصْحَابِ السَّعِيرِ\nإِنَّ الَّذِينَ يَخْشَوْنَ رَبَّهُم بِالْغَيْبِ لَهُم مَّغْفِرَةٌ وَأَجْرٌ كَبِيرٌ\nوَأَسِرُّوا قَوْلَكُمْ أَوِ اجْهَرُوا بِهِ ۖ إِنَّهُ عَلِيمٌ بِذَاتِ الصُّدُورِ",
+                translation: "Они признали свой грех. Проклятие жителям огня!\nВоистину, те, кто боится своего Господа в тайне, получат прощение и великую награду.\nСкрывайте ли вы свои слова или говорите их открыто — Он знает то, что в сердцах.",
+                mnemonic: "Те, кто боится Аллаха в тайне, получат награду. Аллах знает все наши мысли.",
+                emojis: "🙏 💝 👁️",
+                keyMeaning: "Страх перед Аллахом в тайне приносит награду",
+                memoryTip: "Даже в тайне, когда никто не видит, Аллах знает наши сердца.",
+                recallQuestions: [
+                    "Кто получит прощение и награду?",
+                    "Знает ли Аллах наши скрытые мысли?"
+                ]
+            },
+            {
+                number: 6,
+                prayer: "Аср",
+                prayerArabic: "العصر",
+                rakah: 2,
+                ayahs: "16-18",
+                arabic: "أَلَا يَعْلَمُ مَن خَلَقَ وَهُوَ اللَّطِيفُ الْخَبِيرُ\nهُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا فَامْشُوا فِي مَنَاكِبِهَا وَكُلُوا مِن رِّزْقِهِ\nوَإِلَيْهِ النُّشُورُ",
+                translation: "Разве не знает Тот, Кто создал? Он Тонкий, Ведающий.\nОн — Тот, Кто сделал для вас землю послушной. Ходите по ее склонам и ешьте из Его удела. И к Нему вы будете воскрешены.",
+                mnemonic: "Аллах создал землю для нас. Мы должны ходить по ней и есть из того, что Он дал. Все вернутся к Нему.",
+                emojis: "🌍 🚶 🍽️",
+                keyMeaning: "Земля создана для нас как благодать Аллаха",
+                memoryTip: "Земля как ковер под нашими ногами, готовая к использованию.",
+                recallQuestions: [
+                    "Что Аллах сделал для нас?",
+                    "Куда мы вернемся в конце?"
+                ]
+            },
+            {
+                number: 7,
+                prayer: "Магриб",
+                prayerArabic: "المغرب",
+                rakah: 1,
+                ayahs: "19-21",
+                arabic: "أَأَمِنتُم مَّن فِي السَّمَاءِ أَن يَخْسِفَ بِكُمُ الْأَرْضَ فَإِذَا هِيَ تَمُورُ\nأَمْ أَمِنتُم مَّن فِي السَّمَاءِ أَن يُرْسِلَ عَلَيْكُمْ حَاصِبًا ۖ فَسَتَعْلَمُونَ كَيْفَ نَذِيرِ\nوَلَقَدْ كَذَّبَ الَّذِينَ مِن قَبْلِهِمْ فَكَيْفَ كَانَ نَكِيرِي",
+                translation: "Разве вы уверены, что Тот, Кто на небе, не заставит землю поглотить вас, и она не начнет колебаться?\nИли вы уверены, что Тот, Кто на небе, не пошлет на вас град? Тогда вы узнаете, как было Мое предупреждение!\nВоистину, те, кто был до них, отвергли истину. Как же было Мое наказание!",
+                mnemonic: "Аллах может наказать нас, если захочет. Те, кто отвергли пророков раньше, были наказаны.",
+                emojis: "⚡ 🌍 ⛈️",
+                keyMeaning: "Власть Аллаха над природой и наказание за отвержение",
+                memoryTip: "Земля может трясться, град может падать — все в руках Аллаха.",
+                recallQuestions: [
+                    "Что может сделать Аллах с землей?",
+                    "Что произошло с теми, кто отвергал пророков?"
+                ]
+            },
+            {
+                number: 8,
+                prayer: "Магриб",
+                prayerArabic: "المغرب",
+                rakah: 2,
+                ayahs: "22-24",
+                arabic: "أَوَلَمْ يَرَوْا إِلَى الطَّيْرِ فَوْقَهُمْ صَافَّاتٍ وَيَقْبِضْنَ ۚ مَا يُمْسِكُهُنَّ إِلَّا الرَّحْمَٰنُ\nإِنَّهُ بِكُلِّ شَيْءٍ بَصِيرٌ\nأَمَّن هَٰذَا الَّذِي هُوَ جُندٌ لَّكُمْ يَنصُرُكُم مِّن دُونِ الرَّحْمَٰنِ ۚ إِنِ الْكَافِرُونَ إِلَّا فِي غُرُورٍ",
+                translation: "Разве они не видят птиц над ними, распростирающих крылья и складывающих их? Только Милостивый держит их. Воистину, Он видит все.\nКто же может быть войском, которое поможет вам против Милостивого? Неверующие только в заблуждении.",
+                mnemonic: "Птицы летают благодаря Аллаху. Никто не может помочь против Аллаха. Неверующие обманывают себя.",
+                emojis: "🕊️ ✨ 🙌",
+                keyMeaning: "Только Аллах держит все в мире, никто не может помочь против Него",
+                memoryTip: "Птицы как символ зависимости всего от Аллаха.",
+                recallQuestions: [
+                    "Кто держит птиц в воздухе?",
+                    "Может ли кто-нибудь помочь против Аллаха?"
+                ]
+            },
+            {
+                number: 9,
+                prayer: "Иша",
+                prayerArabic: "العشاء",
+                rakah: 1,
+                ayahs: "25-27",
+                arabic: "وَيَقُولُونَ مَتَىٰ هَٰذَا الْوَعْدُ إِن كُنتُمْ صَادِقِينَ\nقُلْ إِنَّمَا الْعِلْمُ عِندَ اللَّهِ وَإِنَّمَا أَنَا نَذِيرٌ مُّبِينٌ\nفَلَمَّا رَأَوْهُ زِلْفَةً سِيئَتْ وُجُوهُ الَّذِينَ كَفَرُوا وَقِيلَ هَٰذَا الَّذِي كُنتُم بِهِ تَدْعُونَ",
+                translation: "Они говорят: 'Когда исполнится это обещание, если вы правдивы?'\nСкажи: 'Знание об этом только у Аллаха. Я только ясный увещеватель.'\nКогда они увидят наказание близко, лица неверующих помрачнеют, и им скажут: 'Вот то, что вы просили!'",
+                mnemonic: "Люди просят доказательства. Только Аллах знает время. Когда придет наказание, они пожалеют.",
+                emojis: "⏰ 🤷 😨",
+                keyMeaning: "Только Аллах знает время наказания, люди не должны спешить",
+                memoryTip: "Неверующие спрашивают 'когда?', но ответ только у Аллаха.",
+                recallQuestions: [
+                    "Кто знает время наказания?",
+                    "Что произойдет, когда неверующие увидят наказание?"
+                ]
+            },
+            {
+                number: 10,
+                prayer: "Иша",
+                prayerArabic: "العشاء",
+                rakah: 2,
+                ayahs: "28-30",
+                arabic: "قُلْ أَرَأَيْتُمْ إِن أَهْلَكَنِيَ اللَّهُ وَمَن مَّعِيَ أَوْ رَحِمَنَا ۖ فَمَن يُجِيرُ الْكَافِرِينَ مِنْ عَذَابٍ أَلِيمٍ\nقُلْ هُوَ الرَّحْمَٰنُ آمَنَّا بِهِ وَعَلَيْهِ تَوَكَّلْنَا ۖ فَسَتَعْلَمُونَ مَن هُوَ فِي ضَلَالٍ مُّبِينٍ\nقُلْ أَرَأَيْتُمْ إِن أَصْبَحَ مَاؤُكُمْ غَوْرًا فَمَن يَأْتِيكُم بِمَاءٍ مَّعِينٍ",
+                translation: "Скажи: 'Представьте, если Аллах уничтожит меня и тех, кто со мной, или помилует нас — кто защитит неверующих от мучительного наказания?'\nСкажи: 'Он — Милостивый. Мы уверовали в Него и положились на Него. Вскоре вы узнаете, кто в явном заблуждении.'\nСкажи: 'Представьте, если ваша вода исчезнет в земле, кто принесет вам текущую воду?'",
+                mnemonic: "Мы верим в Аллаха и полагаемся на Него. Вода — дар Аллаха. Без Него мы ничего не можем.",
+                emojis: "💧 🙏 🌊",
+                keyMeaning: "Полная зависимость от Аллаха во всех делах",
+                memoryTip: "Вода как символ всего необходимого для жизни — все от Аллаха.",
+                recallQuestions: [
+                    "На Кого мы должны полагаться?",
+                    "Кто может дать нам воду?"
+                ]
+            }
+        ];
+
+        // ==================== STATE MANAGEMENT ==================== 
+        let currentViewMode = 'all';
+        let currentPrayerFilter = '';
+        let currentAyahFilter = '';
+
+        // ==================== INITIALIZATION ==================== 
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCards();
+            updateProgress();
+            setTodayBlock();
+        });
+
+        // ==================== RENDER CARDS ==================== 
+        function renderCards() {
+            const container = document.getElementById('cardsContainer');
+            container.innerHTML = '';
+
+            blocks.forEach(block => {
+                // Check if block should be displayed based on filters
+                if (currentPrayerFilter && !block.prayer.includes(currentPrayerFilter)) return;
+                if (currentAyahFilter && !block.ayahs.includes(currentAyahFilter)) return;
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.id = `block-${block.number}`;
+
+                let arabicContent = '';
+                let translationContent = '';
+                let recallContent = '';
+
+                if (currentViewMode === 'arabic' || currentViewMode === 'all') {
+                    arabicContent = `
+                        <div class="arabic-text" dir="rtl">
+                            ${block.arabic}
+                        </div>
+                    `;
+                }
+
+                if (currentViewMode === 'all' || currentViewMode === 'memorize') {
+                    if (currentViewMode === 'all') {
+                        translationContent = `
+                            <div class="translation">
+                                <strong>Перевод:</strong> ${block.translation}
+                            </div>
+                        `;
+                    } else {
+                        translationContent = `
+                            <div class="translation" style="display: none;" class="translation-hidden">
+                                <strong>Перевод:</strong> ${block.translation}
+                            </div>
+                            <button class="btn btn-primary btn-small" onclick="toggleTranslation(this)">Показать перевод</button>
+                        `;
+                    }
+                }
+
+                recallContent = `
+                    <div class="recall-test">
+                        <strong>🧠 Мини-тест на вспоминание:</strong>
+                        ${block.recallQuestions.map((q, i) => `
+                            <div class="recall-question" style="margin-top: 0.75rem;">
+                                <button class="btn btn-secondary btn-small" onclick="toggleRecallAnswer(this)">
+                                    ${i + 1}. ${q}
+                                </button>
+                                <div class="recall-answer"></div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+
+                const isTodayBlock = block.number === getCurrentBlockNumber();
+                const todayBadge = isTodayBlock ? '<span class="today-badge">Сегодня</span>' : '';
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-number">${block.number}</div>
+                        <div class="card-title">${block.prayer} ${todayBadge}</div>
+                        <div class="card-subtitle">Ракаат ${block.rakah} • Аяты ${block.ayahs}</div>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="ayah-range">📍 Аяты: ${block.ayahs}</div>
+
+                        ${arabicContent}
+
+                        ${translationContent}
+
+                        <div class="mnemonic">
+                            <strong>📖 Мнемоника:</strong> ${block.mnemonic}
+                        </div>
+
+                        <div class="emoji-anchors">
+                            <span title="Якорь памяти">${block.emojis}</span>
+                        </div>
+
+                        <div class="key-meaning">
+                            <strong>🔑 Ключевой смысл:</strong> ${block.keyMeaning}
+                        </div>
+
+                        <div class="memory-tip">
+                            <strong>💡 Как запомнить:</strong> ${block.memoryTip}
+                        </div>
+
+                        ${recallContent}
+
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="read-${block.number}" onchange="updateProgress()">
+                                <label for="read-${block.number}" class="checkbox-label">✅ Прочитал</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="memorized-${block.number}" onchange="updateProgress()">
+                                <label for="memorized-${block.number}" class="checkbox-label">🧠 Выучил</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="reviewed-${block.number}" onchange="updateProgress()">
+                                <label for="reviewed-${block.number}" class="checkbox-label">📿 Повторил без подсказки</label>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            // Load saved progress
+            loadProgress();
+        }
+
+        // ==================== VIEW MODE MANAGEMENT ==================== 
+        function setViewMode(mode) {
+            currentViewMode = mode;
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            renderCards();
+        }
+
+        // ==================== FILTER MANAGEMENT ==================== 
+        function filterCards() {
+            currentPrayerFilter = document.getElementById('prayerFilter').value;
+            currentAyahFilter = document.getElementById('ayahFilter').value;
+            renderCards();
+        }
+
+        // ==================== TRANSLATION TOGGLE ==================== 
+        function toggleTranslation(btn) {
+            const translation = btn.nextElementSibling;
+            translation.classList.toggle('show');
+            btn.textContent = translation.classList.contains('show') ? 'Скрыть перевод' : 'Показать перевод';
+        }
+
+        // ==================== RECALL ANSWER TOGGLE ==================== 
+        function toggleRecallAnswer(btn) {
+            const answer = btn.nextElementSibling;
+            answer.classList.toggle('show');
+            if (answer.classList.contains('show')) {
+                answer.textContent = btn.textContent.replace(/^\d+\.\s/, '');
+            }
+        }
+
+        // ==================== PROGRESS MANAGEMENT ==================== 
+        function updateProgress() {
+            let totalRead = 0;
+            let totalMemorized = 0;
+            let totalReviewed = 0;
+
+            blocks.forEach(block => {
+                if (document.getElementById(`read-${block.number}`)?.checked) totalRead++;
+                if (document.getElementById(`memorized-${block.number}`)?.checked) totalMemorized++;
+                if (document.getElementById(`reviewed-${block.number}`)?.checked) totalReviewed++;
+            });
+
+            document.getElementById('totalRead').textContent = totalRead;
+            document.getElementById('totalMemorized').textContent = totalMemorized;
+            document.getElementById('totalReviewed').textContent = totalReviewed;
+
+            const completionPercent = Math.round((totalMemorized / 10) * 100);
+            document.getElementById('completionPercent').textContent = completionPercent + '%';
+            document.getElementById('progressFill').style.width = completionPercent + '%';
+            document.getElementById('progressText').textContent = `${totalMemorized} / 10 блоков`;
+
+            const reviewPercent = Math.round((totalReviewed / 10) * 100);
+            document.getElementById('reviewFill').style.width = reviewPercent + '%';
+            document.getElementById('reviewText').textContent = `${totalReviewed} / 10 блоков`;
+
+            saveProgress();
+        }
+
+        // ==================== LOCAL STORAGE ==================== 
+        function saveProgress() {
+            const progress = {};
+            blocks.forEach(block => {
+                progress[`read-${block.number}`] = document.getElementById(`read-${block.number}`)?.checked || false;
+                progress[`memorized-${block.number}`] = document.getElementById(`memorized-${block.number}`)?.checked || false;
+                progress[`reviewed-${block.number}`] = document.getElementById(`reviewed-${block.number}`)?.checked || false;
+            });
+            localStorage.setItem('surahProgress', JSON.stringify(progress));
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('surahProgress');
+            if (saved) {
+                const progress = JSON.parse(saved);
+                Object.keys(progress).forEach(key => {
+                    const checkbox = document.getElementById(key);
+                    if (checkbox) {
+                        checkbox.checked = progress[key];
+                    }
+                });
+            }
+            updateProgress();
+        }
+
+        // ==================== TODAY'S BLOCK ==================== 
+        function getCurrentBlockNumber() {
+            const today = new Date();
+            const dayOfWeek = today.getDay();
+            // Map days to blocks (0 = Sunday, 1 = Monday, etc.)
+            const blockMap = {
+                0: 1, // Sunday -> Block 1
+                1: 2, // Monday -> Block 2
+                2: 3, // Tuesday -> Block 3
+                3: 4, // Wednesday -> Block 4
+                4: 5, // Thursday -> Block 5
+                5: 6, // Friday -> Block 6
+                6: 7  // Saturday -> Block 7
+            };
+            return blockMap[dayOfWeek] || 1;
+        }
+
+        function setTodayBlock() {
+            const todayBlock = getCurrentBlockNumber();
+            // Highlight today's block
+            const todayCard = document.getElementById(`block-${todayBlock}`);
+            if (todayCard) {
+                todayCard.style.borderTop = '4px solid var(--accent-gold)';
+            }
+        }
+
+        function showTodayBlock() {
+            const todayBlock = getCurrentBlockNumber();
+            scrollToBlock(todayBlock);
+            alert(`Сегодняшний рекомендуемый блок: #${todayBlock}`);
+        }
+
+        function scrollToBlock(blockNumber) {
+            const block = document.getElementById(`block-${blockNumber}`);
+            if (block) {
+                block.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // ==================== RESET PROGRESS ==================== 
+        function resetProgressWithConfirm() {
+            if (confirm('Вы уверены, что хотите сбросить весь прогресс? Это действие нельзя отменить.')) {
+                localStorage.removeItem('surahProgress');
+                blocks.forEach(block => {
+                    document.getElementById(`read-${block.number}`).checked = false;
+                    document.getElementById(`memorized-${block.number}`).checked = false;
+                    document.getElementById(`reviewed-${block.number}`).checked = false;
+                });
+                updateProgress();
+                alert('Прогресс сброшен!');
+            }
+        }
+    </script>
+</body>
+</html>

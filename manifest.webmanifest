@@ -1,0 +1,11 @@
+{
+  "name": "Quran Hifz — 23 года с Кораном",
+  "short_name": "Quran Hifz",
+  "lang": "ru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#09192b",
+  "theme_color": "#09192b",
+  "icons": [{"src":"assets/icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]
+}

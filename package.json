@@ -1,0 +1,11 @@
+{
+  "name": "quran-hifz",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python -m http.server 4175 --bind 127.0.0.1 --directory ..",
+    "test": "node --test tests/*.test.js",
+    "verify": "python scripts/verify_data.py"
+  }
+}

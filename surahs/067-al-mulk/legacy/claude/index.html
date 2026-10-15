@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Система запоминания Суры Аль-Мульк — 30 аятов за 10 блоков">
+<title>🌙 Сура Аль-Мульк — Система запоминания</title>
+
+<!-- Google Fonts: Amiri (Arabic) + Cormorant Garamond (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CSS VARIABLES & RESET
+   ============================================================ */
+:root {
+  --navy:       #0d1b3e;
+  --navy-mid:   #162550;
+  --navy-light: #1e3270;
+  --gold:       #c9a84c;
+  --gold-light: #e8c96b;
+  --gold-pale:  #f5e4a8;
+  --green:      #2d6a4f;
+  --green-light:#52b788;
+  --cream:      #faf6ed;
+  --cream-dark: #f0e8d5;
+  --text:       #1a1a2e;
+  --text-muted: #5a5a7a;
+  --shadow:     0 4px 24px rgba(13,27,62,0.13);
+  --shadow-lg:  0 8px 40px rgba(13,27,62,0.18);
+  --radius:     16px;
+  --radius-sm:  10px;
+  --transition: 0.25s ease;
+  --font-ar:    "Amiri", "Scheherazade New", "Noto Naskh Arabic", serif;
+  --font-body:  "Cormorant Garamond", Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+@media print {
+  .no-print, .hero-controls, .filter-bar, #searchInput,
+  .btn, .reset-btn, .toggle-bar, .progress-section { display: none !important; }
+  body { background: white; font-size: 12pt; }
+  .block-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; margin: 8pt 0; }
+  .arabic-text { font-size: 18pt; }
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4 { font-family: var(--font-body); font-weight: 700; line-height: 1.3; }
+.arabic-text {
+  font-family: var(--font-ar);
+  direction: rtl;
+  text-align: right;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  line-height: 2.0;
+  color: var(--navy);
+  unicode-bidi: isolate;
+}
+.bismillah {
+  font-family: var(--font-ar);
+  direction: rtl;
+  text-align: center;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  color: var(--gold);
+  line-height: 2.2;
+  margin: 1rem 0;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
+.section { padding: 3rem 0; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #1a2d5a 100%);
+  color: white;
+  padding: 3rem 1rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.12), transparent),
+              url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-icon { font-size: 3.5rem; display: block; margin-bottom: 0.5rem; animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+.hero h1 {
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+.hero .motivational {
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1.2rem;
+  font-size: 0.95rem;
+  color: var(--gold-pale);
+  max-width: 560px;
+  margin: 0 auto 1.5rem;
+}
+.hadith-note {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  margin-top: 1rem;
+  font-style: italic;
+  max-width: 560px;
+  margin: 0.5rem auto 0;
+}
+.hadith-note a { color: var(--gold-light); }
+
+/* ============================================================
+   TOGGLE BAR
+   ============================================================ */
+.toggle-bar {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;
+  padding: 1.2rem 1rem;
+  background: var(--navy-light);
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.toggle-btn {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.toggle-btn:hover, .toggle-btn.active {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+  font-weight: 600;
+}
+
+/* ============================================================
+   FILTER / SEARCH
+   ============================================================ */
+.filter-bar {
+  display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center;
+  padding: 1rem 0 0.5rem;
+}
+.filter-bar input {
+  flex: 1; min-width: 180px;
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  background: white;
+  color: var(--text);
+  transition: var(--transition);
+}
+.filter-bar input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.15); }
+.filter-btn {
+  background: white;
+  border: 1.5px solid var(--cream-dark);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: var(--transition);
+  color: var(--text-muted);
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--navy);
+  color: var(--gold-light);
+  border-color: var(--navy);
+}
+
+/* ============================================================
+   PROGRESS SECTION
+   ============================================================ */
+.progress-section {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  padding: 2rem 1rem;
+  color: white;
+}
+.progress-section h2 { color: var(--gold-light); margin-bottom: 1.2rem; font-size: 1.3rem; text-align: center; }
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.prog-block {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.3rem;
+  text-align: center;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.prog-block.learned { background: rgba(45,106,79,0.4); border-color: var(--green-light); }
+.prog-block.read { background: rgba(201,168,76,0.18); border-color: var(--gold); }
+.prog-block span { display: block; font-size: 1rem; }
+.prog-block .prog-label { color: rgba(255,255,255,0.7); margin-top: 0.2rem; }
+
+.progress-bar-wrap {
+  background: rgba(255,255,255,0.1);
+  border-radius: 30px;
+  height: 12px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 30px;
+  background: linear-gradient(90deg, var(--green-light), var(--gold));
+  transition: width 0.5s ease;
+  min-width: 4px;
+}
+.progress-stats {
+  display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;
+  font-size: 0.85rem; color: rgba(255,255,255,0.75);
+  margin-bottom: 1rem;
+}
+.progress-stats strong { color: var(--gold-light); }
+.reset-btn {
+  display: block; margin: 0 auto;
+  background: transparent;
+  border: 1px solid rgba(255,100,100,0.4);
+  color: rgba(255,150,150,0.8);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+.reset-btn:hover { background: rgba(220,50,50,0.15); border-color: rgba(255,100,100,0.7); }
+
+/* ============================================================
+   TODAY'S BLOCK BANNER
+   ============================================================ */
+.today-banner {
+  background: linear-gradient(135deg, #1a3d2b, #2d6a4f);
+  border-left: 4px solid var(--green-light);
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-sm);
+  color: white;
+  margin: 1.5rem 0 0.5rem;
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.today-banner .today-label { font-size: 0.8rem; color: var(--green-light); font-weight: 600; letter-spacing: 0.05em; }
+.today-banner .today-title { font-size: 1.1rem; color: white; font-weight: 600; }
+.today-banner .today-sub { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+.today-banner .goto-btn {
+  margin-left: auto;
+  background: var(--green-light);
+  color: var(--navy);
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: var(--transition);
+}
+.today-banner .goto-btn:hover { background: var(--gold-light); }
+
+/* ============================================================
+   BLOCK CARD
+   ============================================================ */
+.blocks-grid { display: flex; flex-direction: column; gap: 1.5rem; padding: 1.5rem 0; }
+
+.block-card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--cream-dark);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.block-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.block-card.today-card { border-color: var(--green-light); box-shadow: 0 0 0 2px rgba(82,183,136,0.25), var(--shadow); }
+.block-card.hidden { display: none; }
+
+.card-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  padding: 1rem 1.3rem;
+  display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;
+  cursor: pointer;
+}
+.card-header .block-num {
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.card-header .prayer-name { color: var(--gold-light); font-weight: 700; font-size: 1.05rem; }
+.card-header .rakah-tag {
+  background: rgba(201,168,76,0.18);
+  color: var(--gold-pale);
+  border: 1px solid rgba(201,168,76,0.3);
+  font-size: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 12px;
+}
+.card-header .ayah-range { color: rgba(255,255,255,0.65); font-size: 0.82rem; margin-left: auto; }
+.card-header .emoji-anchors { font-size: 1.2rem; letter-spacing: 0.2em; }
+.card-header .expand-icon { color: rgba(255,255,255,0.5); transition: transform var(--transition); font-size: 1.1rem; margin-left: 0.5rem; }
+.block-card.expanded .expand-icon { transform: rotate(180deg); }
+
+.card-body {
+  display: none;
+  padding: 1.3rem;
+}
+.block-card.expanded .card-body { display: block; }
+
+/* Checkbox row */
+.checkbox-row {
+  display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.chk-label {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-size: 0.83rem; color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+.chk-label input[type=checkbox] {
+  width: 16px; height: 16px;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+.chk-label:hover { color: var(--text); }
+
+/* Ayah block */
+.ayah-block {
+  background: var(--cream);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.ayah-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px;
+  background: var(--gold);
+  color: var(--navy);
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.ayah-arabic { margin-bottom: 0.6rem; }
+.ayah-translation {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+  border-left: 3px solid var(--gold);
+  padding-left: 0.8rem;
+  line-height: 1.6;
+}
+/* Hide translation in Arabic-only mode */
+body.mode-arabic .ayah-translation { display: none; }
+/* Memorization mode */
+body.mode-memo .ayah-translation {
+  background: var(--navy);
+  color: var(--navy);
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  border-left-color: var(--navy-light);
+  transition: background 0.2s, color 0.2s;
+}
+body.mode-memo .ayah-translation.revealed { background: transparent; color: var(--text-muted); border-left-color: var(--gold); cursor: default; }
+
+/* Memory tools */
+.memory-section { margin-top: 1.2rem; }
+.memory-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1rem; }
+@media(max-width: 480px) { .memory-grid { grid-template-columns: 1fr; } }
+.memory-card {
+  background: var(--cream);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem;
+  border-left: 3px solid var(--navy-light);
+}
+.memory-card.green { border-left-color: var(--green); }
+.memory-card.gold  { border-left-color: var(--gold); }
+.memory-card h4 { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+.memory-card p { font-size: 0.88rem; color: var(--text); }
+
+.story-block {
+  background: linear-gradient(135deg, #f0f7f4, #e8f5ec);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.8rem;
+  border-left: 3px solid var(--green);
+}
+.story-block h4 { font-size: 0.78rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+.story-block p { font-size: 0.88rem; color: var(--text); }
+
+/* Mini recall test */
+.recall-section {
+  background: linear-gradient(135deg, #f5f0ff, #ede8ff);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  margin-top: 0.8rem;
+}
+.recall-section h4 { font-size: 0.78rem; color: #6b5bb5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.7rem; }
+.recall-q {
+  font-size: 0.87rem;
+  color: var(--text);
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed rgba(107,91,181,0.2);
+  display: flex; gap: 0.5rem;
+}
+.recall-q:last-child { border-bottom: none; }
+.recall-q::before { content: "🧠"; flex-shrink: 0; }
+
+/* Review schedule */
+.review-schedule {
+  display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.8rem;
+}
+.review-badge {
+  background: var(--cream-dark);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ============================================================
+   REVIEW SCHEDULE SECTION
+   ============================================================ */
+.schedule-section {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.schedule-section h2 { color: var(--navy); margin-bottom: 1rem; }
+.schedule-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.schedule-table th {
+  background: var(--navy);
+  color: var(--gold-light);
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  font-weight: 600;
+}
+.schedule-table td { padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--cream-dark); }
+.schedule-table tr:nth-child(even) td { background: var(--cream); }
+
+/* ============================================================
+   DUA / FINAL BLOCK
+   ============================================================ */
+.dua-section {
+  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+  color: white;
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+.dua-section .arabic-dua {
+  font-family: var(--font-ar);
+  direction: rtl;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  color: var(--gold-light);
+  line-height: 2.1;
+  margin: 1rem 0;
+}
+.dua-section p { color: rgba(255,255,255,0.78); font-size: 0.92rem; margin-top: 0.5rem; }
+.dua-section .disclaimer {
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1.1rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+  max-width: 580px;
+  margin: 1.5rem auto 0;
+  text-align: left;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.section-title {
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.section-sub { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem; }
+.divider { height: 1px; background: var(--cream-dark); margin: 0.5rem 0 1rem; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero">
+  <span class="hero-icon">🌙</span>
+  <h1>👑 Сура Аль-Мульк — Система запоминания</h1>
+  <p class="subtitle">30 аятов за 10 блоков: 5 намазов · 2 раката · 3 аята за раз</p>
+  <div class="motivational">
+    📿 Маленький ежедневный шаг после Фатихи превращает 30 аятов в устойчивую память.
+  </div>
+  <p class="hadith-note">
+    Достоинство суры упомянуто в хадисе: Джами ат-Тирмизи 2890 —
+    <a href="https://sunnah.com/tirmidhi:2890" target="_blank" rel="noopener">sunnah.com ↗</a>.
+    Тексты переводов — по материалам <a href="https://umma.ru" target="_blank" rel="noopener">umma.ru ↗</a>.
+  </p>
+</header>
+
+<!-- ============================================================
+     STICKY TOGGLE BAR
+     ============================================================ -->
+<nav class="toggle-bar no-print" role="toolbar" aria-label="Режим отображения">
+  <button class="toggle-btn active" id="btnFull" onclick="setMode('full')">📖 Арабский + перевод</button>
+  <button class="toggle-btn" id="btnArabic" onclick="setMode('arabic')">🕌 Только арабский</button>
+  <button class="toggle-btn" id="btnMemo" onclick="setMode('memo')">🧠 Режим запоминания</button>
+  <button class="toggle-btn" id="btnPrint" onclick="window.print()">🖨️ Печать</button>
+</nav>
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<main>
+<div class="container">
+
+  <!-- PROGRESS DASHBOARD -->
+  <section class="progress-section" id="progressSection">
+    <h2>✅ Прогресс запоминания</h2>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+    </div>
+    <div class="progress-stats">
+      <span>Прочитано: <strong id="statRead">0</strong>/10</span>
+      <span>Выучено: <strong id="statLearned">0</strong>/10</span>
+      <span>Повторено: <strong id="statRecalled">0</strong>/10</span>
+    </div>
+    <div class="progress-grid" id="progressGrid"></div>
+    <button class="reset-btn no-print" onclick="resetProgress()">🗑️ Сбросить прогресс</button>
+  </section>
+
+  <section class="section">
+
+    <!-- TODAY'S BLOCK -->
+    <div class="today-banner" id="todayBanner">
+      <div>
+        <div class="today-label">📅 БЛОК ДНЯ</div>
+        <div class="today-title" id="todayTitle">—</div>
+        <div class="today-sub" id="todaySub">—</div>
+      </div>
+      <button class="goto-btn" onclick="goToToday()">Перейти →</button>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar no-print">
+      <input type="text" id="searchInput" placeholder="🔍 Поиск: намаз или аят (напр. Фаджр, аят 5)" oninput="filterBlocks()">
+      <button class="filter-btn" onclick="collapseAll()">Свернуть все</button>
+      <button class="filter-btn" onclick="expandAll()">Развернуть все</button>
+    </div>
+
+    <!-- BISMILLAH -->
+    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+    <!-- BLOCKS GRID -->
+    <div class="blocks-grid" id="blocksGrid"></div>
+
+  </section>
+
+  <!-- REVIEW SCHEDULE -->
+  <section class="section">
+    <div class="schedule-section">
+      <h2 class="section-title">📅 График повторений (интервальное повторение)</h2>
+      <p class="section-sub">Повторяйте каждый блок по этому расписанию для долгосрочного запоминания.</p>
+      <div style="overflow-x:auto">
+      <table class="schedule-table">
+        <thead><tr>
+          <th>Повторение</th><th>Когда</th><th>Цель</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>1-е</td><td>В тот же день</td><td>Первичное закрепление</td></tr>
+          <tr><td>2-е</td><td>На следующий день</td><td>Борьба с забыванием</td></tr>
+          <tr><td>3-е</td><td>Через 3 дня</td><td>Переход в кратковременную память</td></tr>
+          <tr><td>4-е</td><td>Через 7 дней</td><td>Первое долгосрочное закрепление</td></tr>
+          <tr><td>5-е</td><td>Через 14 дней</td><td>Углублённое закрепление</td></tr>
+          <tr><td>6-е</td><td>Через 30 дней</td><td>Долгосрочная память — иншаАллах навсегда</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<!-- DUA / FINAL -->
+<section class="dua-section">
+  <h2 style="color:var(--gold-light);margin-bottom:0.5rem">🕊️ Заключительная дуа</h2>
+  <div class="arabic-dua">اللَّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قَلْبِي</div>
+  <p>«О Аллах, сделай Коран весной моего сердца.»</p>
+  <div class="disclaimer">
+    ⚠️ <strong>Примечание:</strong> Проверьте порядок чтения в намазе с вашим устозом / имамом, особенно если вы читаете за имамом или следуете конкретным правилам ханафитского мазхаба. Этот сайт предназначен <em>только для личного запоминания и повторения</em>. Фетва не даётся.
+  </div>
+  <p style="margin-top:1rem;font-size:0.8rem;color:rgba(255,255,255,0.4)">
+    Источники: <a href="https://quran.com/67" style="color:var(--gold)" target="_blank">Quran.com</a> ·
+    <a href="https://umma.ru" style="color:var(--gold)" target="_blank">Umma.ru</a> ·
+    <a href="https://sunnah.com/tirmidhi:2890" style="color:var(--gold)" target="_blank">Sunnah.com</a>
+  </p>
+</section>
+</main>
+
+<!-- ============================================================
+     JAVASCRIPT — DATA + LOGIC
+     ============================================================ -->
+<script>
+/* ============================================================
+   SURAH AL-MULK DATA
+   Arabic: Uthmani Hafs script (standard)
+   Russian translations: based on umma.ru interpretations
+   ============================================================ */
+const BLOCKS = [
+  {
+    id: 1,
+    prayer: "Фаджр / Бомдод",
+    rakah: 1,
+    ayahs: [1, 2, 3],
+    emojis: "👑🌟⚖️",
+    keyMeaning: "Величие Аллаха, Его власть и испытание делами",
+    arabicText: [
+      { n: 1, ar: "تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ", ru: "Благословен Тот, в Чьей Руке — власть, и Он над всякой вещью всесилен." },
+      { n: 2, ar: "الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا ۚ وَهُوَ الْعَزِيزُ الْغَفُورُ", ru: "Тот, Кто создал смерть и жизнь, чтобы испытать вас: кто лучше делами. Он — Всемогущий, Прощающий." },
+      { n: 3, ar: "الَّذِي خَلَقَ سَبْعَ سَمَاوَاتٍ طِبَاقًا ۖ مَّا تَرَىٰ فِي خَلْقِ الرَّحْمَٰنِ مِن تَفَاوُتٍ ۖ فَارْجِعِ الْبَصَرَ هَلْ تَرَىٰ مِن فُطُورٍ", ru: "Тот, Кто создал семь небес ярусами. Не увидишь ты в творении Милостивого никакого изъяна. Обрати же взор — видишь ли ты трещины?" }
+    ],
+    story: "Представьте царский трон в центре вселенной. Правая рука держит всё мироздание — это Аль-Мульк (Власть). Затем — весы жизни и смерти качаются: наши дела взвешиваются. Подними взгляд к семи небесам — куполам без единой трещины.",
+    hook: "Кому принадлежит власть? → Аллаху. Зачем жизнь и смерть? → Испытать нас делами.",
+    howToRemember: "1→ «Табарака» — благословение = величие. 2→ Смерть до жизни (испытание). 3→ Семь куполов без дефекта — поищи трещину, не найдёшь.",
+    recallQuestions: [
+      "Что означает слово «Аль-Мульк»? Кому принадлежит вся власть?",
+      "Зачем Аллах создал смерть и жизнь, согласно аяту 2?",
+      "Что велено сделать взгляду в аяте 3? Что он должен найти (или не найти)?"
+    ]
+  },
+  {
+    id: 2,
+    prayer: "Фаджр / Бомдод",
+    rakah: 2,
+    ayahs: [4, 5, 6],
+    emojis: "👁️⭐🔥",
+    keyMeaning: "Небеса украшены звёздами, джинны наказаны, неверные в аду",
+    arabicText: [
+      { n: 4, ar: "ثُمَّ ارْجِعِ الْبَصَرَ كَرَّتَيْنِ يَنقَلِبْ إِلَيْكَ الْبَصَرُ خَاسِئًا وَهُوَ حَسِيرٌ", ru: "Затем возврати взор дважды — вернётся к тебе взор смиренным и утомлённым." },
+      { n: 5, ar: "وَلَقَدْ زَيَّنَّا السَّمَاءَ الدُّنْيَا بِمَصَابِيحَ وَجَعَلْنَاهَا رُجُومًا لِّلشَّيَاطِينِ ۖ وَأَعْتَدْنَا لَهُمْ عَذَابَ السَّعِيرِ", ru: "Мы украсили ближайшее небо светильниками и сделали их камнями против шайтанов. Им уготовано наказание адского огня." },
+      { n: 6, ar: "وَلِلَّذِينَ كَفَرُوا بِرَبِّهِمْ عَذَابُ جَهَنَّمَ ۖ وَبِئْسَ الْمَصِيرُ", ru: "Тем, кто не уверовал в своего Господа, — наказание Джаханнама. Скверно это место возврата!" }
+    ],
+    story: "Смотришь на небо второй раз — глаза устают, не могут охватить его совершенство. Звёзды — не просто украшение, они — щит против шайтанов. А кто отверг Аллаха — для тех худший исход.",
+    hook: "Взгляд дважды → устаёт. Звёзды = красота + защита. Неверие → Джаханнам.",
+    howToRemember: "4→ Глаз «хасир» (утомлён) — смиренно опускается. 5→ Звёзды-светильники = фонари + камни. 6→ Кафиры — худший исход (мусыр).",
+    recallQuestions: [
+      "Что происходит с взглядом, когда его возвращают дважды к небесам?",
+      "Для чего ещё, помимо украшения, созданы звёзды?",
+      "Чем заканчивается аят 6? Какое слово означает «место возврата»?"
+    ]
+  },
+  {
+    id: 3,
+    prayer: "Зухр / Пешин",
+    rakah: 1,
+    ayahs: [7, 8, 9],
+    emojis: "💥👂😔",
+    keyMeaning: "Звук кипящего ада, признание брошенных в огонь",
+    arabicText: [
+      { n: 7, ar: "إِذَا أُلْقُوا فِيهَا سَمِعُوا لَهَا شَهِيقًا وَهِيَ تَفُورُ", ru: "Когда их бросят туда, они услышат её рёв, а она будет клокотать." },
+      { n: 8, ar: "تَكَادُ تَمَيَّزُ مِنَ الْغَيْظِ ۖ كُلَّمَا أُلْقِيَ فِيهَا فَوْجٌ سَأَلَهُمْ خَزَنَتُهَا أَلَمْ يَأْتِكُمْ نَذِيرٌ", ru: "Почти что разрывается от ярости. Всякий раз, как бросают в неё толпу, стражи её спрашивают: «Разве не приходил к вам предостерегающий?»" },
+      { n: 9, ar: "قَالُوا بَلَىٰ قَدْ جَاءَنَا نَذِيرٌ فَكَذَّبْنَا وَقُلْنَا مَا نَزَّلَ اللَّهُ مِن شَيْءٍ إِنْ أَنتُمْ إِلَّا فِي ضَلَالٍ كَبِيرٍ", ru: "Они скажут: «Да, приходил к нам предостерегающий, но мы лгали ему и говорили: «Аллах ничего не ниспосылал, вы лишь в великом заблуждении».»" }
+    ],
+    story: "Картина суда: грешников бросают в огонь. Сам огонь рычит и клокочет от ярости. Стражи задают вопрос — «был ли пророк?». Ответ: «Да, был. Мы сами отвергли его.» — самое горькое признание.",
+    hook: "Огонь рычит → почти разрывается. Вопрос стражей → признание вины.",
+    howToRemember: "7→ «Шахик» — рёв/вздох огня. 8→ Огонь от ярости трескается; стражи спрашивают. 9→ «Бала» — «Да» — горькое подтверждение.",
+    recallQuestions: [
+      "Как описан звук огня в аяте 7?",
+      "Что спрашивают стражи у тех, кого бросают в огонь?",
+      "Что отвечают люди? Что они говорили о пророке в мирской жизни?"
+    ]
+  },
+  {
+    id: 4,
+    prayer: "Зухр / Пешин",
+    rakah: 2,
+    ayahs: [10, 11, 12],
+    emojis: "👂💔✨",
+    keyMeaning: "Сожаление тех, кто не слушал; прощение для богобоязненных",
+    arabicText: [
+      { n: 10, ar: "وَقَالُوا لَوْ كُنَّا نَسْمَعُ أَوْ نَعْقِلُ مَا كُنَّا فِي أَصْحَابِ السَّعِيرِ", ru: "Они скажут: «Если бы мы слушали или разумели, то не оказались бы среди обитателей Пламени»." },
+      { n: 11, ar: "فَاعْتَرَفُوا بِذَنبِهِمْ فَسُحْقًا لِّأَصْحَابِ السَّعِيرِ", ru: "Они признали свой грех. Прочь же обитателей Пламени!" },
+      { n: 12, ar: "إِنَّ الَّذِينَ يَخْشَوْنَ رَبَّهُم بِالْغَيْبِ لَهُم مَّغْفِرَةٌ وَأَجْرٌ كَبِيرٌ", ru: "Воистину, тем, кто боится своего Господа втайне, — прощение и великая награда." }
+    ],
+    story: "Великое сожаление: «Если бы мы слушали...» — но поздно. Признание вины. Затем — контраст: те, кто боялся Аллаха тайно, когда никто не видел, — для них прощение и огромная награда.",
+    hook: "«Если бы мы слушали» → поздно. Богобоязненные втайне → прощение + награда.",
+    howToRemember: "10→ «Насмаъ ав наъкил» — слушать + размышлять. 11→ Признание → «сухкан» = прочь! 12→ Аль-Гайб = тайное богобоязненность → магфира + аджр.",
+    recallQuestions: [
+      "О чём сожалеют обитатели огня в аяте 10?",
+      "Что означает слово «сухкан» в аяте 11?",
+      "Какое качество верующих упомянуто в аяте 12? Что им обещано?"
+    ]
+  },
+  {
+    id: 5,
+    prayer: "Аср / Аср",
+    rakah: 1,
+    ayahs: [13, 14, 15],
+    emojis: "🤫🔍🐫",
+    keyMeaning: "Аллах знает тайное и явное; Он создал нас и знает нас",
+    arabicText: [
+      { n: 13, ar: "وَأَسِرُّوا قَوْلَكُمْ أَوِ اجْهَرُوا بِهِ ۖ إِنَّهُ عَلِيمٌ بِذَاتِ الصُّدُورِ", ru: "Говорите тайно или открыто — Он знает то, что скрыто в груди." },
+      { n: 14, ar: "أَلَا يَعْلَمُ مَنْ خَلَقَ وَهُوَ اللَّطِيفُ الْخَبِيرُ", ru: "Разве не знает Тот, Кто создал? Он — Проницательный, Сведущий." },
+      { n: 15, ar: "هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا فَامْشُوا فِي مَنَاكِبِهَا وَكُلُوا مِن رِّزْقِهِ ۖ وَإِلَيْهِ النُّشُورُ", ru: "Он сделал для вас землю покорной — ходите по её просторам, питайтесь Его уделом. К Нему — воскресение." }
+    ],
+    story: "Шёпот или крик — Аллах слышит. «Разве Создатель не знает?» — риторический вопрос. Земля покорная под ногами — ходи, ешь, ищи удел. Но конец пути — возврат к Нему.",
+    hook: "Тайное и явное = Аллах знает. Земля покорная → ходи → но помни: воскресение.",
+    howToRemember: "13→ «Зат ас-судур» = то, что в груди. 14→ Аль-Латыф аль-Хабир. 15→ «Залулан» = покорная; «манакиб» = просторы.",
+    recallQuestions: [
+      "Разница между тайным и явным словом — имеет ли она значение перед Аллахом? Почему?",
+      "Два атрибута Аллаха в аяте 14 — назовите их.",
+      "Чем заканчивается аят 15? Какое слово означает «воскресение»?"
+    ]
+  },
+  {
+    id: 6,
+    prayer: "Аср / Аср",
+    rakah: 2,
+    ayahs: [16, 17, 18],
+    emojis: "🌍⚠️🕊️",
+    keyMeaning: "Предостережение: не бойтесь ли вы, что Аллах накажет? Гибель прошлых народов",
+    arabicText: [
+      { n: 16, ar: "أَأَمِنتُم مَّن فِي السَّمَاءِ أَن يَخْسِفَ بِكُمُ الْأَرْضَ فَإِذَا هِيَ تَمُورُ", ru: "Разве вы в безопасности от Того, Кто на небе, что Он не погрузит вас в землю, когда она задрожит?" },
+      { n: 17, ar: "أَمْ أَمِنتُم مَّن فِي السَّمَاءِ أَن يُرْسِلَ عَلَيْكُمْ حَاصِبًا ۖ فَسَتَعْلَمُونَ كَيْفَ نَذِيرِ", ru: "Или вы в безопасности от Того, Кто на небе, что Он не пошлёт на вас ветер с камнями? Тогда узнаете, каково Моё предостережение!" },
+      { n: 18, ar: "وَلَقَدْ كَذَّبَ الَّذِينَ مِن قَبْلِهِمْ فَكَيْفَ كَانَ نَكِيرِ", ru: "Те, кто был до них, тоже лгали. Каково же было Моё возмездие?" }
+    ],
+    story: "Два тревожных вопроса: земля задрожит под ногами — не боишься? Камни с неба полетят — не боишься? История говорит: до вас тоже отрицали. Посмотрите, что с ними стало.",
+    hook: "Земля задрожит → вопрос 1. Камни с неба → вопрос 2. Прошлые народы → урок.",
+    howToRemember: "16→ «Тамур» — земля дрожит/двигается. 17→ «Хасиб» — камни/буря. 18→ «Накир» — Моё возмездие.",
+    recallQuestions: [
+      "Какие два наказания упомянуты в аятах 16 и 17?",
+      "Что означает арабское слово «хасиб»?",
+      "Какой урок из прошлого напомнен в аяте 18?"
+    ]
+  },
+  {
+    id: 7,
+    prayer: "Магриб / Шом",
+    rakah: 1,
+    ayahs: [19, 20, 21],
+    emojis: "🦅🛡️🍞",
+    keyMeaning: "Птицы держатся крыльями — знамение; кто защитник кроме Аллаха?",
+    arabicText: [
+      { n: 19, ar: "أَوَلَمْ يَرَوْا إِلَى الطَّيْرِ فَوْقَهُمْ صَافَّاتٍ وَيَقْبِضْنَ ۚ مَا يُمْسِكُهُنَّ إِلَّا الرَّحْمَٰنُ ۚ إِنَّهُ بِكُلِّ شَيْءٍ بَصِيرٌ", ru: "Разве они не смотрят на птиц над ними, расправивших крылья и складывающих их? Держит их лишь Милостивый — Он видит всякую вещь." },
+      { n: 20, ar: "أَمَّنْ هَٰذَا الَّذِي هُوَ جُندٌ لَّكُمْ يَنصُرُكُم مِّن دُونِ الرَّحْمَٰنِ ۚ إِنِ الْكَافِرُونَ إِلَّا فِي غُرُورٍ", ru: "Кто это войско, что защитит вас помимо Милостивого? Неверующие лишь в обмане." },
+      { n: 21, ar: "أَمَّنْ هَٰذَا الَّذِي يَرْزُقُكُمْ إِنْ أَمْسَكَ رِزْقَهُ ۚ بَل لَّجُّوا فِي عُتُوٍّ وَنُفُورٍ", ru: "Кто прокормит вас, если Он удержит Свой удел? Но они упорствуют в высокомерии и уклонении." }
+    ],
+    story: "Подними голову — видишь птицу в полёте? Только Аллах держит её. Затем — два вопроса: кто твой защитник? кто твой кормилец? Если Он захочет — остановит и то, и другое.",
+    hook: "Птицы в небе → держит Аллах. Кто защитник? Кто кормилец? → Только Он.",
+    howToRemember: "19→ «Саффат» — расправившие крылья; «ябкидна» — складывают. 20→ «Джунд» — армия; «гурур» — обман. 21→ «Рызк» — удел; «утувв» — высокомерие.",
+    recallQuestions: [
+      "Что удерживает птиц в воздухе, согласно аяту 19?",
+      "Два риторических вопроса аятов 20-21 — о чём они?",
+      "Как характеризуется поведение неверующих в аяте 21?"
+    ]
+  },
+  {
+    id: 8,
+    prayer: "Магриб / Шом",
+    rakah: 2,
+    ayahs: [22, 23, 24],
+    emojis: "🚶🎁👁️",
+    keyMeaning: "Прямой путь vs. падение ниц; благодарность за дары Аллаха",
+    arabicText: [
+      { n: 22, ar: "أَفَمَن يَمْشِي مُكِبًّا عَلَىٰ وَجْهِهِ أَهْدَىٰ أَمَّن يَمْشِي سَوِيًّا عَلَىٰ صِرَاطٍ مُّسْتَقِيمٍ", ru: "Тот, кто идёт, падая ниц, лучше ведёт себя или тот, кто идёт прямо по верному пути?" },
+      { n: 23, ar: "قُلْ هُوَ الَّذِي أَنشَأَكُمْ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ ۖ قَلِيلًا مَّا تَشْكُرُونَ", ru: "Скажи: «Он создал вас, дал вам слух, зрение и сердца. Как мало вы благодарны!»" },
+      { n: 24, ar: "قُلْ هُوَ الَّذِي ذَرَأَكُمْ فِي الْأَرْضِ وَإِلَيْهِ تُحْشَرُونَ", ru: "Скажи: «Он расселил вас по земле, и к Нему вы будете собраны»." }
+    ],
+    story: "Образ: один идёт спотыкаясь носом вниз, другой — прямо. Это верующий и неверующий. Три дара: уши, глаза, сердце — как мало мы благодарим! И помни: ты расселён по земле, но соберут тебя к Нему.",
+    hook: "Падающий на лицо vs. прямо идущий. Три дара → слух, зрение, сердце. Земля → потом — сбор.",
+    howToRemember: "22→ «Мукибба» = падает ниц; «савиян» = прямо. 23→ «Сам'а ва абсар ва афъида» = слух, зрение, сердца. 24→ «Зараакум» = расселил; «тухшарун» = соберут.",
+    recallQuestions: [
+      "Какой образ использован в аяте 22 для сравнения верующего и неверующего?",
+      "Три дара Аллаха из аята 23 — перечислите их.",
+      "Какое слово в аяте 24 означает «быть собранными»?"
+    ]
+  },
+  {
+    id: 9,
+    prayer: "Иша / Хуфтан",
+    rakah: 1,
+    ayahs: [25, 26, 27],
+    emojis: "⏰😱🧎",
+    keyMeaning: "Когда наступит Судный час? Лица грешников покроются мраком",
+    arabicText: [
+      { n: 25, ar: "وَيَقُولُونَ مَتَىٰ هَٰذَا الْوَعْدُ إِن كُنتُمْ صَادِقِينَ", ru: "Они говорят: «Когда же это обещание исполнится, если вы правдивы?»" },
+      { n: 26, ar: "قُلْ إِنَّمَا الْعِلْمُ عِندَ اللَّهِ وَإِنَّمَا أَنَا نَذِيرٌ مُّبِينٌ", ru: "Скажи: «Знание — лишь у Аллаха. Я — только ясный предостерегающий»." },
+      { n: 27, ar: "فَلَمَّا رَأَوْهُ زُلْفَةً سِيئَتْ وُجُوهُ الَّذِينَ كَفَرُوا وَقِيلَ هَٰذَا الَّذِي كُنتُمْ بِهِ تَدَّعُونَ", ru: "Когда они увидят его вблизи, лица неверующих омрачатся, и скажут им: «Вот то, что вы требовали!»" }
+    ],
+    story: "Насмешники спрашивают: «Ну и когда же?» Ответ Пророка ﷺ: «Знание — у Аллаха». Но когда момент придёт — вблизи — лица почернеют. И им скажут: «Получили своё!»",
+    hook: "«Когда?» → Только Аллах знает. Момент придёт → лица омрачатся.",
+    howToRemember: "25→ «Мата хаза аль-ваъд» = когда это обещание. 26→ «Назир мубин» = ясный предостерегающий. 27→ «Зульфа» = вблизи; «сиъат вуджух» = лица омрачились.",
+    recallQuestions: [
+      "Что говорят насмешники в аяте 25?",
+      "Как Пророк ﷺ отвечает им в аяте 26? Кем он себя называет?",
+      "Что произойдёт с лицами неверующих, когда они увидят обещанное воочию?"
+    ]
+  },
+  {
+    id: 10,
+    prayer: "Иша / Хуфтан",
+    rakah: 2,
+    ayahs: [28, 29, 30],
+    emojis: "🙏🛤️💧",
+    keyMeaning: "Аллах достаточен; упование на Него; вода как знамение милости",
+    arabicText: [
+      { n: 28, ar: "قُلْ أَرَأَيْتُمْ إِنْ أَهْلَكَنِيَ اللَّهُ وَمَن مَّعِيَ أَوْ رَحِمَنَا فَمَن يُجِيرُ الْكَافِرِينَ مِنْ عَذَابِ أَلِيمٍ", ru: "Скажи: «Что думаете: если Аллах погубит меня и тех, кто со мной, или помилует нас — кто спасёт неверующих от мучительного наказания?»" },
+      { n: 29, ar: "قُلْ هُوَ الرَّحْمَٰنُ آمَنَّا بِهِ وَعَلَيْهِ تَوَكَّلْنَا ۖ فَسَتَعْلَمُونَ مَنْ هُوَ فِي ضَلَالٍ مُّبِينٍ", ru: "Скажи: «Он — Милостивый. Мы уверовали в Него и на Него уповаем. Вы узнаете, кто в явном заблуждении»." },
+      { n: 30, ar: "قُلْ أَرَأَيْتُمْ إِنْ أَصْبَحَ مَاؤُكُمْ غَوْرًا فَمَن يَأْتِيكُم بِمَاءٍ مَّعِينٍ", ru: "Скажи: «Что думаете: если ваша вода уйдёт под землю, кто принесёт вам воду проточную?»" }
+    ],
+    story: "Финал суры — три «Скажи». Кто спасёт неверующих? Никто. Мы уповаем на Аль-Рахман. И последний образ — самый пронзительный: если вода уйдёт в землю, кто её вернёт? Только Аллах. 💧",
+    hook: "«Кул» (Скажи) × 3 — три декларации. Финал: вода уйдёт — кто вернёт? Ответ: Аллах.",
+    howToRemember: "28→ «Ман юджир» = кто спасёт? 29→ «Тавакка'лна» = уповаем. 30→ «Маун гаура» = вода ушла под землю; «маин маин» = вода проточная.",
+    recallQuestions: [
+      "Сколько раз звучит слово «Кул» (Скажи) в аятах 28-30?",
+      "На что уповают верующие, согласно аяту 29?",
+      "Какой финальный образ суры — и почему он такой мощный?"
+    ]
+  }
+];
+
+/* ============================================================
+   RENDERING
+   ============================================================ */
+function renderBlocks() {
+  const grid = document.getElementById('blocksGrid');
+  grid.innerHTML = '';
+  BLOCKS.forEach(b => {
+    const card = document.createElement('div');
+    card.className = 'block-card';
+    card.id = `block-${b.id}`;
+    card.dataset.prayer = b.prayer.toLowerCase();
+    card.dataset.ayahs = b.ayahs.join(',');
+
+    // Build ayah HTML
+    let ayahsHtml = '';
+    b.arabicText.forEach(a => {
+      ayahsHtml += `
+        <div class="ayah-block">
+          <span class="ayah-num">${a.n}</span>
+          <div class="arabic-text ayah-arabic">${a.ar} ﴿${a.n}﴾</div>
+          <div class="ayah-translation" onclick="revealTranslation(this)">${a.ru}</div>
+        </div>`;
+    });
+
+    // Recall questions
+    let recallHtml = b.recallQuestions.map(q => `<div class="recall-q">${q}</div>`).join('');
+
+    card.innerHTML = `
+      <div class="card-header" onclick="toggleCard(${b.id})">
+        <span class="block-num">${b.id}</span>
+        <div>
+          <div class="prayer-name">${b.prayer}</div>
+          <span class="rakah-tag">Ракаат ${b.rakah}</span>
+        </div>
+        <div>
+          <span class="emoji-anchors">${b.emojis}</span>
+        </div>
+        <span class="ayah-range">Аяты ${b.ayahs[0]}–${b.ayahs[b.ayahs.length-1]}</span>
+        <span class="expand-icon">▼</span>
+      </div>
+      <div class="card-body">
+        <!-- Checkboxes -->
+        <div class="checkbox-row">
+          <label class="chk-label">
+            <input type="checkbox" id="chk-read-${b.id}" onchange="saveProgress(${b.id},'read',this.checked)">
+            ✅ Прочитал
+          </label>
+          <label class="chk-label">
+            <input type="checkbox" id="chk-learned-${b.id}" onchange="saveProgress(${b.id},'learned',this.checked)">
+            🧠 Выучил
+          </label>
+          <label class="chk-label">
+            <input type="checkbox" id="chk-recalled-${b.id}" onchange="saveProgress(${b.id},'recalled',this.checked)">
+            📿 Повторил без подсказки
+          </label>
+        </div>
+
+        <!-- Ayahs -->
+        ${ayahsHtml}
+
+        <!-- Memory tools -->
+        <div class="memory-section">
+          <div class="story-block">
+            <h4>📖 Мнемоническая история</h4>
+            <p>${b.story}</p>
+          </div>
+          <div class="memory-grid">
+            <div class="memory-card gold">
+              <h4>🔑 Ключевой смысл</h4>
+              <p>${b.keyMeaning}</p>
+            </div>
+            <div class="memory-card green">
+              <h4>💡 Как запомнить</h4>
+              <p>${b.howToRemember}</p>
+            </div>
+            <div class="memory-card">
+              <h4>🪝 Крючок-смысл</h4>
+              <p>${b.hook}</p>
+            </div>
+            <div class="memory-card">
+              <h4>🔁 График повторений</h4>
+              <div class="review-schedule">
+                ${['Сегодня','День 1','День 3','День 7','День 14','День 30'].map(d=>`<span class="review-badge">${d}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+
+          <div class="recall-section">
+            <h4>🧠 Мини-тест активного вспоминания</h4>
+            ${recallHtml}
+          </div>
+        </div>
+      </div>`;
+
+    grid.appendChild(card);
+  });
+}
+
+function renderProgressGrid() {
+  const g = document.getElementById('progressGrid');
+  g.innerHTML = '';
+  BLOCKS.forEach(b => {
+    const div = document.createElement('div');
+    div.className = 'prog-block';
+    div.id = `pg-${b.id}`;
+    div.onclick = () => { goToBlock(b.id); };
+    div.innerHTML = `<span>${b.emojis.split('')[0]}</span><div class="prog-label">Б.${b.id}<br>${b.ayahs[0]}-${b.ayahs[b.ayahs.length-1]}</div>`;
+    g.appendChild(div);
+  });
+}
+
+/* ============================================================
+   PROGRESS — localStorage
+   ============================================================ */
+function getProgress() {
+  try { return JSON.parse(localStorage.getItem('mulk_progress') || '{}'); } catch(e) { return {}; }
+}
+function setProgress(p) { localStorage.setItem('mulk_progress', JSON.stringify(p)); }
+
+function saveProgress(blockId, type, val) {
+  const p = getProgress();
+  if(!p[blockId]) p[blockId] = {};
+  p[blockId][type] = val;
+  setProgress(p);
+  updateProgressUI();
+}
+
+function loadProgress() {
+  const p = getProgress();
+  BLOCKS.forEach(b => {
+    const bp = p[b.id] || {};
+    ['read','learned','recalled'].forEach(t => {
+      const el = document.getElementById(`chk-${t}-${b.id}`);
+      if(el) el.checked = !!bp[t];
+    });
+  });
+  updateProgressUI();
+}
+
+function updateProgressUI() {
+  const p = getProgress();
+  let read=0, learned=0, recalled=0;
+  BLOCKS.forEach(b => {
+    const bp = p[b.id]||{};
+    if(bp.read) read++;
+    if(bp.learned) learned++;
+    if(bp.recalled) recalled++;
+    const pg = document.getElementById(`pg-${b.id}`);
+    if(pg) {
+      pg.className = 'prog-block';
+      if(bp.recalled) pg.className += ' learned';
+      else if(bp.read) pg.className += ' read';
+    }
+  });
+  document.getElementById('statRead').textContent = read;
+  document.getElementById('statLearned').textContent = learned;
+  document.getElementById('statRecalled').textContent = recalled;
+  const pct = Math.round((recalled/10)*100);
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+function resetProgress() {
+  if(confirm('Сбросить весь прогресс? Это действие нельзя отменить.')) {
+    localStorage.removeItem('mulk_progress');
+    loadProgress();
+    ['read','learned','recalled'].forEach(t => {
+      BLOCKS.forEach(b => {
+        const el = document.getElementById(`chk-${t}-${b.id}`);
+        if(el) el.checked = false;
+      });
+    });
+  }
+}
+
+/* ============================================================
+   TODAY'S BLOCK
+   ============================================================ */
+function setTodayBlock() {
+  const dayNum = Math.floor(Date.now() / (1000*60*60*24));
+  const idx = dayNum % 10;
+  const b = BLOCKS[idx];
+  document.getElementById('todayTitle').textContent = `Блок ${b.id}: ${b.prayer}, Ракаат ${b.rakah}`;
+  document.getElementById('todaySub').textContent = `Аяты ${b.ayahs[0]}–${b.ayahs[b.ayahs.length-1]} · ${b.emojis}`;
+  // Mark card
+  const card = document.getElementById(`block-${b.id}`);
+  if(card) card.classList.add('today-card');
+  window._todayBlockId = b.id;
+}
+
+function goToToday() {
+  const id = window._todayBlockId;
+  if(id) {
+    const el = document.getElementById(`block-${id}`);
+    if(el) {
+      el.classList.add('expanded');
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  }
+}
+
+function goToBlock(id) {
+  const el = document.getElementById(`block-${id}`);
+  if(el) { el.classList.add('expanded'); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+}
+
+/* ============================================================
+   CARD TOGGLE
+   ============================================================ */
+function toggleCard(id) {
+  const card = document.getElementById(`block-${id}`);
+  if(card) card.classList.toggle('expanded');
+}
+function collapseAll() { document.querySelectorAll('.block-card').forEach(c=>c.classList.remove('expanded')); }
+function expandAll()   { document.querySelectorAll('.block-card').forEach(c=>c.classList.add('expanded')); }
+
+/* ============================================================
+   DISPLAY MODE
+   ============================================================ */
+function setMode(mode) {
+  document.body.classList.remove('mode-arabic','mode-memo');
+  document.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
+  if(mode==='arabic') {
+    document.body.classList.add('mode-arabic');
+    document.getElementById('btnArabic').classList.add('active');
+  } else if(mode==='memo') {
+    document.body.classList.add('mode-memo');
+    document.getElementById('btnMemo').classList.add('active');
+    // Reset revealed translations
+    document.querySelectorAll('.ayah-translation').forEach(el=>el.classList.remove('revealed'));
+  } else {
+    document.getElementById('btnFull').classList.add('active');
+  }
+}
+
+function revealTranslation(el) {
+  if(document.body.classList.contains('mode-memo')) {
+    el.classList.toggle('revealed');
+  }
+}
+
+/* ============================================================
+   SEARCH / FILTER
+   ============================================================ */
+function filterBlocks() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  BLOCKS.forEach(b => {
+    const card = document.getElementById(`block-${b.id}`);
+    if(!card) return;
+    if(!q) { card.classList.remove('hidden'); return; }
+    const prayerMatch = b.prayer.toLowerCase().includes(q);
+    const ayahMatch = b.ayahs.some(n => String(n).includes(q)) || `аят ${b.ayahs[0]}`.includes(q);
+    const textMatch = b.arabicText.some(a=>a.ru.toLowerCase().includes(q));
+    card.classList.toggle('hidden', !(prayerMatch||ayahMatch||textMatch));
+  });
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  renderBlocks();
+  renderProgressGrid();
+  loadProgress();
+  setTodayBlock();
+});
+</script>
+</body>
+</html>

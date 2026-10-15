@@ -1,0 +1,31 @@
+{
+  "source": "https://github.com/HalimHamidov/mulk",
+  "commit": "34b8a35a855f2118bf2ca7c9b6277d4b2e08659f",
+  "files": {
+    "icon.svg": "d65f10bf37e8250750d63e84f7cf87225da51f350e843db2ea5c1de6f20c15e8",
+    "index.html": "30570f8dcefa622c490e893742cc489ca39aac8f1d44a9c81fcb136d20718570",
+    "manifest.webmanifest": "219a3b39b23a041e2cd6802eb05318b676a3bc6d2b84cdc5bf562839fe70968c",
+    "README.md": "733b2c56f92a01df82af3c7099a616bfbc4ed1ef3f04cdfae08f9cde5acaafa4",
+    "sw.js": "094b14df5239b848f6a87f8dd889fed5c3fcd0bb0b6724cde7d6b3bd4822aba3",
+    "chatgpt/index.html": "59086c602a839c28c033b9dc2237f7aeb6d0fd836543ab6bb04f45199e494592",
+    "claude/index.html": "79e6ce384f98ca37220f4b0349df7d2e1d1bc050a326a8b6f1f52c501d4148e4",
+    "claude/README.md": "a2b569b91103f921ce6d0b14fe4255331e66ecfeb94c10076777f3a0a1aac1eb",
+    "gemini/index.html": "a10a3fe64356393651782509df2ad33cbcf25d61a6fde9027e4fbff7155d8151",
+    "grok/index.html": "419217dd835de6cbd640b0f97e731ae89b48cdb08f1536cff7e2888ad2ea9e49",
+    "manus/DEPLOYMENT.md": "2224f2924192bb874cad5aac3d2a512ed8f2dde427a0a4b02883d325322a2ea9",
+    "manus/index.html": "2d93895b85ed6fd30a4d7768032496b1adb64e88a19f29219ffc0a6a19ca4368",
+    "manus/README.md": "95c6bf5db288f62cd4e695035f83e3f7085dd46bbe2640c45f796ea342d6866c",
+    "sura_al_mulk_images/1-3.webp": "684d06ff83e2af6e9e8e3bab8b229777603109c1d0127bb5aaf5f09015d7ae24",
+    "sura_al_mulk_images/10-12.webp": "6ac55b4277e2c21392915a12c7bd1172af2290fd5ed8b192ae6ea8f50c61e587",
+    "sura_al_mulk_images/13-15.webp": "c901d781c83c66a5cb970214c289f3a4d4a11ca3f2ea8e5c2c60eafe409f4a83",
+    "sura_al_mulk_images/16-18.webp": "091f65414f29b1f40a60145176f786e3ec356c81320248659ad0e96136a838c1",
+    "sura_al_mulk_images/19-21 2.webp": "bca864a4ed70adc8f0788d09d08427b6426a798494bcda3cb7bdfeb22822fb29",
+    "sura_al_mulk_images/22-24.webp": "f89f3511f234df0dffccedcc2c56774ac09e1c9bf56fe8d127b2c04ea22e6413",
+    "sura_al_mulk_images/25-27.webp": "30600ebb49b41a49c5ed7a8d41ce1816badef91c6fb701f7351743f9e82746a4",
+    "sura_al_mulk_images/28-30.webp": "5d292b87c734e99ab4c11ec605c64444989b55a83c53dd5fd3ea7cedd94edb92",
+    "sura_al_mulk_images/4-5.webp": "2d7255e4abb70777e857f4929297e41fe1ec66c54a3f93e201e1655e8bf423ed",
+    "sura_al_mulk_images/7-9.webp": "69b59827888bc4ecbb46b08f193686d97286c188c3d82714172b3de1a82123d7",
+    "sura_al_mulk_images/hadis a_wide_richly_designed_infographic_poster_in_rus.webp": "fd31357e6aff3e48e85e6e59adec1de6788347fd724ab0446b81f46b61dbe41a",
+    "sura_al_mulk_images/hadis.webp": "71ad9cde1aeb7c91e97a097425f845486be44c36eff0f264fabd10e6faf91359"
+  }
+}
