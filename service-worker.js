@@ -1,11 +1,15 @@
-const CACHE = 'quran-hifz-shell-v1';
+const CACHE = 'quran-hifz-shell-v2';
 const CORE = ['./','index.html','manifest.webmanifest','assets/css/main.css',
-  'assets/js/app.js','assets/js/progress.js','assets/js/hifz.js','assets/js/murajaah.js',
+  'assets/js/app.js','assets/js/app.js?v=1.0.0.2','assets/js/progress.js','assets/js/hifz.js','assets/js/murajaah.js',
   'assets/js/audio.js','assets/js/history.js','assets/js/parts.js','assets/fonts/Amiri-Regular.ttf',
   'assets/icons/icon.svg','assets/images/dawn.svg','assets/images/path.svg','assets/images/moon.svg',
   'assets/images/balance.svg','assets/images/book.svg',
   'data/ayahs.json','data/surahs.json','data/revelation-order.json','data/historical-events.json',
-  'data/translations.json','data/sources.json'];
+  'data/translations.json','data/sources.json','data/al-alaq.json',
+  'surahs/096-al-alaq/','surahs/096-al-alaq/index.html',
+  'surahs/096-al-alaq/page.css?v=1.0.0.2','surahs/096-al-alaq/page.js?v=1.0.0.2',
+  'assets/images/al-alaq-hira.webp','assets/images/al-alaq-wealth.webp','assets/images/al-alaq-prayer.webp',
+  'assets/images/al-alaq-warning.webp','assets/images/al-alaq-closeness.webp'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE.map(path=>new URL(path,self.registration.scope).href))));
 });

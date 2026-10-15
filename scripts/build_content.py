@@ -55,3 +55,12 @@ write('translations.json', {'notice':'Краткие авторские учеб
   {'from':19,'to':24,'title':'Знамения и благодарность','explanation':'Птицы, пропитание и дарованные человеку способности как напоминания.','visual':'dawn'},
   {'from':25,'to':30,'title':'Упование и возвращение','explanation':'Знание о сроке у Аллаха. Вода — зримое напоминание о зависимости человека.','visual':'book'}]}}})
 print('114 Russian names; 23 timeline years; 3 sourced events; 5 Muddaththir blocks.')
+alaq = json.loads((ROOT / 'data/al-alaq.json').read_text(encoding='utf-8'))
+translations = json.loads((ROOT / 'data/translations.json').read_text(encoding='utf-8'))
+translations['surahs']['96'] = {'url':alaq['translationURL'], 'notes':alaq['notes'],
+    'blocks':[{'from':c['from'],'to':c['to'],'title':c['title'],
+               'explanation':' '.join(alaq['notes'][c['from']-1:c['to']]),'visual':c['visual']} for c in alaq['cards']]}
+write('translations.json', translations)
+sources.append({'id':'umma96','title':'Шамиль Аляутдинов — Аль-Аляк','url':alaq['translationURL'],
+                'kind':'Перевод и тафсир на сайте правообладателя; авторские учебные заметки отдельно от перевода'})
+write('sources.json', sources)
