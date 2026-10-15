@@ -3,7 +3,7 @@ import {load, persist, record, countRead, verifyAyah, freshState} from '../../as
 import {Recitation} from '../../assets/js/audio.js';
 
 const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let content, verses, allTexts, surahs, state, activeCard=0, blocked=false, toastTimer;
+let content, translation, verses, allTexts, surahs, state, activeCard=0, blocked=false, toastTimer;
 const grid=document.querySelector('#card-grid'), modal=document.querySelector('#poster-modal');
 const voice=new Recitation(document.querySelector('#voice'),key=>{record(state,key).listens++;save();updateProgress();},message=>notice(message));
 function notice(message){document.querySelector('#notice').textContent=message;clearTimeout(toastTimer);toastTimer=setTimeout(()=>document.querySelector('#notice').textContent='',6000);}
@@ -12,18 +12,23 @@ function save(){
   try{persist(localStorage,state);return true;}catch{notice('Не удалось сохранить прогресс. Сделайте экспорт в настройках тренажёра.');return false;}
 }
 function cardVerses(card){return verses.slice(card.from-1,card.to);}
+function translationHTML(ayah){
+  const entry=translation.entries.find(item=>ayah>=item.from&&ayah<=item.to);
+  const range=entry.from===entry.to?`96:${entry.from}`:`96:${entry.from}–${entry.to}`;
+  return `<div class="translation"><small>Перевод смыслов · ${range}</small>${entry.text?`<p>${esc(entry.text)}</p>`:'<p class="translation-pending">Текст перевода ещё не добавлен.</p>'}<a href="${esc(translation.source)}" target="_blank" rel="noreferrer">Шамиль Аляутдинов · Umma.ru ↗</a>${entry.from!==entry.to?'<small>В источнике эти два аята переведены совместно.</small>':''}</div>`;
+}
 function poster(card,index,full=false){
-  return `<div class="poster-heading"><small>Сура Аль-Аляк</small><strong>Аяты ${card.from===card.to?card.from:`${card.from}–${card.to}`}</strong></div>
-  ${full?'<div class="poster-open">':`<button class="poster-open" data-action="open" data-card="${index}" aria-label="Открыть карточку ${index+1}: ${esc(card.title)}">`}<img class="poster-photo" src="../../assets/images/${esc(content.illustrations[card.prayer])}" alt="Символический образ: ${esc(card.keyword)}; без изображения людей" loading="${index<2?'eager':'lazy'}"><div class="art-overlay"><h3>${esc(card.title)}</h3><span class="block-number">${index+1}</span></div>${full?'</div>':'</button>'}
-  ${cardVerses(card).map(v=>`<div class="verse"><span class="verse-reference">96:${v.number}</span><p class="arabic ${document.querySelector('#hide-arabic').checked?'hidden-text':''}" lang="ar" dir="rtl" ${document.querySelector('#hide-arabic').checked?'aria-hidden="true"':''}>${arabicHTML(v.text,96,v.number,esc)}</p><p class="verse-note">${esc(content.notes[v.number-1])}</p></div>`).join('')}
-  <div class="memory-hook"><div><strong>Ключевой смысл</strong><p>${esc(card.keyword)}</p></div><div><strong>Крючок памяти</strong><p>${esc(card.hook)}</p></div></div>`;
+  const image=`../../assets/images/${esc(card.image)}`;
+  return `<div class="poster-sheet"><div class="poster-heading"><small>Сура Аль-Аляк</small><strong>Аят ${card.from}</strong></div>
+  ${full?'<div class="poster-open">':`<button class="poster-open" data-action="open" data-card="${index}" aria-label="Открыть карточку ${index+1}: ${esc(card.title)}">`}<img class="poster-photo" src="${image}" alt="${esc(card.imageAlt)}" loading="${index<3?'eager':'lazy'}"><span class="block-number">${card.from}</span>${full?'</div>':'</button>'}
+  ${cardVerses(card).map(v=>`<div class="verse"><span class="verse-reference">96:${v.number}</span><p class="arabic ${document.querySelector('#hide-arabic').checked?'hidden-text':''}" lang="ar" dir="rtl" ${document.querySelector('#hide-arabic').checked?'aria-hidden="true"':''}>${arabicHTML(v.text,96,v.number,esc)}</p>${translationHTML(v.number)}</div>`).join('')}
+  <div class="memory-hook"><img class="memory-detail" src="${image}" alt="" loading="lazy"><div><strong>Ключевой смысл</strong><h3>${esc(card.keyword)}</h3><p>${esc(card.hook)}</p><small>Авторская подсказка, не перевод</small></div></div></div>`;
 }
 function render(){
   document.querySelector('#history-text').textContent=content.history;
   document.querySelector('#content-notice').textContent=content.notice;
   document.querySelector('#translation-link').href=content.translationURL;
-  const prayers=[...new Set(content.cards.map(card=>card.prayer))];
-  grid.innerHTML=prayers.map(prayer=>`<section class="prayer-row" aria-label="План повторения: ${prayer}"><div class="prayer-label">${prayer}<small>повторение</small></div>${content.cards.map((card,i)=>card.prayer!==prayer?'':`<article class="image-card" data-card="${i}">${poster(card,i)}<div class="card-controls"><button data-action="listen" data-card="${i}" aria-label="Слушать блок ${i+1}">▶ Слушать</button><button data-action="count" data-card="${i}" ${state.settings.paused||blocked?'disabled':''} aria-label="Повторить блок ${i+1}">+1 блок</button><a class="button" href="../../#surah/96/${card.from}">Учить →</a></div><p class="card-status" id="status-${i}"></p><label class="verify-label"><input type="checkbox" id="verify-${i}" ${state.settings.paused||blocked?'disabled':''}>Блок прочитан без подсказки, таджвид проверен</label><div class="card-controls"><button data-action="verify" data-card="${i}" ${state.settings.paused||blocked?'disabled':''}>✓ Проверено</button><button data-action="stop" aria-label="Остановить аудио блока ${i+1}">■ Стоп</button></div><div class="card-links"><a href="${esc(content.translationURL)}" target="_blank" rel="noreferrer">Перевод и тафсир ↗</a><span>Учебное пояснение</span></div></article>`).join('')}</section>`).join('');
+  grid.innerHTML=content.cards.map((card,i)=>`<article class="image-card" data-card="${i}">${poster(card,i)}<details class="practice"><summary>Повторение и проверка аята ${card.from}</summary><div class="card-controls"><button data-action="listen" data-card="${i}" aria-label="Слушать аят ${card.from}">▶ Слушать</button><button data-action="count" data-card="${i}" ${state.settings.paused||blocked?'disabled':''} aria-label="Повторить аят ${card.from}">+1 аят</button><a class="button" href="../../#surah/96/${card.from}">Учить →</a></div><p class="card-status" id="status-${i}"></p><label class="verify-label"><input type="checkbox" id="verify-${i}" ${state.settings.paused||blocked?'disabled':''}>Аят прочитан без подсказки, таджвид проверен</label><div class="card-controls"><button data-action="verify" data-card="${i}" ${state.settings.paused||blocked?'disabled':''}>✓ Проверено</button><button data-action="stop" aria-label="Остановить аудио аята ${card.from}">■ Стоп</button></div></details></article>`).join('');
   if(state.settings.paused)grid.insertAdjacentHTML('afterbegin','<p class="error">Новое заучивание приостановлено. Чтение и аудио доступны; возобновить занятия можно в настройках тренажёра.</p>');
   updateProgress();
 }
@@ -79,7 +84,7 @@ window.addEventListener('storage',event=>{
 });
 async function init(){
   try{
-    [content,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-alaq.json','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
+    [content,translation,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-alaq.json?v=1.0.0.5','../../data/al-alaq-translation.json','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
     verses=allTexts['96'];
     try{state=load(localStorage,surahs,allTexts);}catch{blocked=true;state=freshState();notice('Сохранённый прогресс недоступен. Исходные данные не перезаписаны; восстановите копию в настройках тренажёра.');}
     render();

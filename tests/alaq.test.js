@@ -1,16 +1,33 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {createHash} from 'node:crypto';
 const read=name=>JSON.parse(fs.readFileSync(new URL(`../data/${name}.json`,import.meta.url)));
 const alaq=read('al-alaq'),translations=read('translations');
-test('Al-Alaq visual cards cover all 19 ayahs once, with two cards per prayer',()=>{
-  assert.equal(alaq.surah,96);assert.equal(alaq.cards.length,10);assert.equal(alaq.notes.length,19);
+test('Al-Alaq has one unique generated image per ayah, covering all 19 ayahs once',()=>{
+  assert.equal(alaq.surah,96);assert.equal(alaq.cards.length,19);assert.equal(alaq.notes.length,19);
   const covered=alaq.cards.flatMap(card=>Array.from({length:card.to-card.from+1},(_,i)=>card.from+i));
   assert.deepEqual(covered,Array.from({length:19},(_,i)=>i+1));
   assert.deepEqual([...new Set(alaq.cards.map(c=>c.prayer))],['Фаджр','Зухр','Аср','Магриб','Иша']);
-  for(const prayer of new Set(alaq.cards.map(c=>c.prayer)))assert.equal(alaq.cards.filter(c=>c.prayer===prayer).length,2);
-  for(const file of Object.values(alaq.illustrations))assert.ok(fs.existsSync(new URL(`../assets/images/${file}`,import.meta.url)));
-  for(const card of alaq.cards){assert.ok(card.title&&card.keyword&&card.hook);assert.ok(alaq.notes.slice(card.from-1,card.to).every(Boolean));}
+  const hashes=new Set();
+  for(const card of alaq.cards){
+    assert.equal(card.from,card.to);assert.ok(card.title&&card.keyword&&card.hook&&card.imageAlt);
+    const image=fs.readFileSync(new URL(`../assets/images/${card.image}`,import.meta.url));
+    assert.equal(image.toString('ascii',8,12),'WEBP');
+    hashes.add(createHash('sha256').update(image).digest('hex'));
+  }
+  assert.equal(hashes.size,19,'Every ayah needs its own image, not repeated backgrounds');
+});
+
+test('translation slots cover the source ranges without pretending editorial notes are Umma translations',()=>{
+  const translation=read('al-alaq-translation'),plan=read('al-alaq-visual-plan');
+  assert.equal(translation.source,alaq.translationURL);assert.equal(translation.author,'Шамиль Аляутдинов');
+  assert.deepEqual(translation.entries.flatMap(item=>Array.from({length:item.to-item.from+1},(_,i)=>item.from+i)),Array.from({length:19},(_,i)=>i+1));
+  assert.ok(translation.entries.some(item=>item.from===9&&item.to===10));
+  assert.ok(translation.entries.some(item=>item.from===11&&item.to===12));
+  for(const entry of translation.entries){assert.equal(typeof entry.text,'string');if(!entry.text)assert.equal(entry.status,'awaiting-user-text');}
+  assert.deepEqual(plan.prompts.map(item=>item.ayah),Array.from({length:19},(_,i)=>i+1));
+  assert.equal(new Set(plan.prompts.map(item=>item.prompt)).size,19);
 });
 test('Al-Alaq visual page and main reader use the same editorial source',()=>{
   assert.deepEqual(translations.surahs['96'].notes,alaq.notes);
