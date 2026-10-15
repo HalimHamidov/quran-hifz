@@ -15,7 +15,7 @@ function cardVerses(card){return verses.slice(card.from-1,card.to);}
 function translationHTML(ayah){
   const entry=translation.entries.find(item=>ayah>=item.from&&ayah<=item.to);
   const range=entry.from===entry.to?`96:${entry.from}`:`96:${entry.from}–${entry.to}`;
-  return `<div class="translation"><small>Перевод смыслов · ${range}</small>${entry.text?`<p>${esc(entry.text)}</p>`:'<p class="translation-pending">Текст перевода ещё не добавлен.</p>'}<a href="${esc(translation.source)}" target="_blank" rel="noreferrer">Шамиль Аляутдинов · Umma.ru ↗</a>${entry.from!==entry.to?'<small>В источнике эти два аята переведены совместно.</small>':''}</div>`;
+  return `<div class="translation"><small>Перевод смыслов · ${range}</small>${ayah===1?`<p class="basmala-translation">${esc(translation.basmala)}</p>`:''}${entry.text?`<p>${esc(entry.text)}</p>`:'<p class="translation-pending">Текст перевода ещё не добавлен.</p>'}<a href="${esc(translation.source)}" target="_blank" rel="noreferrer">Шамиль Аляутдинов · Umma.ru ↗</a>${entry.footnoteURL?`<a class="translation-footnote" href="${esc(entry.footnoteURL)}" target="_blank" rel="noreferrer">Примечание источника ↗</a>`:''}${entry.from!==entry.to?'<small>В источнике эти два аята переведены совместно.</small>':''}</div>`;
 }
 function poster(card,index,full=false){
   const image=`../../assets/images/${esc(card.image)}`;
@@ -84,7 +84,7 @@ window.addEventListener('storage',event=>{
 });
 async function init(){
   try{
-    [content,translation,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-alaq.json?v=1.0.0.5','../../data/al-alaq-translation.json','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
+    [content,translation,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-alaq.json?v=1.0.0.6','../../data/al-alaq-translation.json?v=1.0.0.6','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
     verses=allTexts['96'];
     try{state=load(localStorage,surahs,allTexts);}catch{blocked=true;state=freshState();notice('Сохранённый прогресс недоступен. Исходные данные не перезаписаны; восстановите копию в настройках тренажёра.');}
     render();

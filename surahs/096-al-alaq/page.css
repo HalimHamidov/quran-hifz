@@ -7,3 +7,4 @@
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media(max-width:1000px){#card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}}
 @media(max-width:620px){#card-grid{grid-template-columns:1fr;gap:26px}.poster-photo,.image-card:nth-child(3) .poster-photo,#modal-poster .poster-photo{height:auto;aspect-ratio:3/2}.memory-hook{grid-template-columns:80px minmax(0,1fr)}.memory-detail{width:80px;height:80px}.memory-hook p{font-size:13px}#modal-poster .memory-hook{grid-template-columns:80px minmax(0,1fr);padding:17px;gap:14px}#modal-poster .memory-detail{width:80px;height:80px}#modal-poster .memory-hook p{font-size:13px}#modal-poster .translation{font-size:15px}}
+.translation .basmala-translation{font-size:.85em;font-weight:400;border-bottom:1px solid #c3ae88;padding-bottom:12px;margin-bottom:12px}.translation .translation-footnote{display:block;margin-top:5px}

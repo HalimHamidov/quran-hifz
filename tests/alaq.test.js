@@ -19,13 +19,16 @@ test('Al-Alaq has one unique generated image per ayah, covering all 19 ayahs onc
   assert.equal(hashes.size,19,'Every ayah needs its own image, not repeated backgrounds');
 });
 
-test('translation slots cover the source ranges without pretending editorial notes are Umma translations',()=>{
+test('user-provided Umma translation covers every ayah, preserving combined source ranges',()=>{
   const translation=read('al-alaq-translation'),plan=read('al-alaq-visual-plan');
   assert.equal(translation.source,alaq.translationURL);assert.equal(translation.author,'Шамиль Аляутдинов');
   assert.deepEqual(translation.entries.flatMap(item=>Array.from({length:item.to-item.from+1},(_,i)=>item.from+i)),Array.from({length:19},(_,i)=>i+1));
   assert.ok(translation.entries.some(item=>item.from===9&&item.to===10));
   assert.ok(translation.entries.some(item=>item.from===11&&item.to===12));
-  for(const entry of translation.entries){assert.equal(typeof entry.text,'string');if(!entry.text)assert.equal(entry.status,'awaiting-user-text');}
+  for(const entry of translation.entries){assert.equal(entry.status,'user-provided');assert.ok(entry.text.trim());assert.ok(!entry.text.includes('svg'));}
+  assert.ok(translation.basmala.startsWith('Именем Аллаха'));
+  assert.ok(translation.entries.find(entry=>entry.from===5).footnoteURL.endsWith('#sdfootnote_5865_1_sym'));
+  assert.ok(translation.entries.find(entry=>entry.from===19).footnoteURL.endsWith('#sdfootnote_5877_1_sym'));
   assert.deepEqual(plan.prompts.map(item=>item.ayah),Array.from({length:19},(_,i)=>i+1));
   assert.equal(new Set(plan.prompts.map(item=>item.prompt)).size,19);
 });
