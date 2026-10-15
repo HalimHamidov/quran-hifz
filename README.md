@@ -111,3 +111,5 @@ npm test
 Полный статус требований и результаты: [docs/IMPLEMENTATION.md](docs/IMPLEMENTATION.md). Права: [docs/RIGHTS.md](docs/RIGHTS.md).
 
 Редакционный источник Аль-Аляк — `data/al-alaq.json`; `scripts/build_content.py` также подключает его к общему читателю. Иллюстрации сжаты в WebP без встраивания арабского текста: проверенный оригинал выводится отдельными HTML-элементами. Проверка новой страницы в чистой браузерной сессии: `npx --yes --package @playwright/cli playwright-cli -s=alaq-check open http://127.0.0.1:4175/quran-hifz/surahs/096-al-alaq/ --browser chrome`, затем `npx --yes --package @playwright/cli playwright-cli -s=alaq-check run-code --filename scripts/browser_alaq_qa.cjs`.
+
+Схематичные SVG-иллюстрации в главном тренажёре скрыты. Фотографические карточки Аль-Аляк и исходная галерея Аль-Мульк сохранены.

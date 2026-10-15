@@ -1,13 +1,13 @@
-const CACHE = 'quran-hifz-shell-v3';
+const CACHE = 'quran-hifz-shell-v4';
 const CORE = ['./','index.html','manifest.webmanifest','assets/css/main.css',
-  'assets/js/app.js','assets/js/app.js?v=1.0.0.3','assets/js/progress.js','assets/js/hifz.js','assets/js/murajaah.js',
+  'assets/js/app.js','assets/js/app.js?v=1.0.0.4','assets/js/progress.js','assets/js/hifz.js','assets/js/murajaah.js',
   'assets/js/arabic.js','assets/js/audio.js','assets/js/history.js','assets/js/parts.js','assets/fonts/Amiri-Regular.ttf',
   'assets/icons/icon.svg','assets/images/dawn.svg','assets/images/path.svg','assets/images/moon.svg',
   'assets/images/balance.svg','assets/images/book.svg',
   'data/ayahs.json','data/surahs.json','data/revelation-order.json','data/historical-events.json',
   'data/translations.json','data/sources.json','data/al-alaq.json',
   'surahs/096-al-alaq/','surahs/096-al-alaq/index.html',
-  'surahs/096-al-alaq/page.css?v=1.0.0.3','surahs/096-al-alaq/page.js?v=1.0.0.3',
+  'surahs/096-al-alaq/page.css?v=1.0.0.4','surahs/096-al-alaq/page.js?v=1.0.0.4',
   'assets/images/al-alaq-hira.webp','assets/images/al-alaq-wealth.webp','assets/images/al-alaq-prayer.webp',
   'assets/images/al-alaq-warning.webp','assets/images/al-alaq-closeness.webp'];
 self.addEventListener('install', event => {

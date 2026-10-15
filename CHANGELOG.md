@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0.4 — 2026-10-15
+
+Remove schematic SVG illustrations from the home screen, study sidebar and meaning blocks. Keep the Al-Alaq photographic cards and original Al-Mulk gallery.
+
 ## 1.0.0.3 — 2026-10-15
 
 Display the opening basmala separately from ayah 1 in all 112 applicable surahs, including Al-Alaq cards and review. Preserve the verified source, Fatiha numbering and Tawba opening. Combine Al-Alaq history and visual cards into one navigation item. Add exhaustive source-preservation tests and cache the shared renderer offline.
