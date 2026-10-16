@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0.14 — 2026-10-16
+
+- Added a Tajweed panel for 74:1–10: highlighted source letters, connected-reading and stopping guidance, and a four-rule noon/tanween reference.
+
 ## 1.0.0.13 — 2026-10-16
 
 - Добавлена пятая вкладка «Мнемоника» для 74:1–10: 27 образных опор, 10 таджикских смысловых мостиков и связный маршрут первых десяти аятов с переходами по этапам.
