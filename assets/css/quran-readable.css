@@ -1,0 +1,4 @@
+@font-face{font-family:'Scheherazade New';src:url('../fonts/ScheherazadeNew-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+.arabic .quran-readable{display:block;font-family:'Scheherazade New',serif;font-weight:400;font-synthesis:none;font-size:1.2em;line-height:2.15;letter-spacing:normal;word-spacing:.08em;text-rendering:optimizeLegibility;overflow:visible}
+.arabic .quran-readable .basmala{margin-bottom:.45em!important}
+#modal-poster .arabic .quran-readable{font-size:1.12em;line-height:1.95}

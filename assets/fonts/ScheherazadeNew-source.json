@@ -1,0 +1,8 @@
+{
+  "name": "Scheherazade New",
+  "version": "4.500",
+  "source": "https://software.sil.org/downloads/r/scheherazade/ScheherazadeNew-4.500.zip",
+  "license": "SIL Open Font License 1.1",
+  "sha256": "794bac8dc9e83d1d620bc471ea694f5f31d0965ce8006490a79dfc51a2d283b3",
+  "coverage": "All non-space characters of the unchanged Tanzil text 74:1\u201310 covered by font cmap"
+}

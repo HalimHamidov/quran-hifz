@@ -1,4 +1,4 @@
-import { arabicHTML } from '../../assets/js/arabic.js';
+import { arabicHTML } from '../../assets/js/arabic.js?v=1.0.0.10';
 import {load, persist, record, countRead, verifyAyah, freshState} from '../../assets/js/progress.js';
 import {Recitation} from '../../assets/js/audio.js';
 
@@ -95,7 +95,7 @@ window.addEventListener('storage',event=>{
 });
 async function init(){
   try{
-    [content,translation,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.9','../../data/al-muddassir-tafsir.json?v=1.0.0.9','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
+    [content,translation,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.10','../../data/al-muddassir-tafsir.json?v=1.0.0.10','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
     verses=allTexts['74'].slice(0,10);
     try{state=load(localStorage,surahs,allTexts);}catch{blocked=true;state=freshState();notice('Сохранённый прогресс недоступен. Исходные данные не перезаписаны; восстановите копию в настройках тренажёра.');}
     render();

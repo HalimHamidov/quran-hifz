@@ -9,7 +9,10 @@ export function splitBasmala(text, surah, ayah) {
 }
 export function arabicHTML(text, surah, ayah, escape) {
   const {basmala, verse} = splitBasmala(text, surah, ayah);
-  return basmala
+  const html = basmala
     ? `<span class="basmala" style="display:block;margin-bottom:1em;font-size:.8em">${escape(basmala)}</span><span class="ayah-body" style="display:block">${escape(verse)}</span>`
     : escape(verse);
+  return Number(surah) === 74 && Number(ayah) >= 1 && Number(ayah) <= 10
+    ? `<span class="quran-readable">${html}</span>`
+    : html;
 }
