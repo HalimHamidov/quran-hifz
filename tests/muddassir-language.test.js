@@ -53,3 +53,15 @@ test('mnemonics follow all ten ayahs and anchor every word without claiming Taji
     assert.ok(lesson.mnemonic.anchors.every(a=>a.cue));
   }
 });
+
+test('Tajik mnemonics prefer attested Arabic loans and explain differences in form',()=>{
+  const {lessons}=read('al-muddassir-language');
+  assert.match(lessons[2].mnemonic.tajik,/Рабб.*кабир.*такбир/);
+  assert.match(lessons[3].mnemonic.tajik,/тоҳир.*таҳорат/);
+  assert.match(lessons[3].mnemonic.bridgeNote,/формы разные/);
+  assert.match(lessons[7].mnemonic.bridgeNote,/не барабан/);
+  for(const {mnemonic:m} of lessons){
+    assert.ok(m.bridgeLabel&&m.bridgeNote);
+    if(m.bridgeSource)assert.equal(new URL(m.bridgeSource).protocol,'https:');
+  }
+});
