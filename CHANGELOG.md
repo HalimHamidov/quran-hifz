@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0.20 — 2026-10-16
+
+- Extend attributed as-Saadi Key Meaning summaries to all ten cards, with source ranges and distinct explanations per ayah.
+
 ## 1.0.0.19 — 2026-10-16
 
 - Add a clearly attributed summary of as-Saadi on 74:1–2 to the first card’s Key Meaning block, with a full-source link.
