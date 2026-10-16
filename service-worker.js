@@ -1,4 +1,4 @@
-const CACHE = 'quran-hifz-shell-v7';
+const CACHE = 'quran-hifz-shell-v8';
 const CORE = ['./','index.html','manifest.webmanifest','assets/css/main.css',
   'assets/js/app.js','assets/js/app.js?v=1.0.0.6','assets/js/progress.js','assets/js/hifz.js','assets/js/murajaah.js',
   'assets/js/arabic.js','assets/js/audio.js','assets/js/history.js','assets/js/parts.js','assets/fonts/Amiri-Regular.ttf',
@@ -12,8 +12,8 @@ const CORE = ['./','index.html','manifest.webmanifest','assets/css/main.css',
   'assets/images/al-alaq-warning.webp','assets/images/al-alaq-closeness.webp',
   'assets/images/al-alaq/ayah-01.webp','assets/images/al-alaq/ayah-02.webp','assets/images/al-alaq/ayah-03.webp','assets/images/al-alaq/ayah-04.webp','assets/images/al-alaq/ayah-05.webp','assets/images/al-alaq/ayah-06.webp','assets/images/al-alaq/ayah-07.webp','assets/images/al-alaq/ayah-08.webp','assets/images/al-alaq/ayah-09.webp','assets/images/al-alaq/ayah-10.webp','assets/images/al-alaq/ayah-11.webp','assets/images/al-alaq/ayah-12.webp','assets/images/al-alaq/ayah-13.webp','assets/images/al-alaq/ayah-14.webp','assets/images/al-alaq/ayah-15.webp','assets/images/al-alaq/ayah-16.webp','assets/images/al-alaq/ayah-17.webp','assets/images/al-alaq/ayah-18.webp','assets/images/al-alaq/ayah-19.webp'];
 CORE.push('surahs/074-al-muddassir/','surahs/074-al-muddassir/index.html',
-  'surahs/074-al-muddassir/page.css?v=1.0.0.7','surahs/074-al-muddassir/page.js?v=1.0.0.7',
-  'data/al-muddassir.json?v=1.0.0.7','data/al-muddassir-tafsir.json?v=1.0.0.7',
+  'surahs/074-al-muddassir/page.css?v=1.0.0.8','surahs/074-al-muddassir/page.js?v=1.0.0.8',
+  'data/al-muddassir.json?v=1.0.0.8','data/al-muddassir-tafsir.json?v=1.0.0.8',
   ...Array.from({length:10},(_,i)=>`assets/images/al-muddassir/ayah-${String(i+1).padStart(2,'0')}.webp`));
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE.map(path=>new URL(path,self.registration.scope).href))));
