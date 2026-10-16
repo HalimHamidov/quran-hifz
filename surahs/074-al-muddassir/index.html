@@ -8,9 +8,9 @@
   <title>Сура Аль-Муддассир — визуальное заучивание | Quran Hifz</title>
   <link rel="icon" href="../../assets/icons/icon.svg" type="image/svg+xml">
   <link rel="manifest" href="../../manifest.webmanifest">
-  <link rel="stylesheet" href="./page.css?v=1.0.0.10">
+  <link rel="stylesheet" href="./page.css?v=1.0.0.11">
   <link rel="stylesheet" href="../../assets/css/quran-readable.css?v=1.0.0.10">
-  <script type="module" src="./page.js?v=1.0.0.10"></script>
+  <script type="module" src="./page.js?v=1.0.0.11"></script>
 </head>
 <body>
   <a class="skip" href="#cards">К карточкам с аятами</a>
@@ -21,12 +21,12 @@
       <div class="hero-foot"><span>Постоянство. Терпение. Повторение.</span><span id="memory-total">0 / 10 аятов в памяти</span></div>
     </section>
     <section class="history-section wrap" aria-labelledby="history-title"><p class="eyebrow">Смысловая связь</p><h2 id="history-title">От призыва к ответственности</h2><p id="history-text"></p><p>Сначала дан дословный смысловой перевод Шамиля Аляутдинова, предоставленный пользователем. Комментарии Umma.ru доступны под переводом. Авторские пояснения и подсказки отделены ниже. Аяты 8–9 в источнике объединены; их перевод сохранён целиком.</p></section>
-    <section class="wrap gallery-section" id="cards" aria-labelledby="gallery-title"><div class="section-heading"><div><p class="eyebrow">Визуальные материалы</p><h2 id="gallery-title">Аяты 1–10 — 10 образов</h2></div><label class="toggle"><input type="checkbox" id="hide-arabic">Читать наизусть</label></div><p class="section-intro">Один аят — одна картина. Откройте карточку крупно: изображение, арабский оригинал, пояснение и ссылка на источник и отдельная подсказка для памяти.</p><p class="quiet-note">Все 10 сцен — художественные ассоциации для запоминания, а не фотографии исторических событий.</p><div id="card-grid"><p>Загрузка карточек…</p></div></section>
+    <section class="wrap gallery-section" id="cards" aria-labelledby="gallery-title"><div class="section-heading"><div><p class="eyebrow">Визуальные материалы</p><h2 id="gallery-title">Аяты 1–10 — 10 образов</h2></div><label class="toggle"><input type="checkbox" id="hide-arabic">Читать наизусть</label></div><p class="section-intro">Один аят — одна картина. Откройте карточку крупно: изображение, арабский оригинал, пояснение и ссылка на источник и отдельная подсказка для памяти.</p><p class="quiet-note">Все 10 сцен — художественные ассоциации для запоминания, а не фотографии исторических событий.</p><p class="quiet-note">К каждому аяту добавлен режим «Арабский язык»: все слова, корни, простая грамматика и бытовые фразы на современной фусхе. Примеры составлены для обучения, это не аяты и не перевод Шамиля. Окончания показаны для грамматики; произношение при остановке изучается отдельно. Корень — семейство согласных; порода — модель глагола; идафа — связка имён с родительным падежом у второго.</p><div id="card-grid"><p>Загрузка карточек…</p></div></section>
     <section class="wrap closing"><h2>Продолжение суры</h2><p>На этой странице только аяты 1–10 из 56. Вся сура продолжает тему ответственности, отрицания знамений и предостережения. Арабский текст остальных аятов доступен в тренажёре.</p><a class="button" href="../../#surah/74/11">Продолжить с аята 11 →</a></section>
     <section class="wrap sources"><h2>О тексте и материалах</h2><p id="content-notice"></p><p>Арабский оригинал: <a href="https://tanzil.net" target="_blank" rel="noreferrer">Tanzil Uthmani 1.1</a> · <a href="../../data/TANZIL-LICENSE.txt">Условия использования</a>. <a id="translation-link" href="https://umma.ru/sura-74-al-muddassir-ukutavshijsya" target="_blank" rel="noreferrer">Полный перевод и тафсир Umma.ru ↗</a></p><p>Счётчики и проверенные аяты общие с основным тренажёром Quran Hifz. Достижение 100 повторений не заменяет проверку чтения наизусть.</p></section>
   </main>
   <footer><a href="../../#home">Quran Hifz · 23 года с Кораном</a><a href="../../#sources">Источники и права</a></footer>
-  <dialog id="poster-modal" aria-labelledby="modal-title"><div class="modal-bar"><h2 id="modal-title"></h2><button id="close-modal" aria-label="Закрыть карточку">×</button></div><div id="modal-poster"></div><div class="modal-nav"><button id="prev-card">← Предыдущая</button><span id="modal-position"></span><button id="next-card">Следующая →</button></div></dialog>
+  <dialog id="poster-modal" aria-labelledby="modal-title"><div class="modal-bar"><h2 id="modal-title"></h2><div class="modal-modes" role="group" aria-label="Режим просмотра"><button id="show-poster" aria-pressed="true">Карточка</button><button id="show-language" aria-pressed="false">Арабский язык</button></div><button id="close-modal" aria-label="Закрыть карточку">×</button></div><div id="modal-poster"></div><div class="modal-nav"><button id="prev-card">← Предыдущая</button><span id="modal-position"></span><button id="next-card">Следующая →</button></div></dialog>
   <p id="notice" role="status" aria-live="polite"></p><audio id="voice" preload="none"></audio>
   <noscript>Для загрузки аятов, счётчиков и полноэкранного просмотра нужен JavaScript.</noscript>
 </body>
