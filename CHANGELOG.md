@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0.15 — 2026-10-16
+
+- Prefer familiar Arabic loanwords in Tajik mnemonics (Рабб, кабир, тоҳир, сабр), explain shared roots versus ayah inflections, and link lexical sources.
+
 ## 1.0.0.14 — 2026-10-16
 
 - Added a Tajweed panel for 74:1–10: highlighted source letters, connected-reading and stopping guidance, and a four-rule noon/tanween reference.
