@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0.17 — 2026-10-16
+
+- Add Tajik ясир (easy) to 74:10 and link ғайр + ясир (not easy) with 74:9 عسير (difficult).
+
 ## 1.0.0.16 — 2026-10-16
 
 - Use Tajik loanwords явм and асир in 74:9 mnemonics; distinguish عسير (difficult) from أسير (captive).
