@@ -4,6 +4,7 @@ import {Recitation} from '../../assets/js/audio.js';
 
 const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let content, translation, verses, allTexts, surahs, state, activeCard=0, blocked=false, toastTimer;
+let language, modalMode='poster', lessonTab='words';
 const grid=document.querySelector('#card-grid'), modal=document.querySelector('#poster-modal');
 const voice=new Recitation(document.querySelector('#voice'),key=>{record(state,key).listens++;save();updateProgress();},message=>notice(message));
 function notice(message){document.querySelector('#notice').textContent=message;clearTimeout(toastTimer);toastTimer=setTimeout(()=>document.querySelector('#notice').textContent='',6000);}
@@ -24,11 +25,21 @@ function poster(card,index,full=false){
   ${cardVerses(card).map(v=>`<div class="verse"><span class="verse-reference">74:${v.number}</span><p class="arabic ${document.querySelector('#hide-arabic').checked?'hidden-text':''}" lang="ar" dir="rtl" ${document.querySelector('#hide-arabic').checked?'aria-hidden="true"':''}>${arabicHTML(v.text,74,v.number,esc)}</p>${translationHTML(v.number,full)}</div>`).join('')}
   <div class="memory-hook"><img class="memory-detail" src="${image}" alt="" loading="lazy"><div><strong>Ключевой смысл</strong><h3>${esc(card.keyword)}</h3><p>${esc(card.hook)}</p><small>Авторская подсказка, не перевод</small></div></div></div>`;
 }
+function languagePanel(lesson){
+  if(lessonTab==='words')return `<div class="lesson-words">${lesson.words.map(word=>`<article class="lesson-word"><div class="word-top"><span class="lesson-arabic" lang="ar" dir="rtl">${esc(word.arabic)}</span><strong>${esc(word.meaning)}</strong></div><p><bdi class="lesson-parts" lang="ar" dir="rtl">${esc(word.parts)}</bdi>${word.root?` · корень <bdi lang="ar" dir="rtl">${esc(word.root)}</bdi>`:''}</p><p>${esc(word.grammar)}</p><a href="${esc(word.source)}" target="_blank" rel="noreferrer">Морфология слова ↗</a></article>`).join('')}</div>`;
+  if(lessonTab==='grammar')return `<div class="lesson-rules"><h3>Как устроен язык</h3>${lesson.grammar.map((rule,i)=>`<p><strong>${i+1}.</strong> ${esc(rule)}</p>`).join('')}</div>`;
+  if(lessonTab==='forms')return `<div class="lesson-forms"><h3>Простое словообразование</h3>${lesson.family.map(item=>`<div class="lesson-family"><span class="lesson-arabic" lang="ar" dir="rtl">${esc(item.arabic)}</span><p>${esc(item.meaning)}</p></div>`).join('')}<p class="lesson-context">Корень объединяет семейство слов; модель и контекст определяют значение конкретной формы.</p></div>`;
+  return `<div class="lesson-examples">${lesson.examples.map(example=>`<article><p class="lesson-arabic" lang="ar" dir="rtl">${esc(example.arabic)}</p><strong>${esc(example.meaning)}</strong><p>${esc(example.connection)}</p><small>Новые слова: ${esc(example.extra)}</small></article>`).join('')}<p class="lesson-context">${esc(lesson.nuance)}</p></div>`;
+}
+function languagePoster(ayah){
+  const lesson=language.lessons.find(item=>item.ayah===ayah);
+  return `<section class="poster-sheet language-sheet"><header class="lesson-heading"><div><small>Арабский язык · 74:${ayah}</small><h2>${esc(lesson.title)}</h2><p>${esc(lesson.focus)}</p></div><div class="lesson-tabs" role="group" aria-label="Раздел языкового разбора">${[['words','Слова'],['grammar','Грамматика'],['forms','Формы слов'],['phrases','Фразы']].map(([key,label])=>`<button data-lesson-tab="${key}" aria-pressed="${lessonTab===key}">${label}</button>`).join('')}</div></header><div class="lesson-panel">${languagePanel(lesson)}</div><footer class="lesson-footer"><span>Авторский учебный разбор · фусха · примеры не являются аятами или тафсиром</span><a href="${esc(lesson.source)}" target="_blank" rel="noreferrer">Quranic Arabic Corpus ↗</a></footer></section>`;
+}
 function render(){
   document.querySelector('#history-text').textContent=content.history;
   document.querySelector('#content-notice').textContent=content.notice;
   document.querySelector('#translation-link').href=content.translationURL;
-  grid.innerHTML=content.cards.map((card,i)=>`<article class="image-card" data-card="${i}">${poster(card,i)}<details class="practice"><summary>Повторение и проверка аята ${card.from}</summary><div class="card-controls"><button data-action="listen" data-card="${i}" aria-label="Слушать аят ${card.from}">▶ Слушать</button><button data-action="count" data-card="${i}" ${state.settings.paused||blocked?'disabled':''} aria-label="Повторить аят ${card.from}">+1 аят</button><a class="button" href="../../#surah/74/${card.from}">Учить →</a></div><p class="card-status" id="status-${i}"></p><label class="verify-label"><input type="checkbox" id="verify-${i}" ${state.settings.paused||blocked?'disabled':''}>Аят прочитан без подсказки, таджвид проверен</label><div class="card-controls"><button data-action="verify" data-card="${i}" ${state.settings.paused||blocked?'disabled':''}>✓ Проверено</button><button data-action="stop" aria-label="Остановить аудио аята ${card.from}">■ Стоп</button></div></details></article>`).join('');
+  grid.innerHTML=content.cards.map((card,i)=>`<article class="image-card" data-card="${i}">${poster(card,i)}<button class="language-open" data-action="language" data-card="${i}">Арабский язык: слова и фразы →</button><details class="practice"><summary>Повторение и проверка аята ${card.from}</summary><div class="card-controls"><button data-action="listen" data-card="${i}" aria-label="Слушать аят ${card.from}">▶ Слушать</button><button data-action="count" data-card="${i}" ${state.settings.paused||blocked?'disabled':''} aria-label="Повторить аят ${card.from}">+1 аят</button><a class="button" href="../../#surah/74/${card.from}">Учить →</a></div><p class="card-status" id="status-${i}"></p><label class="verify-label"><input type="checkbox" id="verify-${i}" ${state.settings.paused||blocked?'disabled':''}>Аят прочитан без подсказки, таджвид проверен</label><div class="card-controls"><button data-action="verify" data-card="${i}" ${state.settings.paused||blocked?'disabled':''}>✓ Проверено</button><button data-action="stop" aria-label="Остановить аудио аята ${card.from}">■ Стоп</button></div></details></article>`).join('');
   if(state.settings.paused)grid.insertAdjacentHTML('afterbegin','<p class="error">Новое заучивание приостановлено. Чтение и аудио доступны; возобновить занятия можно в настройках тренажёра.</p>');
   updateProgress();
 }
@@ -51,20 +62,24 @@ function fitPoster(){
 }
 window.addEventListener('resize',()=>requestAnimationFrame(fitPoster));
 document.fonts.ready.then(()=>requestAnimationFrame(fitPoster));
-function openCard(index){
+function openCard(index,mode=modalMode){
+  modalMode=mode;
   activeCard=(index+content.cards.length)%content.cards.length;
   const card=content.cards[activeCard];
   document.querySelector('#modal-title').textContent=`Аль-Муддассир · Аят ${card.from}`;
-  document.querySelector('#modal-poster').innerHTML=poster(card,activeCard,true);
+  document.querySelector('#modal-poster').innerHTML=modalMode==='language'?languagePoster(card.from):poster(card,activeCard,true);
+  document.querySelector('#show-poster').setAttribute('aria-pressed',String(modalMode==='poster'));
+  document.querySelector('#show-language').setAttribute('aria-pressed',String(modalMode==='language'));
   document.querySelector('#modal-position').textContent=`${activeCard+1} / ${content.cards.length}`;
   if(!modal.open)modal.showModal();
   requestAnimationFrame(fitPoster);
-  document.querySelector('#modal-poster .poster-photo').addEventListener('load',fitPoster,{once:true});
+  document.querySelector('#modal-poster .poster-photo')?.addEventListener('load',fitPoster,{once:true});
 }
 grid.addEventListener('click',event=>{
   const target=event.target.closest('[data-action]');if(!target)return;
   const action=target.dataset.action,index=Number(target.dataset.card),card=content.cards[index];
-  if(action==='open'){openCard(index);return;}
+  if(action==='open'){openCard(index,'poster');return;}
+  if(action==='language'){openCard(index,'language');return;}
   if(action==='stop'){voice.stop();return;}
   if(action==='listen'){
     if(blocked){notice('Аудио доступно в тренажёре; сначала восстановите повреждённый прогресс, чтобы сохранить счётчики.');return;}
@@ -83,6 +98,9 @@ grid.addEventListener('click',event=>{
 document.querySelector('#hide-arabic').addEventListener('change',event=>{
   document.querySelectorAll('.arabic').forEach(el=>{el.classList.toggle('hidden-text',event.target.checked);if(event.target.checked)el.setAttribute('aria-hidden','true');else el.removeAttribute('aria-hidden');});
 });
+document.querySelector('#show-poster').onclick=()=>openCard(activeCard,'poster');
+document.querySelector('#show-language').onclick=()=>openCard(activeCard,'language');
+modal.addEventListener('click',event=>{const target=event.target.closest('[data-lesson-tab]');if(!target)return;lessonTab=target.dataset.lessonTab;openCard(activeCard,'language');modal.querySelector(`[data-lesson-tab="${lessonTab}"]`).focus();});
 document.querySelector('#close-modal').onclick=()=>modal.close();
 document.querySelector('#prev-card').onclick=()=>openCard(activeCard-1);
 document.querySelector('#next-card').onclick=()=>openCard(activeCard+1);
@@ -95,7 +113,7 @@ window.addEventListener('storage',event=>{
 });
 async function init(){
   try{
-    [content,translation,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.10','../../data/al-muddassir-tafsir.json?v=1.0.0.10','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
+    [content,translation,{surahs:allTexts},surahs,language]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.10','../../data/al-muddassir-tafsir.json?v=1.0.0.10','../../data/ayahs.json','../../data/surahs.json','../../data/al-muddassir-language.json?v=1.0.0.11'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
     verses=allTexts['74'].slice(0,10);
     try{state=load(localStorage,surahs,allTexts);}catch{blocked=true;state=freshState();notice('Сохранённый прогресс недоступен. Исходные данные не перезаписаны; восстановите копию в настройках тренажёра.');}
     render();
