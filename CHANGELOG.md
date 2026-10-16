@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0.21 — 2026-10-16
+
+- Mention as-Saadi in the Al-Muddassir introduction, source explanation and page description.
+
 ## 1.0.0.20 — 2026-10-16
 
 - Extend attributed as-Saadi Key Meaning summaries to all ten cards, with source ranges and distinct explanations per ayah.

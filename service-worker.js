@@ -1,4 +1,4 @@
-const CACHE = 'quran-hifz-shell-v20';
+const CACHE = 'quran-hifz-shell-v21';
 const CORE = ['./','index.html','manifest.webmanifest','assets/css/main.css',
   'assets/js/app.js','assets/js/app.js?v=1.0.0.6','assets/js/progress.js','assets/js/hifz.js','assets/js/murajaah.js',
   'assets/js/arabic.js','assets/js/audio.js','assets/js/history.js','assets/js/parts.js','assets/fonts/Amiri-Regular.ttf',
