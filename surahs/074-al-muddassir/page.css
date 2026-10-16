@@ -85,6 +85,22 @@ body:has(#poster-modal[open]){overflow:hidden}
 .lesson-rules h3,.lesson-forms h3{font:600 20px/1.4 system-ui,sans-serif;color:#40552e}
 .lesson-rules p{font-size:19px;line-height:1.8;margin:20px 0}
 .lesson-forms{max-width:1000px;margin:auto}
+.mnemonic-route{display:flex;flex-wrap:wrap;gap:5px;padding-bottom:14px;border-bottom:1px solid #bfa97a}
+.mnemonic-route button{font:12px/1.3 system-ui,sans-serif;padding:6px 9px;min-height:32px}
+.mnemonic-route button[aria-pressed=true]{background:var(--gold-light);color:var(--navy-dark)}
+.mnemonic-content{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding-top:18px}
+.mnemonic-content h3{font:600 21px/1.4 system-ui,sans-serif;color:#40552e}
+.mnemonic-content p{font-size:16px;margin:10px 0}
+.tajik-bridge{background:#e8d9bd;padding:10px 15px}
+.tajik-bridge span{font-weight:700}
+.tajik-bridge small{display:block;color:#75613c;font-size:11px;margin-top:4px}
+.mnemonic-anchors{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+.mnemonic-anchors>div{border-bottom:1px solid #c3ae88;padding-bottom:8px}
+.mnemonic-anchors .lesson-arabic{font-size:31px;line-height:1.6}
+.mnemonic-anchors p{font-size:13px;margin:4px 0}
+.mnemonic-connection{font-size:13px;line-height:1.6;margin:15px 0 8px;padding-top:12px;border-top:1px solid #bfa97a}
+.mnemonic-notice{font-size:11px;color:#75613c;margin:0}
+.memory-short{display:none}
 .lesson-forms .lesson-family .lesson-arabic{font-size:38px}
 @media(max-width:620px){
   #poster-modal .modal-bar{flex-wrap:wrap;gap:5px}
@@ -117,4 +133,16 @@ body:has(#poster-modal[open]){overflow:hidden}
   .lesson-rules h3,.lesson-forms h3{font-size:16px}
   .lesson-rules p{font-size:15px;line-height:1.7;margin:15px 0}
   .lesson-forms .lesson-family .lesson-arabic{font-size:30px}
+  .mnemonic-route{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;padding-bottom:9px}
+  .mnemonic-route button{font-size:9px;padding:4px 2px;min-height:34px}
+  .mnemonic-content{grid-template-columns:1fr;gap:9px;padding-top:10px}
+  .mnemonic-content h3{font-size:17px;margin-bottom:7px}
+  .mnemonic-content p{font-size:13px;margin:7px 0}
+  .tajik-bridge{padding:7px 10px}
+  .mnemonic-anchors .lesson-arabic{font-size:27px;line-height:1.5}
+  .mnemonic-anchors p{font-size:11px;line-height:1.5;margin:3px 0}
+  .mnemonic-connection{font-size:11px;line-height:1.5;padding-top:8px;margin:10px 0 6px}
+  .mnemonic-notice{font-size:9px}
+  .memory-long{display:none}
+  .memory-short{display:inline}
 }
