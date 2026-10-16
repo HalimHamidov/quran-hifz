@@ -1,4 +1,4 @@
-import { arabicHTML } from './arabic.js';
+import { arabicHTML } from './arabic.js?v=1.0.0.10';
 import { KEY, dayKey, dayNumber, freshState, load, persist, record, importBackup, countRead, verifyAyah } from './progress.js';
 import { nextAyah, joinReady, addJoin, markError } from './hifz.js';
 import { reviewPlan, completeReview, reschedule } from './murajaah.js';
