@@ -124,7 +124,7 @@ window.addEventListener('storage',event=>{
 });
 async function init(){
   try{
-    [content,translation,{surahs:allTexts},surahs,language]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.10','../../data/al-muddassir-tafsir.json?v=1.0.0.10','../../data/ayahs.json','../../data/surahs.json','../../data/al-muddassir-language.json?v=1.0.0.17'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
+    [content,translation,{surahs:allTexts},surahs,language]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.10','../../data/al-muddassir-tafsir.json?v=1.0.0.10','../../data/ayahs.json','../../data/surahs.json','../../data/al-muddassir-language.json?v=1.0.0.18'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
     verses=allTexts['74'].slice(0,10);
     try{state=load(localStorage,surahs,allTexts);}catch{blocked=true;state=freshState();notice('Сохранённый прогресс недоступен. Исходные данные не перезаписаны; восстановите копию в настройках тренажёра.');}
     render();

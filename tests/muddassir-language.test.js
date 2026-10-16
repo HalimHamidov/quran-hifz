@@ -69,3 +69,12 @@ test('Tajik mnemonics prefer attested Arabic loans and explain differences in fo
     if(m.bridgeSource)assert.equal(new URL(m.bridgeSource).protocol,'https:');
   }
 });
+
+test('74:3 tajweed explicitly annotates fakabbir rather than duplicating rabbaka',()=>{
+  const lesson=read('al-muddassir-language').lessons[2],rule=lesson.tajweed.rules[1];
+  assert.equal(rule.wordIndex,1);
+  assert.equal(lesson.words[rule.wordIndex].arabic,'فَكَبِّرْ');
+  assert.equal(rule.highlight,'بِّ');
+  assert.match(rule.text,/без гунны/);
+  assert.match(rule.text,/Мадда здесь нет/);
+});

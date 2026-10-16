@@ -2,7 +2,7 @@ async page => {
   const assert=(ok,msg)=>{if(!ok)throw Error(msg);};
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.reload();await page.locator('.language-open').first().waitFor();
-  const data=await page.evaluate(async()=>await(await fetch('../../data/al-muddassir-language.json?v=1.0.0.17')).json());
+  const data=await page.evaluate(async()=>await(await fetch('../../data/al-muddassir-language.json?v=1.0.0.18')).json());
   const results=[];
   for(const size of [{width:1280,height:720},{width:390,height:844}]){
     await page.setViewportSize(size);
