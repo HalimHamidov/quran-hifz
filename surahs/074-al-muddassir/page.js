@@ -12,16 +12,16 @@ function save(){
   try{persist(localStorage,state);return true;}catch{notice('Не удалось сохранить прогресс. Сделайте экспорт в настройках тренажёра.');return false;}
 }
 function cardVerses(card){return verses.slice(card.from-1,card.to);}
-function translationHTML(ayah){
+function translationHTML(ayah,full=false){
   const entry=translation.entries.find(item=>ayah>=item.from&&ayah<=item.to);
   const range=entry.from===entry.to?`74:${entry.from}`:`74:${entry.from}–${entry.to}`;
-  return `<div class="translation"><small>Перевод смыслов · ${range}</small><p class="source-translation">${esc(entry.text)}</p>${entry.footnoteNumber?`<sup><a href="${esc(entry.footnoteURL)}" target="_blank" rel="noreferrer">[${entry.footnoteNumber}]</a></sup>`:''}<a href="${esc(translation.source)}" target="_blank" rel="noreferrer">Шамиль Аляутдинов · Umma.ru ↗</a>${entry.from!==entry.to?'<small>В источнике аяты 8–9 переведены совместно; перевод сохранён целиком.</small>':''}${entry.footnote?`<details class="source-commentary"><summary>Комментарий Umma.ru [${entry.footnoteNumber}]</summary>${entry.footnote.split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('')}${entry.bookURL?`<a href="${esc(entry.bookURL)}" target="_blank" rel="noreferrer">«Путь к вере и совершенству» ↗</a>`:''}</details>`:''}<div class="author-note"><small>Авторское пояснение · не перевод</small><p>${esc(entry.note)}</p></div></div>`;
+  return `<div class="translation"><small>Перевод смыслов · ${range}</small><p class="source-translation">${esc(entry.text)}</p>${entry.footnoteNumber?`<sup><a href="${esc(entry.footnoteURL)}" target="_blank" rel="noreferrer">[${entry.footnoteNumber}]</a></sup>`:''}<a href="${esc(translation.source)}" target="_blank" rel="noreferrer">Шамиль Аляутдинов · Umma.ru ↗</a>${entry.from!==entry.to?'<small>В источнике аяты 8–9 переведены совместно; перевод сохранён целиком.</small>':''}${entry.footnote&&!full?`<details class="source-commentary"><summary>Комментарий Umma.ru [${entry.footnoteNumber}]</summary>${entry.footnote.split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('')}${entry.bookURL?`<a href="${esc(entry.bookURL)}" target="_blank" rel="noreferrer">«Путь к вере и совершенству» ↗</a>`:''}</details>`:''}<div class="author-note"><small>Авторское пояснение · не перевод</small><p>${esc(entry.note)}</p></div></div>`;
 }
 function poster(card,index,full=false){
   const image=`../../assets/images/${esc(card.image)}`;
   return `<div class="poster-sheet"><div class="poster-heading"><small>Сура Аль-Муддассир</small><strong>Аят ${card.from}</strong></div>
   ${full?'<div class="poster-open">':`<button class="poster-open" data-action="open" data-card="${index}" aria-label="Открыть карточку ${index+1}: ${esc(card.title)}">`}<img class="poster-photo" src="${image}" alt="${esc(card.imageAlt)}" loading="${index<3?'eager':'lazy'}"><span class="block-number">${card.from}</span>${full?'</div>':'</button>'}
-  ${cardVerses(card).map(v=>`<div class="verse"><span class="verse-reference">74:${v.number}</span><p class="arabic ${document.querySelector('#hide-arabic').checked?'hidden-text':''}" lang="ar" dir="rtl" ${document.querySelector('#hide-arabic').checked?'aria-hidden="true"':''}>${arabicHTML(v.text,74,v.number,esc)}</p>${translationHTML(v.number)}</div>`).join('')}
+  ${cardVerses(card).map(v=>`<div class="verse"><span class="verse-reference">74:${v.number}</span><p class="arabic ${document.querySelector('#hide-arabic').checked?'hidden-text':''}" lang="ar" dir="rtl" ${document.querySelector('#hide-arabic').checked?'aria-hidden="true"':''}>${arabicHTML(v.text,74,v.number,esc)}</p>${translationHTML(v.number,full)}</div>`).join('')}
   <div class="memory-hook"><img class="memory-detail" src="${image}" alt="" loading="lazy"><div><strong>Ключевой смысл</strong><h3>${esc(card.keyword)}</h3><p>${esc(card.hook)}</p><small>Авторская подсказка, не перевод</small></div></div></div>`;
 }
 function render(){
@@ -41,14 +41,25 @@ function updateProgress(){
     document.querySelector(`#status-${index}`).textContent=`Каждый аят: минимум ${Math.min(...records.map(r=>r.reads))} / ${state.settings.target} повторений · прослушиваний ${records.reduce((sum,r)=>sum+r.listens,0)} · проверено ${records.filter(r=>r.learned).length}/${records.length}`;
   });
 }
+function fitPoster(){
+  if(!modal.open)return;
+  const stage=document.querySelector('#modal-poster'),sheet=stage.querySelector('.poster-sheet');
+  if(!sheet)return;
+  sheet.style.width=`${Math.max(1,stage.clientWidth-12)}px`;
+  const scale=Math.min(1,(stage.clientHeight-12)/sheet.offsetHeight);
+  sheet.style.transform=`translate(-50%,-50%) scale(${Math.max(0.01,scale)})`;
+}
+window.addEventListener('resize',()=>requestAnimationFrame(fitPoster));
+document.fonts.ready.then(()=>requestAnimationFrame(fitPoster));
 function openCard(index){
   activeCard=(index+content.cards.length)%content.cards.length;
   const card=content.cards[activeCard];
-  document.querySelector('#modal-title').textContent=`${card.prayer} · Аяты ${card.from===card.to?card.from:`${card.from}–${card.to}`}`;
+  document.querySelector('#modal-title').textContent=`Аль-Муддассир · Аят ${card.from}`;
   document.querySelector('#modal-poster').innerHTML=poster(card,activeCard,true);
   document.querySelector('#modal-position').textContent=`${activeCard+1} / ${content.cards.length}`;
   if(!modal.open)modal.showModal();
-  document.querySelector('#modal-poster').scrollIntoView({block:'nearest'});
+  requestAnimationFrame(fitPoster);
+  document.querySelector('#modal-poster .poster-photo').addEventListener('load',fitPoster,{once:true});
 }
 grid.addEventListener('click',event=>{
   const target=event.target.closest('[data-action]');if(!target)return;
@@ -84,7 +95,7 @@ window.addEventListener('storage',event=>{
 });
 async function init(){
   try{
-    [content,translation,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.8','../../data/al-muddassir-tafsir.json?v=1.0.0.8','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
+    [content,translation,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.9','../../data/al-muddassir-tafsir.json?v=1.0.0.9','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
     verses=allTexts['74'].slice(0,10);
     try{state=load(localStorage,surahs,allTexts);}catch{blocked=true;state=freshState();notice('Сохранённый прогресс недоступен. Исходные данные не перезаписаны; восстановите копию в настройках тренажёра.');}
     render();
