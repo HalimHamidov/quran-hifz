@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0.7 — 2026-10-16
+
+- Добавлена сура 74 «Аль-Муддассир», аяты 1–10 по порядку мусхафа: краткий пересказ пояснений Umma.ru, десять отдельных изображений ИИ и сохранённые промпты.
+- Сохранён общий диапазон пояснения 8–9; подсказки отделены от тафсира, сокровенное представлено только условными ассоциациями.
+- Подключены общий прогресс, мобильный просмотр и офлайн-кеш новой страницы.
+
+
 ## 1.0.0.6 — 2026-10-15
 
 Add the exact user-provided Umma.ru Al-Alaq translation to all 19 posters. Preserve bracketed commentary and combined ranges 9–10 and 11–12; show basmala translation separately and retain source-footnote links for ayahs 5 and 19. Refresh translation cache and all19 local PNG exports.

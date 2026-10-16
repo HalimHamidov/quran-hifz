@@ -1,0 +1,171 @@
+{
+  "surah": 74,
+  "source": "https://umma.ru/sura-74-al-muddassir-ukutavshijsya",
+  "method": "Сначала изучены пояснения Umma.ru, затем составлены смысловые опоры и отдельные промпты. Аяты 8–9 в источнике объединены.",
+  "scope": "Только аяты 1–10 из 56. Остальные аяты не иллюстрируются.",
+  "generator": "Built-in image_gen",
+  "cards": [
+    {
+      "to": 1,
+      "prayer": "Аят 1",
+      "title": "Укутавшийся",
+      "keyword": "Укутавшийся",
+      "hook": "Сложенное покрывало — опора для обращения к укутавшемуся; Пророк не изображён.",
+      "image": "al-muddassir/ayah-01.webp",
+      "imageAlt": "Сложенное покрывало — опора для обращения к укутавшемуся; Пророк не изображён.",
+      "symbolism": "Художественная ассоциация, не буквальное изображение сокровенного.",
+      "from": 1
+    },
+    {
+      "to": 2,
+      "prayer": "Аят 2",
+      "title": "Встань и предостерегай",
+      "keyword": "Встань и предостерегай",
+      "hook": "Встать с места и предупредить — перейти к ответственному действию.",
+      "image": "al-muddassir/ayah-02.webp",
+      "imageAlt": "Встать с места и предупредить — перейти к ответственному действию.",
+      "symbolism": "Художественная ассоциация, не буквальное изображение сокровенного.",
+      "from": 2
+    },
+    {
+      "to": 3,
+      "prayer": "Аят 3",
+      "title": "Возвеличивай Господа",
+      "keyword": "Возвеличивай Господа",
+      "hook": "Молитвенное место среди гор напоминает о возвеличивании Творца; пейзаж не изображает Его.",
+      "image": "al-muddassir/ayah-03.webp",
+      "imageAlt": "Молитвенное место среди гор напоминает о возвеличивании Творца; пейзаж не изображает Его.",
+      "symbolism": "Художественная ассоциация, не буквальное изображение сокровенного.",
+      "from": 3
+    },
+    {
+      "to": 4,
+      "prayer": "Аят 4",
+      "title": "Очищай одежду",
+      "keyword": "Очищай одежду",
+      "hook": "Очищение одежды напоминает также о внутренней чистоте.",
+      "image": "al-muddassir/ayah-04.webp",
+      "imageAlt": "Очищение одежды напоминает также о внутренней чистоте.",
+      "symbolism": "Художественная ассоциация, не буквальное изображение сокровенного.",
+      "from": 4
+    },
+    {
+      "to": 5,
+      "prayer": "Аят 5",
+      "title": "Сторонись скверны",
+      "keyword": "Сторонись скверны",
+      "hook": "Отвернуться от скверны — не только вымыть руки, но менять дурные качества.",
+      "image": "al-muddassir/ayah-05.webp",
+      "imageAlt": "Отвернуться от скверны — не только вымыть руки, но менять дурные качества.",
+      "symbolism": "Художественная ассоциация, не буквальное изображение сокровенного.",
+      "from": 5
+    },
+    {
+      "to": 6,
+      "prayer": "Аят 6",
+      "title": "Добро без расчёта",
+      "keyword": "Добро без расчёта",
+      "hook": "Передать хлеб, не ожидая платы или ответного дара.",
+      "image": "al-muddassir/ayah-06.webp",
+      "imageAlt": "Передать хлеб, не ожидая платы или ответного дара.",
+      "symbolism": "Художественная ассоциация, не буквальное изображение сокровенного.",
+      "from": 6
+    },
+    {
+      "to": 7,
+      "prayer": "Аят 7",
+      "title": "Терпение ради Господа",
+      "keyword": "Терпение ради Господа",
+      "hook": "Продолжать полезное дело в трудную погоду — условный образ терпения.",
+      "image": "al-muddassir/ayah-07.webp",
+      "imageAlt": "Продолжать полезное дело в трудную погоду — условный образ терпения.",
+      "symbolism": "Художественная ассоциация, не буквальное изображение сокровенного.",
+      "from": 7
+    },
+    {
+      "to": 8,
+      "prayer": "Аят 8",
+      "title": "Звук Горна",
+      "keyword": "Звук Горна",
+      "hook": "Горн — условный зрительный якорь; его действительный облик неизвестен.",
+      "image": "al-muddassir/ayah-08.webp",
+      "imageAlt": "Горн — условный зрительный якорь; его действительный облик неизвестен.",
+      "symbolism": "Художественная ассоциация, не буквальное изображение сокровенного.",
+      "from": 8
+    },
+    {
+      "to": 9,
+      "prayer": "Аят 9",
+      "title": "Тяжёлый День",
+      "keyword": "Тяжёлый День",
+      "hook": "Тяжесть камня — условная ассоциация с тяжестью Дня, не картина Судного дня.",
+      "image": "al-muddassir/ayah-09.webp",
+      "imageAlt": "Тяжесть камня — условная ассоциация с тяжестью Дня, не картина Судного дня.",
+      "symbolism": "Художественная ассоциация, не буквальное изображение сокровенного.",
+      "from": 9
+    },
+    {
+      "to": 10,
+      "prayer": "Аят 10",
+      "title": "Нелёгкий для неверующих",
+      "keyword": "Нелёгкий для неверующих",
+      "hook": "Закрытый тяжёлый проход — условное напоминание о трудности для отвергающих веру.",
+      "image": "al-muddassir/ayah-10.webp",
+      "imageAlt": "Закрытый тяжёлый проход — условное напоминание о трудности для отвергающих веру.",
+      "symbolism": "Художественная ассоциация, не буквальное изображение сокровенного.",
+      "from": 10
+    }
+  ],
+  "prompts": [
+    {
+      "ayah": 1,
+      "tafsir": "Обращение к укрывшемуся одеждой Пророку: поддержка в начале его миссии.",
+      "prompt": "Create one cinematic photorealistic educational illustration, landscape 3:2. Believable materials, anatomy and physics, warm gold highlights, deep natural shadows, a clear single visual anchor. This is a symbolic memory association for Quran 74:1, not literal tafsir or historical reconstruction. Scene: A thick woven cream blanket carefully folded on an empty simple resting bench in a quiet modest room, rich textile folds filling foreground, natural early light. Absolutely no person or silhouette beneath the blanket. This mnemonic refers to the address to the wrapped Prophet without depicting him or a revelation event. No text, letters, numbers, labels, collage, logos, watermarks. Never depict Allah, prophets, angels, divine hands, eyes, faces or supernatural beams. "
+    },
+    {
+      "ayah": 2,
+      "tafsir": "Повеление встать и предостерегать; наставление побуждает работать и над собой.",
+      "prompt": "Create one cinematic photorealistic educational illustration, landscape 3:2. Believable materials, anatomy and physics, warm gold highlights, deep natural shadows, a clear single visual anchor. This is a symbolic memory association for Quran 74:2, not literal tafsir or historical reconstruction. Scene: A fictional contemporary adult rising from a plain bench, gently holding up an open palm to warn another adult approaching an unsafe broken pavement edge. Clear caring warning gesture, ordinary town, no historical or sacred characters. No text, letters, numbers, labels, collage, logos, watermarks. Never depict Allah, prophets, angels, divine hands, eyes, faces or supernatural beams. "
+    },
+    {
+      "ayah": 3,
+      "tafsir": "Возвеличивать Господа, чаще поминая Его и укрепляя веру.",
+      "prompt": "Create one cinematic photorealistic educational illustration, landscape 3:2. Believable materials, anatomy and physics, warm gold highlights, deep natural shadows, a clear single visual anchor. This is a symbolic memory association for Quran 74:3, not literal tafsir or historical reconstruction. Scene: A simple unoccupied prayer mat on a rocky terrace overlooking immense believable mountains under a vast natural dawn sky. Reverence and remembrance of the Creator, never show God, no divine light or being, no worship of nature. No text, letters, numbers, labels, collage, logos, watermarks. Never depict Allah, prophets, angels, divine hands, eyes, faces or supernatural beams. "
+    },
+    {
+      "ayah": 4,
+      "tafsir": "Заботиться о чистоте одежды и внутренней чистоте даже в трудностях.",
+      "prompt": "Create one cinematic photorealistic educational illustration, landscape 3:2. Believable materials, anatomy and physics, warm gold highlights, deep natural shadows, a clear single visual anchor. This is a symbolic memory association for Quran 74:4, not literal tafsir or historical reconstruction. Scene: Close realistic still life of plain white clothing being washed in clear water in a stone basin, only fabric and flowing water, no body, beautiful material details, visual anchor is purification of clothing. No text, letters, numbers, labels, collage, logos, watermarks. Never depict Allah, prophets, angels, divine hands, eyes, faces or supernatural beams. "
+    },
+    {
+      "ayah": 5,
+      "tafsir": "Отдаляться от язычества, безбожия и дурных качеств, очищая душу.",
+      "prompt": "Create one cinematic photorealistic educational illustration, landscape 3:2. Believable materials, anatomy and physics, warm gold highlights, deep natural shadows, a clear single visual anchor. This is a symbolic memory association for Quran 74:5, not literal tafsir or historical reconstruction. Scene: A fictional contemporary adult seen from behind decisively walking away from a neglected grimy courtyard into a clean open walkway. Leaving filth as a limited mnemonic for rejecting spiritual impurity and bad qualities, not a claim that dirt equals unbelief. No text, letters, numbers, labels, collage, logos, watermarks. Never depict Allah, prophets, angels, divine hands, eyes, faces or supernatural beams. "
+    },
+    {
+      "ayah": 6,
+      "tafsir": "Делать добро бескорыстно, без расчёта получить больше взамен.",
+      "prompt": "Create one cinematic photorealistic educational illustration, landscape 3:2. Believable materials, anatomy and physics, warm gold highlights, deep natural shadows, a clear single visual anchor. This is a symbolic memory association for Quran 74:6, not literal tafsir or historical reconstruction. Scene: Close realistic view of ordinary contemporary hands freely passing a fresh loaf of bread to another pair of hands over a humble kitchen table, no money, no payment, no luxury reward, clear selfless giving. No text, letters, numbers, labels, collage, logos, watermarks. Never depict Allah, prophets, angels, divine hands, eyes, faces or supernatural beams. "
+    },
+    {
+      "ayah": 7,
+      "tafsir": "Ради Господа терпеливо преодолевать трудности, сдерживая гнев.",
+      "prompt": "Create one cinematic photorealistic educational illustration, landscape 3:2. Believable materials, anatomy and physics, warm gold highlights, deep natural shadows, a clear single visual anchor. This is a symbolic memory association for Quran 74:7, not literal tafsir or historical reconstruction. Scene: A fictional contemporary gardener calmly continues tending a young sapling in steady rain, ordinary raincoat and muddy boots, patient constructive care despite difficulty, no miracle, credible anatomy and weather. No text, letters, numbers, labels, collage, logos, watermarks. Never depict Allah, prophets, angels, divine hands, eyes, faces or supernatural beams. "
+    },
+    {
+      "ayah": 8,
+      "tafsir": "Звук Горна возвещает тяжёлый День; готовиться следует заранее.",
+      "prompt": "Create one cinematic photorealistic educational illustration, landscape 3:2. Believable materials, anatomy and physics, warm gold highlights, deep natural shadows, a clear single visual anchor. This is a symbolic memory association for Quran 74:8, not literal tafsir or historical reconstruction. Scene: One simple unadorned curved brass horn resting alone on rough dark stone, dramatic natural side lighting, no player, no angel, no sky apparition. Merely an earthly mnemonic object for the sounding of the Horn, not its actual unseen form. No text, letters, numbers, labels, collage, logos, watermarks. Never depict Allah, prophets, angels, divine hands, eyes, faces or supernatural beams. "
+    },
+    {
+      "ayah": 9,
+      "tafsir": "Звук Горна возвещает тяжёлый День; готовиться следует заранее.",
+      "prompt": "Create one cinematic photorealistic educational illustration, landscape 3:2. Believable materials, anatomy and physics, warm gold highlights, deep natural shadows, a clear single visual anchor. This is a symbolic memory association for Quran 74:9, not literal tafsir or historical reconstruction. Scene: An immense rough heavy boulder pressing into dry earth, solemn overcast natural sky, extreme realistic stone weight and texture. Purely earthly visual metaphor of a difficult Day, no actual resurrection or cosmic destruction. No text, letters, numbers, labels, collage, logos, watermarks. Never depict Allah, prophets, angels, divine hands, eyes, faces or supernatural beams. "
+    },
+    {
+      "ayah": 10,
+      "tafsir": "Для отвергающих веру этот День будет особенно тяжёлым.",
+      "prompt": "Create one cinematic photorealistic educational illustration, landscape 3:2. Believable materials, anatomy and physics, warm gold highlights, deep natural shadows, a clear single visual anchor. This is a symbolic memory association for Quran 74:10, not literal tafsir or historical reconstruction. Scene: A narrow steep stone passage ending at a massive closed weathered wooden gate, austere difficult approach in deep natural shadow, no people, no hellfire, no monsters. Earthly metaphor for hardship, not literal depiction of the Last Day or judgment of any pictured person. No text, letters, numbers, labels, collage, logos, watermarks. Never depict Allah, prophets, angels, divine hands, eyes, faces or supernatural beams. "
+    }
+  ]
+}
