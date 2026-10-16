@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0.16 — 2026-10-16
+
+- Use Tajik loanwords явм and асир in 74:9 mnemonics; distinguish عسير (difficult) from أسير (captive).
+
 ## 1.0.0.15 — 2026-10-16
 
 - Prefer familiar Arabic loanwords in Tajik mnemonics (Рабб, кабир, тоҳир, сабр), explain shared roots versus ayah inflections, and link lexical sources.

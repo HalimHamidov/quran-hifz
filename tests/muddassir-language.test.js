@@ -60,6 +60,8 @@ test('Tajik mnemonics prefer attested Arabic loans and explain differences in fo
   assert.match(lessons[3].mnemonic.tajik,/тоҳир.*таҳорат/);
   assert.match(lessons[3].mnemonic.bridgeNote,/формы разные/);
   assert.match(lessons[7].mnemonic.bridgeNote,/не барабан/);
+  assert.match(lessons[8].mnemonic.tajik,/явм.*асир/);
+  assert.match(lessons[8].mnemonic.bridgeNote,/عسير.*трудный.*أسير.*пленник/);
   for(const {mnemonic:m} of lessons){
     assert.ok(m.bridgeLabel&&m.bridgeNote);
     if(m.bridgeSource)assert.equal(new URL(m.bridgeSource).protocol,'https:');
