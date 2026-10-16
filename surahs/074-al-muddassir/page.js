@@ -15,7 +15,7 @@ function cardVerses(card){return verses.slice(card.from-1,card.to);}
 function translationHTML(ayah){
   const entry=translation.entries.find(item=>ayah>=item.from&&ayah<=item.to);
   const range=entry.from===entry.to?`74:${entry.from}`:`74:${entry.from}–${entry.to}`;
-  return `<div class="translation"><small>Пояснение по Umma.ru · ${range}</small>${ayah===1&&translation.basmala?`<p class="basmala-translation">${esc(translation.basmala)}</p>`:''}${entry.text?`<p>${esc(entry.text)}</p>`:'<p class="translation-pending">Текст перевода ещё не добавлен.</p>'}<a href="${esc(translation.source)}" target="_blank" rel="noreferrer">Источник: Шамиль Аляутдинов · Umma.ru ↗</a>${entry.footnoteURL?`<a class="translation-footnote" href="${esc(entry.footnoteURL)}" target="_blank" rel="noreferrer">Примечание источника ↗</a>`:''}${entry.from!==entry.to?'<small>В источнике эти два аята объединены; пояснение относится к обоим.</small>':''}</div>`;
+  return `<div class="translation"><small>Перевод смыслов · ${range}</small><p class="source-translation">${esc(entry.text)}</p>${entry.footnoteNumber?`<sup><a href="${esc(entry.footnoteURL)}" target="_blank" rel="noreferrer">[${entry.footnoteNumber}]</a></sup>`:''}<a href="${esc(translation.source)}" target="_blank" rel="noreferrer">Шамиль Аляутдинов · Umma.ru ↗</a>${entry.from!==entry.to?'<small>В источнике аяты 8–9 переведены совместно; перевод сохранён целиком.</small>':''}${entry.footnote?`<details class="source-commentary"><summary>Комментарий Umma.ru [${entry.footnoteNumber}]</summary>${entry.footnote.split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('')}${entry.bookURL?`<a href="${esc(entry.bookURL)}" target="_blank" rel="noreferrer">«Путь к вере и совершенству» ↗</a>`:''}</details>`:''}<div class="author-note"><small>Авторское пояснение · не перевод</small><p>${esc(entry.note)}</p></div></div>`;
 }
 function poster(card,index,full=false){
   const image=`../../assets/images/${esc(card.image)}`;
@@ -84,7 +84,7 @@ window.addEventListener('storage',event=>{
 });
 async function init(){
   try{
-    [content,translation,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.7','../../data/al-muddassir-tafsir.json?v=1.0.0.7','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
+    [content,translation,{surahs:allTexts},surahs]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.8','../../data/al-muddassir-tafsir.json?v=1.0.0.8','../../data/ayahs.json','../../data/surahs.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
     verses=allTexts['74'].slice(0,10);
     try{state=load(localStorage,surahs,allTexts);}catch{blocked=true;state=freshState();notice('Сохранённый прогресс недоступен. Исходные данные не перезаписаны; восстановите копию в настройках тренажёра.');}
     render();
