@@ -25,7 +25,12 @@ function poster(card,index,full=false){
   ${cardVerses(card).map(v=>`<div class="verse"><span class="verse-reference">74:${v.number}</span><p class="arabic ${document.querySelector('#hide-arabic').checked?'hidden-text':''}" lang="ar" dir="rtl" ${document.querySelector('#hide-arabic').checked?'aria-hidden="true"':''}>${arabicHTML(v.text,74,v.number,esc)}</p>${translationHTML(v.number,full)}</div>`).join('')}
   <div class="memory-hook"><img class="memory-detail" src="${image}" alt="" loading="lazy"><div><strong>Ключевой смысл</strong><h3>${esc(card.keyword)}</h3><p>${esc(card.hook)}</p><small>Авторская подсказка, не перевод</small></div></div></div>`;
 }
+function mnemonicPanel(lesson){
+  const memory=language.memory,item=lesson.mnemonic;
+  return `<div class="mnemonic-route" role="group" aria-label="Связная цепочка аятов 1–10">${memory.route.map(step=>`<button data-mnemonic-ayah="${step.ayah}" aria-pressed="${step.ayah===lesson.ayah}" title="${esc(step.meaning)}">${step.ayah}. ${esc(step.place)}</button>`).join('')}</div><div class="mnemonic-content"><section><h3>${esc(item.place)} → ${esc(item.meaning)}</h3><p><span class="memory-long">${esc(item.scene)}</span><span class="memory-short">${esc(item.sceneShort)}</span></p><p class="tajik-bridge"><span lang="tg">${esc(item.tajik)}</span> — ${esc(item.tajikMeaning)}<small>Таджикский смысловой мостик</small></p></section><section class="mnemonic-anchors">${item.anchors.map(anchor=>`<div><span class="lesson-arabic" lang="ar" dir="rtl">${esc(lesson.words[anchor.wordIndex].arabic)}</span><p>${esc(anchor.cue)}</p></div>`).join('')}</section></div><p class="mnemonic-connection"><strong>${esc(memory.title)} · ${esc(memory.scope)}.</strong> <span class="memory-long">${esc(memory.connection)}</span><span class="memory-short">${esc(memory.shortConnection)}</span></p><p class="mnemonic-notice"><span class="memory-long">${esc(memory.notice)}</span><span class="memory-short">${esc(memory.shortNotice)}</span></p>`;
+}
 function languagePanel(lesson){
+  if(lessonTab==='memory')return mnemonicPanel(lesson);
   if(lessonTab==='words')return `<div class="lesson-words">${lesson.words.map(word=>`<article class="lesson-word"><div class="word-top"><span class="lesson-arabic" lang="ar" dir="rtl">${esc(word.arabic)}</span><strong>${esc(word.meaning)}</strong></div><p><bdi class="lesson-parts" lang="ar" dir="rtl">${esc(word.parts)}</bdi>${word.root?` · корень <bdi lang="ar" dir="rtl">${esc(word.root)}</bdi>`:''}</p><p>${esc(word.grammar)}</p><a href="${esc(word.source)}" target="_blank" rel="noreferrer">Морфология слова ↗</a></article>`).join('')}</div>`;
   if(lessonTab==='grammar')return `<div class="lesson-rules"><h3>Как устроен язык</h3>${lesson.grammar.map((rule,i)=>`<p><strong>${i+1}.</strong> ${esc(rule)}</p>`).join('')}</div>`;
   if(lessonTab==='forms')return `<div class="lesson-forms"><h3>Простое словообразование</h3>${lesson.family.map(item=>`<div class="lesson-family"><span class="lesson-arabic" lang="ar" dir="rtl">${esc(item.arabic)}</span><p>${esc(item.meaning)}</p></div>`).join('')}<p class="lesson-context">Корень объединяет семейство слов; модель и контекст определяют значение конкретной формы.</p></div>`;
@@ -33,7 +38,7 @@ function languagePanel(lesson){
 }
 function languagePoster(ayah){
   const lesson=language.lessons.find(item=>item.ayah===ayah);
-  return `<section class="poster-sheet language-sheet"><header class="lesson-heading"><div><small>Арабский язык · 74:${ayah}</small><h2>${esc(lesson.title)}</h2><p>${esc(lesson.focus)}</p></div><div class="lesson-tabs" role="group" aria-label="Раздел языкового разбора">${[['words','Слова'],['grammar','Грамматика'],['forms','Формы слов'],['phrases','Фразы']].map(([key,label])=>`<button data-lesson-tab="${key}" aria-pressed="${lessonTab===key}">${label}</button>`).join('')}</div></header><div class="lesson-panel">${languagePanel(lesson)}</div><footer class="lesson-footer"><span>Авторский учебный разбор · фусха · примеры не являются аятами или тафсиром</span><a href="${esc(lesson.source)}" target="_blank" rel="noreferrer">Quranic Arabic Corpus ↗</a></footer></section>`;
+  return `<section class="poster-sheet language-sheet"><header class="lesson-heading"><div><small>Арабский язык · 74:${ayah}</small><h2>${esc(lesson.title)}</h2><p>${esc(lesson.focus)}</p></div><div class="lesson-tabs" role="group" aria-label="Раздел языкового разбора">${[['words','Слова'],['grammar','Грамматика'],['forms','Формы слов'],['phrases','Фразы'],['memory','Мнемоника']].map(([key,label])=>`<button data-lesson-tab="${key}" aria-pressed="${lessonTab===key}">${label}</button>`).join('')}</div></header><div class="lesson-panel">${languagePanel(lesson)}</div><footer class="lesson-footer"><span>Авторский учебный разбор · фусха · примеры не являются аятами или тафсиром</span><a href="${esc(lesson.source)}" target="_blank" rel="noreferrer">Quranic Arabic Corpus ↗</a></footer></section>`;
 }
 function render(){
   document.querySelector('#history-text').textContent=content.history;
@@ -100,7 +105,7 @@ document.querySelector('#hide-arabic').addEventListener('change',event=>{
 });
 document.querySelector('#show-poster').onclick=()=>openCard(activeCard,'poster');
 document.querySelector('#show-language').onclick=()=>openCard(activeCard,'language');
-modal.addEventListener('click',event=>{const target=event.target.closest('[data-lesson-tab]');if(!target)return;lessonTab=target.dataset.lessonTab;openCard(activeCard,'language');modal.querySelector(`[data-lesson-tab="${lessonTab}"]`).focus();});
+modal.addEventListener('click',event=>{const step=event.target.closest('[data-mnemonic-ayah]');if(step){openCard(Number(step.dataset.mnemonicAyah)-1,'language');modal.querySelector(`[data-mnemonic-ayah="${step.dataset.mnemonicAyah}"]`).focus();return;}const target=event.target.closest('[data-lesson-tab]');if(!target)return;lessonTab=target.dataset.lessonTab;openCard(activeCard,'language');modal.querySelector(`[data-lesson-tab="${lessonTab}"]`).focus();});
 document.querySelector('#close-modal').onclick=()=>modal.close();
 document.querySelector('#prev-card').onclick=()=>openCard(activeCard-1);
 document.querySelector('#next-card').onclick=()=>openCard(activeCard+1);
@@ -113,7 +118,7 @@ window.addEventListener('storage',event=>{
 });
 async function init(){
   try{
-    [content,translation,{surahs:allTexts},surahs,language]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.10','../../data/al-muddassir-tafsir.json?v=1.0.0.10','../../data/ayahs.json','../../data/surahs.json','../../data/al-muddassir-language.json?v=1.0.0.11'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
+    [content,translation,{surahs:allTexts},surahs,language]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.10','../../data/al-muddassir-tafsir.json?v=1.0.0.10','../../data/ayahs.json','../../data/surahs.json','../../data/al-muddassir-language.json?v=1.0.0.13'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
     verses=allTexts['74'].slice(0,10);
     try{state=load(localStorage,surahs,allTexts);}catch{blocked=true;state=freshState();notice('Сохранённый прогресс недоступен. Исходные данные не перезаписаны; восстановите копию в настройках тренажёра.');}
     render();

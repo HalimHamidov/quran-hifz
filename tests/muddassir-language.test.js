@@ -22,3 +22,15 @@ test('language lessons cover every source word of 74:1–10 once, with separate 
     assert.ok(lesson.nuance);
   }
 });
+
+test('mnemonics follow all ten ayahs and anchor every word without claiming Tajik pronunciation',()=>{
+  const content=read('al-muddassir-language');
+  assert.deepEqual(content.memory.route.map(step=>step.ayah),content.lessons.map(l=>l.ayah));
+  assert.match(content.memory.scope,/1–10 из 56/);
+  assert.match(content.memory.notice,/не транскрипция/);
+  for(const lesson of content.lessons){
+    assert.ok(lesson.mnemonic.scene&&lesson.mnemonic.tajik&&lesson.mnemonic.tajikMeaning);
+    assert.deepEqual(lesson.mnemonic.anchors.map(a=>a.wordIndex),lesson.words.map((_,i)=>i));
+    assert.ok(lesson.mnemonic.anchors.every(a=>a.cue));
+  }
+});
