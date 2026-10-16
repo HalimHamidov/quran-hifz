@@ -2,7 +2,7 @@
 
 ## 1.0.0.19 — 2026-10-16
 
-- Add a clearly attributed summary of as-Saadi on74:1–2 to the first card’s Key Meaning block, with a full-source link.
+- Add a clearly attributed summary of as-Saadi on 74:1–2 to the first card’s Key Meaning block, with a full-source link.
 
 ## 1.0.0.18 — 2026-10-16
 
