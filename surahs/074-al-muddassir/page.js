@@ -23,7 +23,7 @@ function poster(card,index,full=false){
   return `<div class="poster-sheet"><div class="poster-heading"><small>Сура Аль-Муддассир</small><strong>Аят ${card.from}</strong></div>
   ${full?'<div class="poster-open">':`<button class="poster-open" data-action="open" data-card="${index}" aria-label="Открыть карточку ${index+1}: ${esc(card.title)}">`}<img class="poster-photo" src="${image}" alt="${esc(card.imageAlt)}" loading="${index<3?'eager':'lazy'}"><span class="block-number">${card.from}</span>${full?'</div>':'</button>'}
   ${cardVerses(card).map(v=>`<div class="verse"><span class="verse-reference">74:${v.number}</span><p class="arabic ${document.querySelector('#hide-arabic').checked?'hidden-text':''}" lang="ar" dir="rtl" ${document.querySelector('#hide-arabic').checked?'aria-hidden="true"':''}>${arabicHTML(v.text,74,v.number,esc)}</p>${translationHTML(v.number,full)}</div>`).join('')}
-  <div class="memory-hook"><img class="memory-detail" src="${image}" alt="" loading="lazy"><div><strong>Ключевой смысл</strong><h3>${esc(card.keyword)}</h3><p>${esc(card.hook)}</p><small>Авторская подсказка, не перевод</small></div></div></div>`;
+  <div class="memory-hook"><img class="memory-detail" src="${image}" alt="" loading="lazy"><div><strong>Ключевой смысл</strong><h3>${esc(card.keyword)}</h3>${card.tafsir?`<p class="key-tafsir">${esc(card.tafsir.text)}</p><small>${esc(card.tafsir.label)} · не дословная цитата</small><a class="key-tafsir-source" href="${esc(card.tafsir.source)}" target="_blank" rel="noreferrer">Читать тафсир полностью ↗</a>`:`<p>${esc(card.hook)}</p><small>Авторская подсказка, не перевод</small>`}</div></div></div>`;
 }
 function mnemonicPanel(lesson){
   const memory=language.memory,item=lesson.mnemonic;
@@ -124,7 +124,7 @@ window.addEventListener('storage',event=>{
 });
 async function init(){
   try{
-    [content,translation,{surahs:allTexts},surahs,language]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.10','../../data/al-muddassir-tafsir.json?v=1.0.0.10','../../data/ayahs.json','../../data/surahs.json','../../data/al-muddassir-language.json?v=1.0.0.18'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
+    [content,translation,{surahs:allTexts},surahs,language]=await Promise.all(['../../data/al-muddassir.json?v=1.0.0.19','../../data/al-muddassir-tafsir.json?v=1.0.0.10','../../data/ayahs.json','../../data/surahs.json','../../data/al-muddassir-language.json?v=1.0.0.18'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error('Не удалось загрузить материалы суры.');return r.json();}));
     verses=allTexts['74'].slice(0,10);
     try{state=load(localStorage,surahs,allTexts);}catch{blocked=true;state=freshState();notice('Сохранённый прогресс недоступен. Исходные данные не перезаписаны; восстановите копию в настройках тренажёра.');}
     render();
