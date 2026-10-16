@@ -23,6 +23,25 @@ test('language lessons cover every source word of 74:1–10 once, with separate 
   }
 });
 
+test('tajweed notes reference exact source fragments and distinguish joining from stopping',()=>{
+  const content=read('al-muddassir-language');
+  assert.match(content.tajweed.reading,/Хафс/);
+  assert.equal(content.tajweed.reference.length,4);
+  assert.match(content.tajweed.reference[3].text,/нет/);
+  for(const lesson of content.lessons){
+    assert.equal(lesson.tajweed.rules.length,2);
+    for(const rule of lesson.tajweed.rules){
+      assert.ok(lesson.words[rule.wordIndex].arabic.includes(rule.highlight),`74:${lesson.ayah} exact highlighted fragment`);
+      assert.ok(rule.name&&rule.text);
+    }
+    assert.ok(lesson.tajweed.stop);
+  }
+  assert.match(content.lessons[5].tajweed.rules[1].text,/слитном/);
+  assert.match(content.lessons[8].tajweed.rules[0].name,/Идгам/);
+  assert.match(content.lessons[8].tajweed.rules[1].name,/Изхар/);
+  assert.match(content.lessons[6].tajweed.rules[1].text,/без калькаля/);
+});
+
 test('mnemonics follow all ten ayahs and anchor every word without claiming Tajik pronunciation',()=>{
   const content=read('al-muddassir-language');
   assert.deepEqual(content.memory.route.map(step=>step.ayah),content.lessons.map(l=>l.ayah));
