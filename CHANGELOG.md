@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0.18 — 2026-10-16
+
+- Fix 74:3 Tajweed example to show فَكَبِّرْ instead of repeating وَرَبَّكَ; explain shaddah, short vowels and light final raa.
+
 ## 1.0.0.17 — 2026-10-16
 
 - Add Tajik ясир (easy) to 74:10 and link ғайр + ясир (not easy) with 74:9 عسير (difficult).
