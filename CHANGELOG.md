@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0.23 — 2026-10-29
+
+- Add Arabic language cards for Al-Muzzammil 73:1–5: source words, grammar, word forms, original practice phrases, mnemonics and tajweed notes.
+- Add poster/language switching, preserve the lesson section when moving between ayahs, and cache the new lessons for offline use.
+
 ## 1.0.0.22 — 2026-10-29
 
 - Add five individual Al-Muzzammil illustrations and a dedicated page for ayahs 73:1–5, with the existing Tanzil text and attributed study notes.
