@@ -12,7 +12,7 @@ const verses = read('ayahs').surahs['68'];
 test('Al-Qalam covers only 68:1–7 with separate illustrations and attributed tafsir', () => {
   assert.equal(content.surah, 68);
   assert.deepEqual(content.cards.map(c=>[c.from,c.to]), Array.from({length:7},(_,i)=>[i+1,i+1]));
-  assert.match(content.translationNotice, /Локальный перевод не добавлен/);
+  assert.equal(content.translationURL, 'https://quran.com/68/{ayah}');
   const hashes = content.cards.map(card => {
     assert.ok(card.note && card.hook && card.imageAlt);
     assert.match(card.tafsir.label, /Ас-Саади/);

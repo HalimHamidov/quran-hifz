@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0.26 — 2026-10-29
+
+- Remove the empty translation heading and missing-translation notice from study cards; retain each ayah's translation link.
+- Record this presentation preference in the project rules and visual-card guide.
+
 ## 1.0.0.25 — 2026-10-29
 
 - Add seven illustrated Al-Qalam cards for 68:1–7, with attributed as-Saadi summaries, 33 Arabic word analyses, all six lesson sections, and Vazhaju-checked Tajik glosses and mnemonics.

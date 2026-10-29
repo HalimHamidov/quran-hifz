@@ -14,7 +14,7 @@ export async function initStudyPage({slug, surah, title}) {
     return `<div class="poster-heading"><span>${esc(title)}</span><strong>${surah}:${card.from}</strong></div>
       ${full ? image : `<button class="poster-open" data-card="${index}" aria-label="Открыть карточку ${card.from}: ${esc(card.title)}">${image}</button>`}
       <div class="card-body"><h3>${esc(card.title)}</h3><p class="arabic" lang="ar" dir="rtl">${arabicHTML(verses[card.from - 1].text, surah, card.from, esc)}</p>
-      ${content.translationNotice ? `<div class="translation-status"><small>Перевод смыслов</small><p>${esc(content.translationNotice)}</p><a href="${esc(translationURL)}" target="_blank" rel="noreferrer">Открыть аят и переводы ↗</a></div>` : ''}<small>${esc(card.tafsir?.label || 'Краткое пояснение по тафсиру ас-Саади')} · не дословная цитата</small><p>${esc(card.note)}</p>
+      ${translationURL ? `<p><a href="${esc(translationURL)}" target="_blank" rel="noreferrer">Открыть аят и переводы ↗</a></p>` : ''}<small>${esc(card.tafsir?.label || 'Краткое пояснение по тафсиру ас-Саади')} · не дословная цитата</small><p>${esc(card.note)}</p>
       <p class="memory-hook"><small>Опора памяти</small>${esc(card.hook)}</p>
       <div class="card-actions">${full ? '' : `<button data-card="${index}" data-mode="language">Арабский язык →</button>`}<a class="button" href="../../#surah/${surah}/${card.from}">Слушать и учить →</a><a href="${esc(card.tafsir?.source || content.source)}" target="_blank" rel="noreferrer">Тафсир ↗</a></div></div>`;
   }
