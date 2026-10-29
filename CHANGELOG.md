@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0.22 — 2026-10-29
+
+- Add five individual Al-Muzzammil illustrations and a dedicated page for ayahs 73:1–5, with the existing Tanzil text and attributed study notes.
+- Show the matching image in the trainer for ayahs 1–5 and include the new cards in the offline cache.
+
 ## 1.0.0.21 — 2026-10-16
 
 - Mention as-Saadi in the Al-Muddassir introduction, source explanation and page description.
