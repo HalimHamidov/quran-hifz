@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0.25 — 2026-10-29
+
+- Add seven illustrated Al-Qalam cards for 68:1–7, with attributed as-Saadi summaries, 33 Arabic word analyses, all six lesson sections, and Vazhaju-checked Tajik glosses and mnemonics.
+- Preserve the joint tafsir range 68:5–6 and label the unavailable local published translation explicitly.
+- Share the study-card renderer, language renderer and styling between surahs 68 and 73; keep existing progress and surah 74 intact.
+- Add trainer links, matching images, individual visual prompts and offline assets for the new range.
+
 ## 1.0.0.24 — 2026-10-29
 
 - Add Tajik contextual word glosses and mnemonic scenes for Al-Muzzammil 73:1–5, with Vazhaju dictionary links and explicit distinctions between shared roots and meaning-based associations.

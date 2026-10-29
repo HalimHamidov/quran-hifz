@@ -1,0 +1,54 @@
+{
+  "surah": 68,
+  "range": [
+    1,
+    7
+  ],
+  "generator": "Built-in imagegen",
+  "createdAt": "2026-10-29",
+  "notice": "Individual symbolic scenes, not literal tafsir or historical reconstructions. Arabic text is rendered from Tanzil in HTML.",
+  "cards": [
+    {
+      "from": 1,
+      "to": 1,
+      "image": "al-qalam/ayah-01.webp",
+      "prompt": "One landscape 1536x1024 cinematic photorealistic still life for Quran Al-Qalam 68:1 mnemonic: an elegant reed pen and small dark ink pot on a warm wooden desk beside an unrolled completely BLANK parchment, soft morning light from a simple stone window, rich cream and warm gold with deep teal shadows, extraordinary natural tactile detail, peaceful dignified study setting. Clear single main subject pen and blank parchment representing writing. Do not depict or interpret the isolated letter Nun. No people, divine beings, prophets, angels, whales, fish, text, letters, calligraphy, numerals, logos or watermark. Match premium Quran Hifz photographic educational cards. The scene is symbolic, not historical reconstruction."
+    },
+    {
+      "from": 2,
+      "to": 2,
+      "image": "al-qalam/ayah-02.webp",
+      "prompt": "One landscape 1536x1024 cinematic photorealistic symbolic still life for Quran Al-Qalam 68:2, calm assurance amid false accusations. A single robust beautiful brass lantern with a steady warm flame protected in a sheltered stone window niche; outside the window a fierce sandstorm is visibly swirling, while the interior is calm and orderly. Clearly contrast steady light and external turbulence, golden amber versus deep blue teal. Natural detailed stone, weathered bronze, warm dignified atmosphere. It is a memory association for reassurance, NOT a depiction of the Prophet or a medical illustration. No people, faces, silhouettes, divine representations, prophets, angels, text, Arabic letters, numbers, logos or watermark. Premium realistic educational art."
+    },
+    {
+      "from": 3,
+      "to": 3,
+      "image": "al-qalam/ayah-03.webp",
+      "prompt": "Single landscape 1536x1024 cinematic photorealistic symbolic illustration for Quran Al-Qalam 68:3, unceasing reward. A beautiful natural freshwater spring emerging from a rock, clear water continuously flowing through a carved stone channel toward the foreground, elegant ripples and glints of warm sunlight, lush small leaves at the water edge, arid mountains far behind. Main visual idea continuous abundant flowing water without interruption. Warm gold highlights, rich natural teal water and shadows, exquisite realistic textures, calm dignified beauty. Not a literal depiction of paradise or the unseen. No people, divine figures, prophets, angels, text, letters, numbers, calligraphy, logo, watermark. Distinct scene without a desk or lantern."
+    },
+    {
+      "from": 4,
+      "to": 4,
+      "image": "al-qalam/ayah-04.webp",
+      "prompt": "One landscape 1536x1024 cinematic photorealistic memory illustration for Quran Al-Qalam 68:4, noble character represented by good fruit. A single magnificent healthy pomegranate tree with a strong graceful upright trunk, deep green leaves, a few red flowers and ripe pomegranates, spreading gentle shade across a humble stone courtyard. Early warm golden sunlight, deep teal foliage shadows, exquisite natural textures, balanced welcoming composition. The tree is a metaphor for good qualities and their fruits, never a representation of the Prophet. No people, silhouettes, religious beings, divinity, text, lettering, Arabic calligraphy, numbers, logos or watermark. Premium realistic educational card, distinct from previous water and writing scenes."
+    },
+    {
+      "from": 5,
+      "to": 5,
+      "image": "al-qalam/ayah-05.webp",
+      "prompt": "One landscape 1536x1024 cinematic photorealistic Quran mnemonic for Al-Qalam 68:5 'you will see and they will see'. Interior of a quiet old stone building with TWO distinct wide open arched wooden windows side by side, both revealing the SAME clear distant mountain horizon at sunrise. The paired openings are the unmistakable main visual motif, representing two viewpoints seeing one truth. Warm golden dawn entering the room, muted cream stone, deep blue teal distant mountains, realistic wood and stone textures, dignified calm elegant composition. No eyes, faces, people or silhouettes, no religious or divine figures, no text, Arabic lettering, calligraphy, logos or watermark. A symbolic mnemonic, not historical reconstruction."
+    },
+    {
+      "from": 6,
+      "to": 6,
+      "image": "al-qalam/ayah-06.webp",
+      "prompt": "One landscape 1536x1024 cinematic photorealistic symbolic Quran memory illustration for Al-Qalam 68:6, clarifying a false accusation. Two shallow handmade ceramic bowls side by side on a stone table beneath an olive branch: the left bowl holds perfectly still clear water reflecting the branch accurately, the right bowl holds gently rippling water distorting the SAME branch reflection. Reflections clearly different, no faces. Elegant simple composition, warm golden morning light, rich natural muted teal and cream, highly realistic water and stone textures. This is a metaphor for testing an accusation and clarity, NOT a medical diagnosis or representation of mental illness or a person. No people, eyes, faces, silhouettes, divine beings, prophets, angels, text, Arabic letters, numbers, calligraphy, logos or watermark."
+    },
+    {
+      "from": 7,
+      "to": 7,
+      "image": "al-qalam/ayah-07.webp",
+      "prompt": "One landscape 1536x1024 cinematic photorealistic symbolic memory illustration for Quran Al-Qalam 68:7, the path and guidance. Ordinary HUMAN EYE LEVEL viewpoint standing at a clear fork in a rocky mountain trail: one well-defined path continues into a luminous open valley, while a side trail gradually disappears among scattered boulders. Natural warm early sunlight, deep blue teal mountain shadows, golden stone and sparse plants, exquisitely realistic textures. Clear central branching trail, welcoming contemplative composition. This landscape is only a mnemonic for path and divergence, absolutely NOT a depiction of God, God's viewpoint or divine knowledge. No people, eyes, faces, hands, supernatural beams, religious beings, prophets, angels, text, lettering, signs, symbols, logos or watermark."
+    }
+  ]
+}

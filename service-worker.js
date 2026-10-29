@@ -1,4 +1,4 @@
-const CACHE = 'quran-hifz-shell-v24';
+const CACHE = 'quran-hifz-shell-v25';
 const CORE = ['./','index.html','manifest.webmanifest','assets/css/main.css',
   'assets/js/app.js','assets/js/app.js?v=1.0.0.6','assets/js/progress.js','assets/js/hifz.js','assets/js/murajaah.js',
   'assets/js/arabic.js','assets/js/audio.js','assets/js/history.js','assets/js/parts.js','assets/fonts/Amiri-Regular.ttf',
@@ -18,9 +18,15 @@ CORE.push('data/al-muddassir-language.json?v=1.0.0.18','assets/fonts/Scheherazad
   ...Array.from({length:10},(_,i)=>`assets/images/al-muddassir/ayah-${String(i+1).padStart(2,'0')}.webp`));
 CORE.push('data/al-muzzammil.json','assets/js/app.js?v=1.0.0.22',
   'surahs/073-al-muzzammil/','surahs/073-al-muzzammil/index.html',
-  'surahs/073-al-muzzammil/page.css?v=1.0.0.24','surahs/073-al-muzzammil/page.js?v=1.0.0.24',
+  'surahs/073-al-muzzammil/page.css?v=1.0.0.25','surahs/073-al-muzzammil/page.js?v=1.0.0.25',
   'surahs/073-al-muzzammil/language.js?v=1.0.0.24','data/al-muzzammil-language.json','data/al-muzzammil-tajik.json',
   ...Array.from({length:5},(_,i)=>`assets/images/al-muzzammil/ayah-${String(i+1).padStart(2,'0')}.webp`));
+CORE.push('assets/js/app.js?v=1.0.0.25','assets/js/study-cards.js?v=1.0.0.25',
+  'assets/js/language-cards.js?v=1.0.0.25','assets/css/ayah-cards.css?v=1.0.0.25',
+  'data/al-qalam.json','data/al-qalam-language.json','data/al-qalam-tajik.json',
+  'surahs/068-al-qalam/','surahs/068-al-qalam/index.html',
+  'surahs/068-al-qalam/page.css?v=1.0.0.25','surahs/068-al-qalam/page.js?v=1.0.0.25',
+  ...Array.from({length:7},(_,i)=>`assets/images/al-qalam/ayah-${String(i+1).padStart(2,'0')}.webp`));
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE.map(path=>new URL(path,self.registration.scope).href))));
 });
