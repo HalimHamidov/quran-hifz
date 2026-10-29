@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0.24 — 2026-10-29
+
+- Add Tajik contextual word glosses and mnemonic scenes for Al-Muzzammil 73:1–5, with Vazhaju dictionary links and explicit distinctions between shared roots and meaning-based associations.
+- Include the Tajik material in the offline cache; preserve the original Arabic text and Russian lessons.
+
 ## 1.0.0.23 — 2026-10-29
 
 - Add Arabic language cards for Al-Muzzammil 73:1–5: source words, grammar, word forms, original practice phrases, mnemonics and tajweed notes.

@@ -1,5 +1,5 @@
 import { arabicHTML } from '../../assets/js/arabic.js?v=1.0.0.10';
-import { languagePoster, sections } from './language.js?v=1.0.0.23';
+import { languagePoster, sections } from './language.js?v=1.0.0.24';
 
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const grid = document.querySelector('#card-grid');
@@ -58,13 +58,14 @@ modal.addEventListener('keydown', event => {
 });
 
 try {
-  const [data, quran, lessons] = await Promise.all(['al-muzzammil', 'ayahs', 'al-muzzammil-language'].map(async name => {
+  const [data, quran, lessons, tajik] = await Promise.all(['al-muzzammil', 'ayahs', 'al-muzzammil-language', 'al-muzzammil-tajik'].map(async name => {
     const response = await fetch(`../../data/${name}.json`);
     if (!response.ok) throw Error(`Не удалось загрузить ${name}`);
     return response.json();
   }));
   content = data;
   language = lessons;
+  language.tajik = tajik;
   verses = quran.surahs['73'];
   document.querySelector('#content-notice').textContent = content.notice;
   grid.innerHTML = content.cards.map((card, index) => `<article class="image-card" id="ayah-${card.from}">${poster(card, index)}</article>`).join('');
