@@ -1,4 +1,4 @@
-const CACHE = 'quran-hifz-shell-v26';
+const CACHE = 'quran-hifz-shell-v27';
 const CORE = ['./','index.html','manifest.webmanifest','assets/css/main.css',
   'assets/js/app.js','assets/js/app.js?v=1.0.0.6','assets/js/progress.js','assets/js/hifz.js','assets/js/murajaah.js',
   'assets/js/arabic.js','assets/js/audio.js','assets/js/history.js','assets/js/parts.js','assets/fonts/Amiri-Regular.ttf',
@@ -27,6 +27,7 @@ CORE.push('assets/js/app.js?v=1.0.0.25','assets/js/study-cards.js?v=1.0.0.26',
   'surahs/068-al-qalam/','surahs/068-al-qalam/index.html',
   'surahs/068-al-qalam/page.css?v=1.0.0.25','surahs/068-al-qalam/page.js?v=1.0.0.26',
   ...Array.from({length:7},(_,i)=>`assets/images/al-qalam/ayah-${String(i+1).padStart(2,'0')}.webp`));
+CORE.push('surahs/002-ayat-al-kursi/ayat-al-kursi-a4.pdf','surahs/002-ayat-al-kursi/','surahs/002-ayat-al-kursi/index.html','surahs/002-ayat-al-kursi/page.css?v=1.0.0.27','surahs/002-ayat-al-kursi/page.js?v=1.0.0.27','assets/images/ayat-al-kursi-landscape.svg','data/ayat-al-kursi-study.json');
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE.map(path=>new URL(path,self.registration.scope).href))));
 });
