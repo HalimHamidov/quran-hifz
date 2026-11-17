@@ -143,3 +143,6 @@ Historical and editorial coverage remains explicitly partial. See README limitat
 
 ## 1.0.0.30
 - Replace fragment 3 mnemonic with realistic Earth and galaxies, as requested.
+
+## 1.0.0.31
+- Requested conditional artistic Kursi symbol on fragment 7, explicitly not a claim about its true appearance; no depiction of Allah.

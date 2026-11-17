@@ -1,7 +1,7 @@
 {
   "date": "2026-11-17",
   "method": "OpenAI imagegen",
-  "note": "Conditional mnemonic scenes, not literal theology. No divine figures or unseen objects.",
+  "note": "Conditional artistic mnemonic scenes, not literal theology or a claim about the unseen. No depiction of Allah or prophets.",
   "images": [
     {
       "id": "01-life",
@@ -47,10 +47,10 @@
     },
     {
       "id": "07-heavens",
-      "prompt": "A spectacular scientifically plausible night-sky landscape from the ground, tiny rugged desert dunes below and a huge vivid natural Milky Way arc, indigo cyan violet sky, brilliant stars, subtle warm horizon. No chairs, no throne, no seat, no cosmic object meant to be Kursi. Only the visible created heavens and earth as a memory cue, never a depiction of Kursi or any unseen reality.",
-      "file": "assets/images/ayat-al-kursi/part-07.webp",
+      "prompt": "Empty stylized gold and ivory seat above Earth and galaxies, explicitly conditional artistic mnemonic symbol of Kursi, not its true appearance; no deity, people, figures or writing.",
+      "file": "assets/images/ayat-al-kursi/part-07-symbol.webp",
       "segment": 7,
-      "association": "Только сотворённые небо и земля; Курси не изображён."
+      "association": "Условная художественная иллюстрация Курси, не утверждение о его истинном облике. Аллах не изображён."
     },
     {
       "id": "08-preservation",

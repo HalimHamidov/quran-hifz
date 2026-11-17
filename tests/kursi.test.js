@@ -20,7 +20,7 @@ test('Ayat al-Kursi has six sections, sources and candid draft label',()=>{
 });
 
 test('Each of nine fragments has its own image and complete gloss',()=>{
- for(let n=1;n<=9;n++) {const f=n===3?'part-03-earth.webp':`part-${String(n).padStart(2,'0')}.webp`; assert.ok(read(`assets/images/ayat-al-kursi/${f}`).length>1000);assert.ok(html.includes(f));assert.ok(html.includes(data.segments[n-1].translation));}
+ for(let n=1;n<=9;n++) {const f=n===3?'part-03-earth.webp':n===7?'part-07-symbol.webp':`part-${String(n).padStart(2,'0')}.webp`; assert.ok(read(`assets/images/ayat-al-kursi/${f}`).length>1000);assert.ok(html.includes(f));assert.ok(html.includes(data.segments[n-1].translation));}
  assert.equal([...html.matchAll(/class="memory-image"/g)].length,9);
  assert.equal([...html.matchAll(/class="translation"/g)].length,9);
  assert.ok(html.includes('id="memory-check"'));
