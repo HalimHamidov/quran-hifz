@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-17",
+  "method": "built-in imagegen",
+  "style": "Bright contemporary premium cinematic 3D/editorial illustration, realistic materials, saturated emerald turquoise coral and golden light, wide 3:2, readable uncluttered composition.",
+  "constraints": "No God, prophets, angels, people, faces, divine hands, throne, Kurси, supernatural figures, writing, Arabic, letters, numbers, logos or watermark. These are mundane conditional memory associations, not literal tafsir, depictions of paradise or unseen.",
+  "images": [
+    {
+      "file": "assets/images/ayat-al-kursi/sky-earth.webp",
+      "promptScene": "A lush emerald valley, luminous turquoise river, blue mountains and enormous clear cobalt sky with soft golden sunlit clouds.",
+      "association": "Небеса и земля",
+      "segment": 3
+    },
+    {
+      "file": "assets/images/ayat-al-kursi/permission.webp",
+      "promptScene": "An ordinary brass key resting on a stone ledge before a closed contemporary garden gate, turquoise and coral flowers.",
+      "association": "Только с разрешения; бытовая ассоциация",
+      "segment": 4
+    },
+    {
+      "file": "assets/images/ayat-al-kursi/learning.webp",
+      "promptScene": "An open blank notebook and pencil in a bright modern library, books with blank spines.",
+      "association": "Ограниченность знаний ученика; не образ знания Аллаха",
+      "segment": 6
+    }
+  ]
+}

@@ -18,3 +18,11 @@ test('Ayat al-Kursi has six sections, sources and candid draft label',()=>{
  assert.ok(read('surahs/002-ayat-al-kursi/ayat-al-kursi-a4.pdf').subarray(0,5).equals(Buffer.from('%PDF-')));
  assert.ok(read('service-worker.js','utf8').includes('surahs/002-ayat-al-kursi/index.html'));
 });
+
+test('Visual memory cards use three distinct local images and precise fragment links',()=>{
+ const files=['sky-earth','permission','learning'];
+ files.forEach(f=>assert.ok(read(`assets/images/ayat-al-kursi/${f}.webp`).length>1000));
+ [3,4,6].forEach(n=>assert.ok(html.includes(`href="#part-${n}"`)));
+ assert.ok(html.includes('id="memory-check"'));
+ assert.ok(read('surahs/002-ayat-al-kursi/page.css','utf8').includes('visibility:visible'));
+});
