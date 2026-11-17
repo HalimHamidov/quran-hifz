@@ -140,3 +140,6 @@ Historical and editorial coverage remains explicitly partial. See README limitat
 ## 1.0.0.29
 - Nine separate colorful realistic mnemonic images, one per Ayat al-Kursi fragment.
 - Full independently worded Russian study gloss on every card; conditional-image explanations and original Arabic preserved.
+
+## 1.0.0.30
+- Replace fragment 3 mnemonic with realistic Earth and galaxies, as requested.
