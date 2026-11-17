@@ -1,26 +1,70 @@
 {
   "date": "2026-11-17",
-  "method": "built-in imagegen",
-  "style": "Bright contemporary premium cinematic 3D/editorial illustration, realistic materials, saturated emerald turquoise coral and golden light, wide 3:2, readable uncluttered composition.",
-  "constraints": "No God, prophets, angels, people, faces, divine hands, throne, Kurси, supernatural figures, writing, Arabic, letters, numbers, logos or watermark. These are mundane conditional memory associations, not literal tafsir, depictions of paradise or unseen.",
+  "method": "OpenAI imagegen",
+  "note": "Conditional mnemonic scenes, not literal theology. No divine figures or unseen objects.",
   "images": [
     {
-      "file": "assets/images/ayat-al-kursi/sky-earth.webp",
-      "promptScene": "A lush emerald valley, luminous turquoise river, blue mountains and enormous clear cobalt sky with soft golden sunlit clouds.",
-      "association": "Небеса и земля",
-      "segment": 3
+      "id": "01-life",
+      "prompt": "A single flourishing ancient olive tree in a bright spring meadow, vivid emerald leaves, small golden olives, dew on fresh grass and tiny coral flowers, radiant clear morning light. Entire tree visible, simple bold central subject. A memory cue for the word life using created nature, never a representation of divine life.",
+      "file": "assets/images/ayat-al-kursi/part-01.webp",
+      "segment": 1,
+      "association": "Жизнь в сотворённой природе; не изображение жизни Аллаха."
     },
     {
-      "file": "assets/images/ayat-al-kursi/permission.webp",
-      "promptScene": "An ordinary brass key resting on a stone ledge before a closed contemporary garden gate, turquoise and coral flowers.",
-      "association": "Только с разрешения; бытовая ассоциация",
-      "segment": 4
+      "id": "02-rest",
+      "prompt": "A wide peaceful landscape at the transition from deep blue starry night to brilliant peach dawn, one clear horizon, tranquil sea reflecting the first sun, vivid natural cobalt turquoise coral colors. Memory cue contrasting night and day and rest; no figure watching, no eye, no beds, no sleeping person.",
+      "file": "assets/images/ayat-al-kursi/part-02.webp",
+      "segment": 2,
+      "association": "Чередование ночи и дня помогает вспомнить отрицание дремоты и сна."
     },
     {
-      "file": "assets/images/ayat-al-kursi/learning.webp",
-      "promptScene": "An open blank notebook and pencil in a bright modern library, books with blank spines.",
-      "association": "Ограниченность знаний ученика; не образ знания Аллаха",
-      "segment": 6
+      "id": "03-earth",
+      "prompt": "Breathtaking realistic aerial view of a green island coastline, emerald land, turquoise ocean and expansive vivid blue sky with golden clouds, beautiful distinct natural layers, crisp cinematic sunlight. A literal created-earth-and-sky landscape, not paradise or an unseen realm.",
+      "file": "assets/images/ayat-al-kursi/part-03.webp",
+      "segment": 3,
+      "association": "Сотворённые небеса и земля."
+    },
+    {
+      "id": "04-permission",
+      "prompt": "Close-up of a beautiful contemporary cobalt-blue wooden entrance door with a precise brass lock, a single ordinary brass key on a minimalist coral stone shelf beside it, golden afternoon sunlight, clean architectural scene. Entire closed door visible behind the key. Mundane key as a memory cue for permission, not a gate of paradise.",
+      "file": "assets/images/ayat-al-kursi/part-04.webp",
+      "segment": 4,
+      "association": "Ключ напоминает о разрешении; это не изображение заступничества."
+    },
+    {
+      "id": "05-before-after",
+      "prompt": "High aerial perspective of one winding trail through a vivid emerald forest: both the trail already behind the viewpoint in foreground and its continuation ahead toward the distant horizon are clearly visible, warm golden afternoon light, realistic trees, strong elegant S-shaped composition. Only a positional memory association for before and behind, not a depiction of divine knowledge.",
+      "file": "assets/images/ayat-al-kursi/part-05.webp",
+      "segment": 5,
+      "association": "Напоминание о словах «перед ними» и «позади них»."
+    },
+    {
+      "id": "06-limited-learning",
+      "prompt": "A small warm desk lamp illuminates only one blank open notebook on a realistic turquoise study desk in a vast dim modern archive; many coral and teal folders fade beyond the lit area, absolutely no writing on pages or shelves. Strong readable foreground light boundary, realistic warm gold glow. Conditional everyday memory cue for the limited portion a student knows, not a representation of God's knowledge.",
+      "file": "assets/images/ayat-al-kursi/part-06.webp",
+      "segment": 6,
+      "association": "Ограниченное знание ученика; не образ знания Аллаха."
+    },
+    {
+      "id": "07-heavens",
+      "prompt": "A spectacular scientifically plausible night-sky landscape from the ground, tiny rugged desert dunes below and a huge vivid natural Milky Way arc, indigo cyan violet sky, brilliant stars, subtle warm horizon. No chairs, no throne, no seat, no cosmic object meant to be Kursi. Only the visible created heavens and earth as a memory cue, never a depiction of Kursi or any unseen reality.",
+      "file": "assets/images/ayat-al-kursi/part-07.webp",
+      "segment": 7,
+      "association": "Только сотворённые небо и земля; Курси не изображён."
+    },
+    {
+      "id": "08-preservation",
+      "prompt": "A beautiful transparent ordinary glass greenhouse protecting two bright green young plants in terracotta pots while rain falls outside, golden sunlight breaks through behind it, colorful rich emerald teal and amber tones, realistic raindrops on glass, clear protective enclosure. Everyday memory cue for preserving and protecting, not an analogy to God's effort, power or form. No hands or person.",
+      "file": "assets/images/ayat-al-kursi/part-08.webp",
+      "segment": 8,
+      "association": "Бытовая подсказка к слову «сохранение», не сравнение с Аллахом."
+    },
+    {
+      "id": "09-greatness",
+      "prompt": "One magnificent towering mountain summit above rolling white clouds in rich warm sunrise, clear cobalt sky, coral gold light on rock and snow, realistic landscape with strong sense of altitude and vast scale. Memory association for words high and great using created nature only, never suggesting God's location, body, appearance or depiction.",
+      "file": "assets/images/ayat-al-kursi/part-09.webp",
+      "segment": 9,
+      "association": "Высота и масштаб природы как словесная подсказка, не место или образ Аллаха."
     }
   ]
 }

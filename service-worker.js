@@ -1,5 +1,5 @@
-const CACHE = 'quran-hifz-shell-v28';
-const CORE = ['./','index.html','manifest.webmanifest','assets/css/main.css',
+const CACHE = 'quran-hifz-shell-v29';
+const CORE = ['assets/images/ayat-al-kursi/part-01.webp','assets/images/ayat-al-kursi/part-02.webp','assets/images/ayat-al-kursi/part-03.webp','assets/images/ayat-al-kursi/part-04.webp','assets/images/ayat-al-kursi/part-05.webp','assets/images/ayat-al-kursi/part-06.webp','assets/images/ayat-al-kursi/part-07.webp','assets/images/ayat-al-kursi/part-08.webp','assets/images/ayat-al-kursi/part-09.webp','./','index.html','manifest.webmanifest','assets/css/main.css',
   'assets/js/app.js','assets/js/app.js?v=1.0.0.6','assets/js/progress.js','assets/js/hifz.js','assets/js/murajaah.js',
   'assets/js/arabic.js','assets/js/audio.js','assets/js/history.js','assets/js/parts.js','assets/fonts/Amiri-Regular.ttf',
   'assets/icons/icon.svg','assets/images/dawn.svg','assets/images/path.svg','assets/images/moon.svg',
@@ -27,7 +27,7 @@ CORE.push('assets/js/app.js?v=1.0.0.25','assets/js/study-cards.js?v=1.0.0.26',
   'surahs/068-al-qalam/','surahs/068-al-qalam/index.html',
   'surahs/068-al-qalam/page.css?v=1.0.0.25','surahs/068-al-qalam/page.js?v=1.0.0.26',
   ...Array.from({length:7},(_,i)=>`assets/images/al-qalam/ayah-${String(i+1).padStart(2,'0')}.webp`));
-CORE.push('surahs/002-ayat-al-kursi/ayat-al-kursi-a4.pdf','surahs/002-ayat-al-kursi/','surahs/002-ayat-al-kursi/index.html','surahs/002-ayat-al-kursi/page.css?v=1.0.0.28','surahs/002-ayat-al-kursi/page.js?v=1.0.0.28','assets/images/ayat-al-kursi-landscape.svg','data/ayat-al-kursi-study.json');
+CORE.push('surahs/002-ayat-al-kursi/ayat-al-kursi-a4.pdf','surahs/002-ayat-al-kursi/','surahs/002-ayat-al-kursi/index.html','surahs/002-ayat-al-kursi/page.css?v=1.0.0.29','surahs/002-ayat-al-kursi/page.js?v=1.0.0.29','assets/images/ayat-al-kursi-landscape.svg','data/ayat-al-kursi-study.json');
 CORE.push('assets/images/ayat-al-kursi/sky-earth.webp','assets/images/ayat-al-kursi/permission.webp','assets/images/ayat-al-kursi/learning.webp');
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE.map(path=>new URL(path,self.registration.scope).href))));

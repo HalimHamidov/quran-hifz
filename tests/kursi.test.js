@@ -19,10 +19,10 @@ test('Ayat al-Kursi has six sections, sources and candid draft label',()=>{
  assert.ok(read('service-worker.js','utf8').includes('surahs/002-ayat-al-kursi/index.html'));
 });
 
-test('Visual memory cards use three distinct local images and precise fragment links',()=>{
- const files=['sky-earth','permission','learning'];
- files.forEach(f=>assert.ok(read(`assets/images/ayat-al-kursi/${f}.webp`).length>1000));
- [3,4,6].forEach(n=>assert.ok(html.includes(`href="#part-${n}"`)));
+test('Each of nine fragments has its own image and complete gloss',()=>{
+ for(let n=1;n<=9;n++) {const f=`part-${String(n).padStart(2,'0')}.webp`; assert.ok(read(`assets/images/ayat-al-kursi/${f}`).length>1000);assert.ok(html.includes(f));assert.ok(html.includes(data.segments[n-1].translation));}
+ assert.equal([...html.matchAll(/class="memory-image"/g)].length,9);
+ assert.equal([...html.matchAll(/class="translation"/g)].length,9);
  assert.ok(html.includes('id="memory-check"'));
  assert.ok(read('surahs/002-ayat-al-kursi/page.css','utf8').includes('visibility:visible'));
 });
