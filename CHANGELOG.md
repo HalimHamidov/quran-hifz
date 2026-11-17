@@ -146,3 +146,6 @@ Historical and editorial coverage remains explicitly partial. See README limitat
 
 ## 1.0.0.31
 - Requested conditional artistic Kursi symbol on fragment 7, explicitly not a claim about its true appearance; no depiction of Allah.
+
+## 1.0.0.32
+- Replace greenhouse on fragment 8 with symbolic preservation of heavens and Earth.
