@@ -1,0 +1,58 @@
+@font-face{font-family:Amiri;src:url("../../assets/fonts/Amiri-Regular.ttf") format("truetype");font-display:swap}
+:root{color-scheme:light;--ink:#172d2b;--muted:#495e57;--paper:#f6f4eb;--card:#fffdf6;--line:#dcded0;--green:#24604d;--gold:#f0cb90;--mark:#f8e8be}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 50% 2%,#e9eee1,transparent 55rem),var(--paper);color:var(--ink);font:1rem/1.7 system-ui,sans-serif}
+a{color:var(--green);text-underline-offset:.2em}
+a:focus-visible{outline:3px solid #a7732b;outline-offset:4px}
+.skip{position:absolute;left:1rem;top:0;transform:translateY(-150%);background:white;padding:.5rem;z-index:3}
+.skip:focus{transform:translateY(0)}
+.wrap{width:min(100% - 2rem,67rem);margin-inline:auto}
+.mast{background:#0e2929;color:#fff7e9;border-bottom:1px solid #ac8d61}
+.mast-inner{min-height:3.75rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem}
+.mast a{color:inherit}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:Georgia,serif;font-size:1.13rem;text-decoration:none}
+.brand span{color:var(--gold);font-size:1.35rem}
+.back{font-size:.86rem}
+.hero{margin-top:1.4rem;overflow:hidden;border-radius:1.35rem;background:#102b2b;color:#fffaf0;box-shadow:0 18px 40px #173c2c1c}
+.cover{width:100%;height:auto;max-height:21rem;object-fit:cover;display:block}
+.intro{padding:clamp(1.3rem,4vw,3rem);background:linear-gradient(120deg,#0e2929,#17413a)}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;font-weight:800;color:var(--green);margin:0 0 .65rem}
+.intro .eyebrow{color:var(--gold)}
+h1,h2{font-family:Georgia,serif;line-height:1.13;text-wrap:balance}
+h1{font-size:clamp(2rem,5.6vw,4rem);margin:0;max-width:15ch}
+h2{font-size:clamp(1.65rem,3.8vw,2.65rem);margin:.2rem 0 .75rem}
+h3,p{margin:.35rem 0 .65rem}
+.intro p:last-child{margin:.85rem 0 0;color:#e0e8dc}
+.jump{display:flex;flex-wrap:wrap;gap:.55rem;margin:1.25rem 0 1.55rem}
+.jump a{border:1px solid var(--line);border-radius:999px;background:var(--card);padding:.45rem .85rem;text-decoration:none;font-weight:650;font-size:.91rem}
+.jump b{margin-right:.28rem;color:#69604d}
+.card{margin:0 auto 1.25rem;padding:clamp(1.1rem,4vw,2.65rem);background:var(--card);border:1px solid var(--line);border-radius:1.25rem;box-shadow:0 10px 30px #173c2c0a}
+.subtle,.source-note{color:var(--muted);font-size:.91rem}
+.basmala,.translation{text-align:center;font-weight:650}
+.ayah{background:#eef1e6;border:1px solid #dce4d6;text-align:center;border-radius:.9rem;font:clamp(1.65rem,4vw,2.6rem)/1.9 Amiri,serif;padding:.6rem .8rem;margin:.8rem 0}
+.intention{background:#f0f1e8;border-left:3px solid #477d66;border-radius:0 .7rem .7rem 0;padding:.7rem 1rem;margin:1rem 0}
+.steps,.pairs{margin:0 0 .8rem;padding-left:1.8rem}
+li::marker{font-weight:750;color:var(--green)}
+.steps>li{padding:.7rem 0;border-bottom:1px solid var(--line)}
+.steps h3{color:var(--green);font-size:1.13rem}
+.takbir{font-weight:800}
+mark{padding:.09em .25em;border-radius:.25em;background:var(--mark);color:#563b17}
+.pairs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2.3rem}
+.pairs li{border-bottom:1px solid var(--line);padding:.45rem .12rem}
+.pairs span,.pairs mark{margin-left:.4rem}
+.end{display:flex;flex-wrap:wrap;gap:.4rem 1rem;justify-content:space-between;color:var(--muted);padding:0 .15rem 2rem;font-size:.92rem}
+@media(max-width:34rem){.pairs{grid-template-columns:1fr}.cover{min-height:9rem}.jump a{font-size:.84rem}.jump{gap:.38rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.mast,.cover,.jump,.end,.skip{display:none}body,.hero,.intro,.card{background:white;color:#111;box-shadow:none}.intro p:last-child,.intro .eyebrow{color:#111}.wrap{width:100%}.hero{margin-top:0}.intro{padding:.5rem 0}.card{border:0;padding:.5rem 0;margin:0}.steps li{break-inside:avoid}}
+
+.plaque{margin:1rem 0;padding:.6rem .85rem;background:#f0f1e8;border:1px solid var(--line);border-radius:.75rem}
+.plaque summary{cursor:pointer;color:var(--green);font-weight:700}
+.plaque figure{margin:.8rem auto;max-width:29rem}
+.plaque img{display:block;max-width:100%;height:auto;border-radius:.5rem}
+.plaque figcaption{margin-top:.4rem;color:var(--muted);font-size:.85rem}
+.arabic-text{font:clamp(1.35rem,3.3vw,1.9rem)/1.9 Amiri,serif;text-align:right;background:#eef1e6;border-radius:.65rem;padding:.45rem .75rem;margin:.6rem 0}
+.intention h4{margin:.9rem 0 .2rem}
+@media print{.plaque{display:none}}
+
+.cover-note{display:block;margin-top:.5rem;color:#e0e8dc;font-size:.78rem}
