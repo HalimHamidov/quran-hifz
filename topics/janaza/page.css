@@ -56,3 +56,8 @@ mark{padding:.09em .25em;border-radius:.25em;background:var(--mark);color:#563b1
 @media print{.plaque{display:none}}
 
 .cover-note{display:block;margin-top:.5rem;color:#e0e8dc;font-size:.78rem}
+
+.audio-panel{margin:1rem 0;padding:.85rem 1rem;border:1px solid currentColor;border-radius:.7rem}
+.audio-panel audio{display:block;width:100%;max-width:36rem;margin:.5rem 0}
+.audio-panel h3,.audio-panel h4,.audio-panel p{margin:.3rem 0}
+@media print{.audio-panel{display:none}}

@@ -30,5 +30,5 @@ test('Tajik topic uses the exact repository ayah, local art, and safe external s
   }
   assert.match(read('index.html'), /href="topics\/janaza\/"/);
   assert.match(read('assets/js/app.js'), /href="topics\/janaza\/"/);
-  assert.match(read('service-worker.js'), /'topics\/janaza\/page.css\?v=1.0.0.33'/);
+  assert.match(read('service-worker.js'), /'topics\/janaza\/page.css\?v=1.0.0.34'/);
 });
